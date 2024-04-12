@@ -116,6 +116,7 @@ $$a=\frac{dv}{dx}\frac{dx}{dt}=v\frac{dv}{dx}=-\mu g-\frac{g(1-\mu K)}{Kv_0^2}v^
 $$\displaystyle \int^0_{v_0}-\frac{v}{\mu +\frac{(1-\mu K)}{Kv_0^2}v^2}dv=\int^x_{0}gdx$$
 解得
 $$x=-\frac{Kv_0^2\ln \mu K}{2g(1-\mu K)}=211(m)$$
+<<<<<<< HEAD
 ## 质点动力学
 (2021 T8)一喷气式飞机以$200m/s$的速度在空中飞行，燃气轮机每秒钟吸入$50kg$空气，与$2kg$燃料混合燃烧后，相对飞机以$400m/s$的速度向后喷出，求该燃气轮机的推力。  
 解：  
