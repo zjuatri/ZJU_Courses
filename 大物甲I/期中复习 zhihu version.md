@@ -3,7 +3,7 @@
 # 公式部分
 ## 刚体力学
 ### 转动惯量
-<img src="./moi.jpg"></img>
+![](./moi.jpg)
 ### 平行轴定理
 刚体对任一转轴的转动惯量为$J$，对通过质心的平行轴的转动惯量$J_C$，两轴之间的距离为$h$，则有
 $$J=J_C+mh^2$$
@@ -11,10 +11,10 @@ $$J=J_C+mh^2$$
 若刚体薄板在$xy$平面内，对$x$轴和$y$轴的转动惯量分别为$J_x$和$J_y$，则薄板对$z$轴的转动惯量为
 $$J_z=J_x+J_y$$
 ### 公式比较
-<img src="./formula.jpg"></img>
+![](./formula.jpg)
 ### 陀螺仪
 设$\varphi$为自转轴和竖直轴之间的夹角，$J$为陀螺绕自转轴的转动惯量，$\omega$为自转角速度，$r$为质心与定点$o$之间的距离  
-<img src="./gyroscope.jpg" width="70%"></img>  
+![](./gyroscope.jpg)  
 旋进角速度大小
 $$\Omega = \frac{mgr}{J\omega}$$
 自转方向与旋进方向相同。
@@ -116,8 +116,6 @@ $$a=\frac{dv}{dx}\frac{dx}{dt}=v\frac{dv}{dx}=-\mu g-\frac{g(1-\mu K)}{Kv_0^2}v^
 $$\displaystyle \int^0_{v_0}-\frac{v}{\mu +\frac{(1-\mu K)}{Kv_0^2}v^2}dv=\int^x_{0}gdx$$
 解得
 $$x=-\frac{Kv_0^2\ln \mu K}{2g(1-\mu K)}=211(m)$$
-
 ## 刚体力学
-### 滑轮问题
-半径为$r_1=0.04m$和$r_2=0.10m$的两个短圆柱同心地装在一起，总质量为$M=8.0kg$，绕对称轴的转动惯量为$J=0.03kg\cdot m^2$.小圆柱上绕有轻绳，绳的上端固定在天花板上。大圆柱上也绕有轻绳，绳的下端挂一质量为$m=6.0kg$的物体。求圆柱体的角加速度、质心加速度、物体的加速度和绳中的张力。
-<img src="./2021T18.jpg" align="right" width="30%"><img>
+
+
