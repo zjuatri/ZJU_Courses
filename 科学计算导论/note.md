@@ -110,3 +110,87 @@ FA(2)
 FA = @ (x) exp(x.^2)./sqrt(x.^2+5)
 FA([1 0.5 2])
 ```
+## Function Handles
+```matlab
+f = @sin;
+m = fminbnd(f,0,2*pi)
+
+q = integral(@cubicPoly,0,1);
+```
+
+## Vectors(Arrays)
+```matlab
+% Linspace and logspace
+x = linspace(1,5,5)
+x = logspace(1,5,5)
+
+x = [5, 9, 4, 1, 7, 3, 4, 8]
+% Accessing vector elements
+y = x(1)
+y = x(1:3)
+y = x(end)
+y = x(end-2)
+y = x([1,3,6])  % y = [5,4,3]
+
+% The indices start at 1, not 0.
+
+% Overwriting
+x(end) = 1;
+
+%Add ending indices
+x(end+1) = 8
+x(end+1:end+2) = [6,9]
+
+%Removing elements 
+x(1) = []; % Remove the first element
+x(end-3,end) = [];
+```
+
+## Iteration
+```matlab
+for jj = 1:20
+    disp(jj)
+end
+
+a = 1;
+while a < 10
+    a = a + 1;
+end
+```
+
+## Array Operation vs Iteration
+![](./pic/1.png)
+
+## The `if` statement
+```matlab
+a = 1;
+b = 2;
+if a == 1;
+    disp('a is equal to 1! Yeah');
+end
+
+elseif a == 1 && b == 2;
+    disp('...')
+end
+```
+## Logical Operators
+|Logical Operator(Scalars)|Logical Operator(Vectors)|Function Call|
+|-|-|-|
+|&&|&|and(a,b)|
+|\|\||\||or(a,b)|
+|~|~|not(a)|
+|none|none|xor(a,b)|
+Attention: `~=` in matlab equals to `!=` in other languages
+
+## Logical Vectors
+```matlab
+a = [1 6 5] < 2
+% a = [1,0,0]
+
+x = [5 9 2 4 3];
+v = logical([1 0 1 0 1]);
+xp = x(v);
+% xp = [5,2,3]
+```
+## Vocabulary
+- Scalars 标量
