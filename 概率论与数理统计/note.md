@@ -1,12 +1,37 @@
 # 概率论与数理统计
 ## 随机变量的分布
-### 概率分布函数
+### 分布函数
 $$F(x)=P\left\{ X\leq k \right\}$$
 可推知
 $$P\left\{ x_1<X\leq x_2 \right\}=F(x_2)-F(x_1)$$
-### 概率密度函数
+二元情况下有
+$$F(x,y)=P\{X\leq x,Y\leq y\}$$
+$$P\{x_1<X\leq x_2,y_1<Y\leq y_2\}=F(x_2,y_2)-F(x_1,y_2)-F(x_2,y_1)+F(x_1,y_1)$$
+### 密度函数
 $$F(x)=\displaystyle \int^x_{-\infty}f(t)dt$$
 称$f(x)$为$X$的概率密度函数
+$$f(x)=F'(x)$$
+二元情况下有
+$$F(x,y)=\displaystyle \int^x_{-\infty}\int^y_{-\infty}f(u,v)dudv$$
+$$P\{(X,Y)\in D\}= \iint \limits_Df(x,y)dxdy$$
+$$\dfrac{\partial^2F(x,y)}{\partial x \partial y}=f(x,y)$$
+### 边际密度函数
+$$f_X(x)=\displaystyle\int^{+\infty}_{-\infty}f(x,y)dy\\
+f_Y(y)=\displaystyle\int^{+\infty}_{-\infty}f(x,y)dx$$
+### 反函数的密度函数
+$Y=g(X)$，若函数$g$是一处处可导的严格单调函数，其值域为$D$，记$y=g(x)$的反函数为$x=h(y)$，则$Y$的密度函数为
+$$f_Y(y)=\begin{cases}
+    f_X(h(y))\cdot|h'(y)|,y\in D\\
+    0,y\notin D
+\end{cases}$$
+### 联合分布律
+$$P\{X = x_i,Y = y_j\}=p_{ij},i,j=1,2,...$$
+### 边际分布律
+$$P\{X=x_i\}=\displaystyle \sum^{+\infty}_{j=1}p_{ij}=p_i\\
+P\{Y=y_j\}=\displaystyle \sum^{+\infty}_{i=1}p_{ij}=p_j$$
+### 条件分布律
+$$P\{X=x_i|Y=y_j\}=\frac{P\{X=x_i,Y=y_j\}}{P\{Y=y_j\}},i=1,2,...$$
+即给定给定$Y=y_j$条件下的条件分布律
 ## 重要随机变量的概率分布
 ### 0-1(p)分布，两点分布
 - 符号: $X\sim 0-1(p)$
