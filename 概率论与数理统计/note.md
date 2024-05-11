@@ -63,10 +63,58 @@ $$f_Z(z)=\displaystyle\int^{+\infty}_{-\infty}f_X(x)f_Y(z-x)dx$$
 $$f_Z(z)=\displaystyle\int^{+\infty}_{-\infty}f_X(z-y)f_Y(y)dy$$
 #### 例题
 设某服务台顾客等待时间（以min计）$X$服从参数为$\lambda$的指数分布，接受服务的时间$Y$服从区间$(0.20)$上的均匀分布，且设$X,Y$相互独立。记$Z=X+Y$.  
-(1)求$Z$的密度函数$f_Z(t)$
+(1)求$Z$的密度函数$f_Z(t)$  
 (2)设$\lambda=\frac{1}{20}$，求等待与接收服务的总时间不超过45min的概率。
 
-(1)由题意知$$
+(1)由题意知
+$$f_X(x)=\begin{cases}
+    \lambda e^{-\lambda x},x>0\\
+    0,x\leq 0
+\end{cases},f_Y(y)=\begin{cases}
+    \dfrac{1}{20},0<y<20\\
+    0,其他
+\end{cases}$$
+由$X,Y$相互独立，可知$X,Y$的联合密度函数为
+$$f(x,y)=f_X(x)f_Y(y)=\begin{cases}
+    \dfrac{1}{20}\lambda e^{-\lambda x},x>0,0<y<20\\
+    0,其他
+\end{cases}$$
+即
+$$f(x,t-x)=\begin{cases}
+    \dfrac{1}{20}\lambda e^{-\lambda x},x>0,0<t-x<20\\
+    0,其他
+\end{cases}$$
+$$f_Z(t)=\displaystyle\int^{+\infty}_{-\infty}f(x,t-x)dx$$
+<img src="./pic/1.jpg" width="200" alt="" align=right ><img/>
+如图  
+当$t\leq 0$时，$f_Z(t)=0$  
+
+当$0<t<20$时，$f_Z(t)=\displaystyle\int^{t}_{0}\frac{1}{20}\lambda e^{-\lambda x}=\frac{1}{20}(1-e^{-\lambda t})$
+
+当$t\geq20$时，$f_Z(t)=\displaystyle\int^{t}_{t-20}\frac{1}{20}\lambda e^{-\lambda x}=\frac{1}{20}e^{-\lambda t}(e^{20\lambda }-1)$  
+
+(2)$P\{X\leq 45\}=\displaystyle \int^{45}_{-\infty}f_Z(t)=0.8189$
+### $M=max\{X,Y\},m=min\{X,Y\}$的分布
+$$F_M(t)=P\{max\{X,Y\}\leq t\}=P\{X\leq t,Y\leq t\}=F(t,t)$$
+当$X,Y$独立时
+$$F_M(t)=F_X(t)\cdot F_Y(t)$$  
+
+$$F_N(t)=P\{min\{X,Y\}\leq t\}=P\{(X\leq t)\cup (Y\leq t)\}=F_X(t)+F_Y(t)-F(t,t)$$
+或者
+$$F_N(t)=1-P\{X>t,Y>t\}$$
+当$X,Y$独立时
+$$F_N(t)=F_X(t)+F_Y(t)-F_X(t)F_Y(t)$$
+推广到$n$元
+$$F_M(t)=\displaystyle\prod^n_{i=1}F_i(t)$$
+$$F_N(t)=\displaystyle1-\prod^n_{i=1}\left[1-F_i(t)\right]$$
+## 随机变量的数字特征
+### 期望
+对于离散型随机变量$X$  
+$$P\{X=x_i\}=p_i,i=1,2,3$$
+若级数$\displaystyle x_ip_i$绝对收敛，则称级数$\displaystyle x_ip_i$为$X$的期望  
+对于连续型随机变量$X$，若
+$$\displaystyle\int^{+\infty}_{-\infty}|x|f(x)<+\infty$$
+则称$\displaystyle\int^{+\infty}_{-\infty}xf(x)<+\infty$为$X$的期望
 ## 重要随机变量的概率分布
 ### 0-1(p)分布，两点分布
 - 符号: $X\sim 0-1(p)$
@@ -81,6 +129,7 @@ $$P\left\{ X=k \right\}=C_n^kp^k(1-p)^{n-k},k=0,1,2,...,n.$$
 - 概率分布律：
 $$P\left\{ X=k \right\}=\frac{e^{-\lambda}\lambda^k}{k!},k=0,1,2,...$$
 - 代数和性质：$n$个相互独立的服从泊松分布的随机变量的和仍服从泊松分布，其参数为$n$个分布的参数之和
+- 期望：若$X\sim P(\lambda)$，则$E(X)=\lambda$
 ### 均匀分布
 - 符号：$X\sim U(a,b)$
 - 概率密度函数
@@ -98,6 +147,7 @@ $$F(x)=\begin{cases}
 - 符号：$X\sim N(\mu,\sigma)$
 - 概率密度函数$f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\dfrac{(x-\mu)^2}{2\sigma^2}}$（标准正态分布$f(x)=\dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{x^2}{2}}$）
 - 代数和性质：$n$个相互独立的正态变量之和仍为正态变量。且若$X_i\sim N(\mu_i,\sigma_i^2)$，则$\displaystyle\sum^n_{i=1}X_i\sim N\left(\displaystyle\sum^n_{i=1}\mu_i,\sum^n_{i=1}\sigma_i^2\right)$，甚至可以进一步证明$n$个相互独立的正态变量的线性组合仍为正态变量
+- 期望：若$X\sim N(\mu,\sigma)$，则$E(X)=\mu$
 ### 指数分布
 - 符号：$X\sim E(\lambda)$
 - 密度函数
