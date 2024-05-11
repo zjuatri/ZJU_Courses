@@ -125,11 +125,49 @@ $$E(h(X,Y))=\displaystyle\int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}h(x,y)f
 $$E\left(c_0+\displaystyle\sum^n_{i=1}c_iX_i\right)=c_0+\displaystyle\sum^n_{i=1} c_iE(X_i)$$
 2. 若$X_i(i=1,2,...,n)$相互独立，且数学期望都存在，则有
 $$E\left(\prod^n_{i=1}X_i\right)=\prod^n_{i=1}E(X_i)$$
+### 条件期望
+给定$X=x$
+$$E\{Y|x\}=E\{Y|X=x\}=\displaystyle\sum^{+\infty}_{j=1}y_jp_j(x)$$
+$$E\{Y|x\}=E\{Y|X=x\}=\displaystyle\int^{+\infty}_{-\infty}yf_{Y|X}(y|x)dy$$
+### 全期望公式
+$$E(Y)=E[E(Y|X)]$$
+当(X,Y)为二维离散型随机变量时
+$$E(Y)=\displaystyle\sum^{+\infty}_{i=1}E(Y|X=i)P\{X=i\}$$
+当(X,Y)为二维连续型随机变量时
+$$E(Y)=\displaystyle\int^{+\infty}_{-\infty}E(Y|X=x)f_X(x)dx$$
+### 方差
+$$Var(X)=E[(X-E(X))^2]$$
+对于离散变量
+$$Var(X)=\displaystyle\sum^{+\infty}_{i=0}(x_i-E(X))^2p_i$$
+对于连续变量
+$$Var(X)=\displaystyle\int^{+\infty}_{-\infty}(x-E(X))^2f(x)dx$$
+$$Var(X)=E(X^2)-E(X)^2$$
+推论：若某一随机变量平方的数学期望存在，则一定保证了这个随机变量数学期望的存在性。
+### 方差的性质
+1. $Var(cX)=c^2Var(X)$
+2. $Var(X+c)=Var(X)$
+3. 推广：$Var\left(c_0+\displaystyle\sum^n_{i=1}c_iX_i\right)=\displaystyle\sum^n_{i=1}c_i^2Var(X_i)$
+4. $Var(X)\leq E[(X-c)^2]$，当且仅当$E(X)=c$时等号成立
+5. 若$X_1,X_2,...,X_n$为两两独立的随机变量，方差都存在，则
+$$Var\left(\displaystyle\sum^n_{i=1}X_i\right)=\displaystyle\sum^{n}_{i=1}Var(X_i)$$
+6. $X$的方差存在时，$Var(x)=0$当且仅当$P\{X=c\}=1$，其中$c=E(X)$
+### 协方差
+$$Cov(X,Y)=E[(X-E(X))(Y-E(Y))]$$
+对二维离散型变量
+$$Cov(X,Y)=\displaystyle\sum^{+\infty}_{i=1}\sum^{+\infty}_{j=1}(x_i-E(X))(y_j-E(Y))p_{ij}$$
+对二维连续型变量
+$$Cov(x,y)=\displaystyle\int^{+\infty}_{-\infty}\displaystyle\int^{+\infty}_{-\infty}(x-E(X))(y-E(Y))f(x,y)dxdy$$
+通常使用以下公式
+$$Cov(X,Y)=E(XY)-E(X)E(Y)$$
+### 协方差的性质
+1. 
+$$Var(\displaystyle\sum^{n}_{i=1}X_i)=\displaystyle\sum_{i=1}^{n}Var(X_i)+2\sum_{1\leq i < j \leq n}Cov(X_i,X_j)$$
+2. 
 ## 重要随机变量的概率分布
 ### 0-1(p)分布，两点分布
 - 符号: $X\sim 0-1(p)$
 - 概率分布律：
-$$P\left\{ X=k \right\}=p^k(1-p)^{1-k}, k=0,1.$$
+$$P\left\{ X=k \right\}=p^k(1-p)^{1-k}, k=0,1...$$
 ### 二项分布，n重伯努利实验
 - 符号： $X\sim B(n,p)$
 - 概率分布律：
@@ -140,7 +178,7 @@ $$P\left\{ X=k \right\}=C_n^kp^k(1-p)^{n-k},k=0,1,2,...,n.$$
 - 概率分布律：
 $$P\left\{ X=k \right\}=\frac{e^{-\lambda}\lambda^k}{k!},k=0,1,2,...$$
 - 代数和性质：$n$个相互独立的服从泊松分布的随机变量的和仍服从泊松分布，其参数为$n$个分布的参数之和
-- 期望：若$X\sim P(\lambda)$，则$E(X)=\lambda$
+- 期望和方差：若$X\sim P(\lambda)$，则$E(X)=\lambda,Var(X)=\lambda$
 ### 均匀分布
 - 符号：$X\sim U(a,b)$
 - 概率密度函数
@@ -158,7 +196,7 @@ $$F(x)=\begin{cases}
 - 符号：$X\sim N(\mu,\sigma)$
 - 概率密度函数$f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\dfrac{(x-\mu)^2}{2\sigma^2}}$（标准正态分布$f(x)=\dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{x^2}{2}}$）
 - 代数和性质：$n$个相互独立的正态变量之和仍为正态变量。且若$X_i\sim N(\mu_i,\sigma_i^2)$，则$\displaystyle\sum^n_{i=1}X_i\sim N\left(\displaystyle\sum^n_{i=1}\mu_i,\sum^n_{i=1}\sigma_i^2\right)$，甚至可以进一步证明$n$个相互独立的正态变量的线性组合仍为正态变量
-- 期望：若$X\sim N(\mu,\sigma)$，则$E(X)=\mu$
+- 期望和方差：若$X\sim N(\mu,\sigma)$，则$E(X)=\mu,Var(X)=\sigma^2$
 ### 指数分布
 - 符号：$X\sim E(\lambda)$
 - 密度函数
@@ -171,6 +209,7 @@ $$F(x)=\displaystyle \int^x_{-\infty}f(t)dt=\begin{cases}
     1-e^{-\lambda x},x>0\\
     0,x\leq 0
 \end{cases}$$
+- 期望和方差：若$X\sim E(\lambda)$，则$E(X)=\dfrac{1}{\lambda},Var(X)=\dfrac{1}{\lambda^2}$
 ### 二元均匀分布
 - 密度函数
 $$f(x,y)=\begin{cases}
