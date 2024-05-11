@@ -114,7 +114,17 @@ $$P\{X=x_i\}=p_i,i=1,2,3$$
 若级数$\displaystyle x_ip_i$绝对收敛，则称级数$\displaystyle x_ip_i$为$X$的期望  
 对于连续型随机变量$X$，若
 $$\displaystyle\int^{+\infty}_{-\infty}|x|f(x)<+\infty$$
-则称$\displaystyle\int^{+\infty}_{-\infty}xf(x)<+\infty$为$X$的期望
+则称$\displaystyle\int^{+\infty}_{-\infty}xf(x)<+\infty$为$X$的期望  
+$$E(g(X))=\displaystyle\sum^n_{i=1}g(x_i)p_i$$
+$$E(g(X))=\displaystyle\int^{+\infty}_{-\infty}g(x)f(x)dx$$
+其中$f(x)$是$X$的密度函数
+$$E(h(X,Y))=\displaystyle\int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}h(x,y)f(x,y)dxdy$$
+其中$f(x,y)$是$X,Y$的联合密度函数
+### 期望的性质
+1. 
+$$E\left(c_0+\displaystyle\sum^n_{i=1}c_iX_i\right)=c_0+\displaystyle\sum^n_{i=1} c_iE(X_i)$$
+2. 若$X_i(i=1,2,...,n)$相互独立，且数学期望都存在，则有
+$$E\left(\prod^n_{i=1}X_i\right)=\prod^n_{i=1}E(X_i)$$
 ## 重要随机变量的概率分布
 ### 0-1(p)分布，两点分布
 - 符号: $X\sim 0-1(p)$
@@ -124,6 +134,7 @@ $$P\left\{ X=k \right\}=p^k(1-p)^{1-k}, k=0,1.$$
 - 符号： $X\sim B(n,p)$
 - 概率分布律：
 $$P\left\{ X=k \right\}=C_n^kp^k(1-p)^{n-k},k=0,1,2,...,n.$$
+- 期望：$E(X)=np$
 ### 泊松分布
 - 符号： $X\sim P(\lambda)$
 - 概率分布律：
