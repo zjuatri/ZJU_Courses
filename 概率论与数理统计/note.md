@@ -162,7 +162,23 @@ $$Cov(X,Y)=E(XY)-E(X)E(Y)$$
 ### 协方差的性质
 1. 
 $$Var(\displaystyle\sum^{n}_{i=1}X_i)=\displaystyle\sum_{i=1}^{n}Var(X_i)+2\sum_{1\leq i < j \leq n}Cov(X_i,X_j)$$
-2. 
+2. $Cov(X,Y)=Cov(Y,X)$
+3. $Cov(X,X)=Var(X)$
+4. $Cov(aX,bY)=abCov(X,Y)$
+5. $Cov(X_1+X_2,Y)=Cov(X_1,Y)+Cov(X_2,Y)$
+6. 当$Var(X)\cdot Var(Y)\neq 0 时，有(Cov(X,Y))^2\leq Var(X)Var(Y)$，其中等号成立当且仅当$X,Y$有严格的线性关系
+### 独立与相关
+#### 相关系数
+$$\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}$$
+若$\rho_{XY}=0$则称$X,Y$不相关  
+- $|\rho(X,Y)|\leq 1$，其中等号成立当且仅当$X与$Y$之间有严格的线性关系。越接近1$X,Y$线性关系就越强
+- $|\rho(X,Y)|>0$时$X,Y$正相关；$|\rho(X,Y)|<0$时$X,Y$负相关；
+#### 不相关
+1. $\rho(X,Y)=0$
+2. $Cov(X,Y)=0$
+3. $E(XY)=E(X)E(Y)$
+4. $Var(X+Y)=Var(X)+Var(Y)$
+5. 独立一定不相关，但反之不然。
 ## 重要随机变量的概率分布
 ### 0-1(p)分布，两点分布
 - 符号: $X\sim 0-1(p)$
