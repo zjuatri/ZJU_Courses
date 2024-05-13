@@ -17,6 +17,7 @@ x = 4:2:28; % creates an array starting at 4 and going up by 2 until it gets to 
 x = -1.3:0.1:1.3; %creates an array starting at -1.3 and going up by 0.1 until it gets to 1.3
 
 x = 1:2:6; % x = [1,3,5]
+x = [1:2:6]; % x = [1,3,5]
 ```
 
 ## Operations on arrays
@@ -192,5 +193,215 @@ v = logical([1 0 1 0 1]);
 xp = x(v);
 % xp = [5,2,3]
 ```
+
+## Creating matrices
+<img src="./pic/2.png" width=200 align=right></img>
+
+```matlab
+A = [1 2 3;4 5 6];
+
+A = ones(2,5);
+A = zeros(2,3);
+A = eye(3);  % Create a identity matrix
+
+B = A'  % Rows become columns and columns become rows.
+
+% Expressions used to initialize arrays can include algebraic operations and (all or portions of) previously defined arrays
+a = [0 13*2];
+b = [a(2) 13 a];
+
+A = [1 5 9;2 4 8;3 6 7];
+c = A[3,1]; % c == 3
+c = A[4]; % Matrix indices may also be accessed using a single subscript 
+```
+
+## Subarrays
+```matlab
+% Vectors
+va =[1:5]
+va(:) % all elements
+va(m:n) % elements m through n
+
+% Matrix
+A = [1 2 3; 4 5 6; 7 8 9];
+A(:,n) % all elements in column n
+A(n,:) % all elements in row n
+A(:,m:n) % elements in columns m through n
+A(m:n,:) % elements in rows m through n
+A(m:n,p:q)
+
+b = [1 2 3 4; 5 6 7 8; 9 10 11 12];
+b(2:2:end,2:end); % [6 7 8]
+```
+## Manipulating Matrices
+|Built-in function|description|
+|-|-|
+|`length(v)`|returns length of largest array dimension|
+|`size(A)`|returns[m,n] where m and n are the size of A|
+|`numel(A)`|returns the total number of elements in the array|
+|`reshape(A,m,n)`|rearrange A to have m rows and n colomns|
+|`diag(v)`|creates square matrix with elements on the diagonal|
+|`diag(A)`|creates vector from the diagonal elements|
+
+## Resizing a Matrix
+```matlab
+A(:,2) = []; % deleting rows or columns from an array
+A = [B C; D E;] % Arrays can be concatenated to form larger arrays.
+```
+
+## Strings
+- An array of characters typed between single quotes (‘),e.g.`'Hello World'`
+- char built-in function `My_string = char('string 1','string 2','string 3')`
+- Work with strings `lower`;`isspace`;`isletter`
+
+## Matrix Addition and Subtraction
+1. Scalars may be added to any array, and the scalar value is added to all elements of the array
+2. Arrays may be added and subtracted so long as they have the same dimensions
+
+## Element-by-Element Operations
+- Addition(+) and subtraction (-) 
+- Multiplication (.*) and division (./) 
+- Exponentiation (.^) 
+- Functions applied over arrays (`sin`, `log`,…)
+- evaluating a function e.g.$y=x^2-4x$
+## Matrix Multiplication
+- `a*B` Matrices may be multiplied by a scalar:Element-by-Element Multiplication
+- `A.*B` Element-by-Element Multiplication
+- `A*B` Matrix multiplication
+- `cross(X,Y)` Cross product, special operation on two vectors.
+
+## Matrix division
+### Inverse of a matrix
+- `inv` function or raise to -1 power
+- matrix must be square and invertible
+### Left Division
+Solve $AX=B$ where $X$ and $B$ are column vectors.  
+$$X=A^{-1}B$$
+```matlab
+X=A\B
+```
+### Right Division
+Solve $XC=D$ where $X$ and $D$ are column vectors.  
+$$X=DC^{-1}$$
+```matlab
+X=D/C
+```
+### Rotating and flipping arrays
+- `rot90`:Rotate counterclockwise by 90 degrees
+- `fliplr` or `flipdim(A,1)`: Reverse the matrix by treating a row as a whole.
+- `flipud` or `flipdim(A,2)`: Reverse the matrix by treating a column as a whole.
+$$A= \left[ \begin{matrix}
+    1&2&3\\
+    4&5&6
+\end{matrix} \right] 
+\begin{cases}
+\xrightarrow{rot90(A)}\left[ \begin{matrix}
+    3&6\\
+    2&5\\
+    1&4
+\end{matrix} \right] \\
+\\
+\xrightarrow{fliplr(A)\ or flipdim(A,1)}\left[ \begin{matrix}
+    3&2&1\\
+    6&5&4
+\end{matrix} \right]\\
+\\
+\xrightarrow{flipud(A)\ or flipdim(A,2)}
+\left[ \begin{matrix}
+    4&5&6\\
+    1&2&3
+\end{matrix} \right]
+\end{cases}$$
+Actually, we use `flip` instead of `flipdim` now. And the grammer is absolutely the same.  
+The second parameter of `flip`(or `flipdim`) is the dimension that is manipulated. It can be set to 3 or more when the dimension of array is above 2.
+## Built-in Matrices
+- `zeros(n)` returns an n-by-n matrix with all the elements equal to zero
+- `ones(n)` returns an n-by-n matrix with all the elements equal to one
+- `magic(n)` returns an n-by-n matrix constructed from the integers 1 through n*n with equal row and column sums. The order n must be a scalar greater than or equal to 3 in order to create a valid magic square.
+- `eye(n)` return an n-by-n identity matrix
+## Sparse arrays
+Sparse matrices are defined by a list of elements containing non-zero elements while all other elements are assumed to be zero
+```matlab
+% conventional way to create a matrix
+A = zeros(1000,2000);
+A(3,4) = 15;
+A(100,1500) = 5;
+A(1000,2000) = 9;
+
+% create using a sparse matrix
+A = sparse([3,100,1000],...
+    [4,1500,2000],...
+    [15,5,9],1000,2000);
+
+%The original (full) matrix A could also be converted to a sparse matrix via the following
+A = sparse(A);
+```
+
+|Matrix type|Memory(MB)|Time to compute $A^2$(ms)|
+|-|-|-|
+|Full|15.2|4|
+|Sparse|0.015|0.04|
+## Summing array elements
+Consider the following 3D array
+$$A=\left[\begin{matrix}
+    1&1&1\\
+1&1&1
+\end{matrix}\right]
+\left[\begin{matrix}
+    2&2&2\\
+2&2&2
+\end{matrix}\right]
+\left[\begin{matrix}
+    3&3&3\\
+3&3&3
+\end{matrix}\right]$$
+$$sum(A)=\left[\begin{matrix}
+2&2&2
+\end{matrix}\right]\left[\begin{matrix}
+4&4&4
+\end{matrix}\right]\left[\begin{matrix}
+6&6&6
+\end{matrix}\right]$$
+$$sum(sum(A))=[6][12][18]$$
+$$sum(sum(sum(A)))=[36]$$
+$$sum(A,3)=\left[\begin{matrix}
+    6&6&6\\
+6&6&6
+\end{matrix}\right]$$
+manipulate the matrix in the same way:
+1. treat a row as a whole
+2. treat a column as a whole
+3. treat the 3rd dimension a whole
+## Cumulative sums
+- `cumsum()` sums cumulatively along a vector or some dimension of an array
+- unless a dimension is specified, it works on the first non-singleton dimension 
+```matlab
+cumsum([1 2 3 4 5]);
+% [1 3 6 10 15]
+
+cumsum([1 2 3; 4 5 6]);
+% ([1 2 3; 5 7 9])
+```
+## Product
+```matlab
+x(:,:,1) = [1 2 3; 4 5 6];
+x(:,:,2) = [6 5 4; 3 2 1];
+y = prod(x)
+
+% y(:,:,1) == [4 10 18] and
+% y(:,:,2) == [18 10 4]
+```
+
+## Cumulative product
+`cumprod()` calculates the cumulative product of array elements along the first non-singleton dimension
+```matlab
+x(:,:,1) = [1; 2; 3];
+x(:,:,2) = [2; 2; 2];
+y = cumprod(x)
+
+% y(:,:,1) = [1; 2; 6] and
+% y(:,:,2) = [2; 4; 8]
+```
 ## Vocabulary
 - Scalars 标量
+- portions 部分
