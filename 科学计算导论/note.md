@@ -157,6 +157,12 @@ a = 1;
 while a < 10
     a = a + 1;
 end
+
+% Iterate through the array
+x = [1,2,3]
+for element = x
+    disp(element);
+end
 ```
 
 ## Array Operation vs Iteration
