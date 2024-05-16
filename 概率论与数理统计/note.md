@@ -246,3 +246,10 @@ $$f_Y(y)=\dfrac{1}{\sqrt{2\pi}\sigma_2}e^{-\dfrac{(x-\mu_2)^2}{2\sigma_2^2}}$$
 $$Y\sim N(\mu_2+\rho\frac{\sigma_2}{\sigma_1}(x-\mu_1),(\sqrt{1-\rho^2}\sigma_2)^2)$$
 给定$Y=y$
 $$Y\sim N(\mu_1+\rho\frac{\sigma_1}{\sigma_2}(y-\mu_2),(\sqrt{1-\rho^2}\sigma_1)^2)$$
+## 大数定律和中心极限定理
+### 马尔科夫不等式
+对任意的$\epsilon>0$，有
+$$P\{|Y|\geq \epsilon\}\leq \frac{E(|Y|^k)}{\epsilon ^k}$$
+
+### 切比雪夫不等式
+$$P\{|X-\mu|\geq \epsilon\}\geq\frac{\sigma^2}{\epsilon^2}$$
