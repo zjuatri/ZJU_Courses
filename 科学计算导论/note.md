@@ -408,6 +408,184 @@ y = cumprod(x)
 % y(:,:,1) = [1; 2; 6] and
 % y(:,:,2) = [2; 4; 8]
 ```
+
+## Input Commands
+### `input` command
+```matlab
+in1 = input('Enter data:');
+% Stores input value as a numerical value or array of values of type double
+
+in2 = imput('Enter data:','s');
+% Stores input value as a string (an array of characters)
+```
+
+## Output Commands
+### `disp` command
+```matlab
+disp(variable);
+disp('text to print')
+```
+### `fprintf` command
+```matlab
+fprintf(format,data);
+```
+Formatted output placed on screen or saved to a file 
+## Manipulate the files
+### `save`
+% Save all variables in the workspace to a file 
+```matlab
+save('file_name');
+save file_name;
+% Writes file_name.mat file in binary format
+
+% Save a few variables
+save file_name var1 var2;
+
+% Save in readable format 
+save -ascii file_name;
+% Easy way to transfer data
+```
+
+### `load`
+```matlab
+% Load the variables in a file
+load('file_name'); 
+load file_name;
+% Reads file_name.mat in binary format and restores variables
+
+load file_name var1 var2;
+% Load a few variables
+load file_name var1 var2;
+
+% Load from a text(.txt) file
+load file_name.txt;
+var = load('file_name.txt');
+
+% Options
+% mat, -ascii
+```
+
+## Cell Arrays
+```matlab
+c = {42,rand(5),'abcd'}
+
+% c = 
+%     1x3 cell array
+%         {[42]}   {5x5 double}   {['abcd']}   
+```
+## A pleasing plot
+several objective measures of a good plot
+- Labels with units
+- Minimum amount of information to convey the objective (don’t double label objects unless necessary, extraneous callouts should be avoided)
+- Avoid overuse of eye candy
+- Scatter plots for measured data and line plots for fits or closed form equations
+- Sufficient resolution on domain to represent solution
+- Line widths, data point sizes, and text large enough to read
+## 2D plot commands
+### `plot` and `scatter`
+```matlab
+x = -2*pi:pi/20:2*pi;
+y = sin(x);
+```
+|commands|`plot()`|`scatter()`|
+|-|-|-|
+|picture|![](./pic/plot.png)|![](./pic/scatter.png)|
+- `p;ot()` and `scatter` require vectors of equal length
+- The default plot attributes are blue lines or circular blue data points, respectively
+- These attributes can be modified be adjusting the line specifications of the plot `linespec`
+- Straight lines may also be plotted by specifying the beginning 
+and end points of the line
+```matlab
+plot([0,20],[-5,5],'r-');
+```
+<img src="./pic/line.png" wifth=200></img>
+
+### Double y plot `plotyy()`
+```matlab
+x = -2*pi:pi/20:2*pi;
+y1 = sin(x);
+y2 = cos(x);
+plotyy(x,y1,x,y2);
+```
+<img src="./pic/plotyy.png" wifth=200></img>
+
+### Logarithmic plot
+```matlab
+ x = logspace(0,5,25);
+ y = x.^5;
+ loglog(x,y,'LineWidth',4)
+```
+|commands|`semilogy()`|`semilogx()`|`loglog()`|
+|-|-|-|-|
+|picture|![](./pic/semilogy.png)|![](./pic/semilogx.png)|![](./pic/loglog.png)|
+### `polar()` and `Error Bars`
+```matlab
+theta = 0:0.01:2*pi;
+rho = sin(2*theta).*cos(2*theta);
+polar(theta,rho)
+
+ x = 1:25; y = randi(25,1,length(x));
+ y_err = 0.25*y;
+ errorbar(x,y,y_err)
+```
+|commands|`polar()`|`errorbar()`|
+|-|-|-|
+|picture|![](./pic/polar.png)|![](./pic/errorbar.png)|
+### `ezplot`
+`ezplot` produces simple plots without the need for discrete input of x/y vectors
+|commands|`ezploy('1/x')`|`ezplot('1/x',[0 2*pi])`|
+|-|-|-|
+|picture|![](./pic/ezplot1.png)|![](./pic/ezplot2.png)|
+|discription| The default domain is -2π to 2π|The domain may also be specified by a two element vector|
+### `fplot`
+`fplot` intelligently selects x values based on changes to a function and may be used for rapidly changing functions
+```matlab
+x = 0:.05:0.5*pi;
+y = sin(1./x);
+plot(x,y)
+
+fplot('sin(1/x)',[0 0.5*pi]);
+```
+|commands|`plot()`|`fplot()`|
+|-|-|-|
+|picture|![](./pic/fplot1.png)|![](./pic/fplot2.png)|
+### Plotting a vector
+Most 2D plot commands can be called with a single vector, which is often useful for debugging   
+The x values are then assigned the index location
+```matlab
+r = logspace(0,3,25)
+plot(r,'ko','MarkerFaceColor','k')
+```
+![](./pic/plot_vector.png)
+### Specifying plot attributes
+```matlab
+plot(x,y,'LineSpecifiers','PropertyName',PropertyValue)
+```
+Line specifiers include line style, line color and marker.(e.g. `ro-`)  
+Property names include `LineWidth`, `MarkerSize`, `MarkerEdgeColor`, `MarkerFaceColor`
+### Overlaid plots
+```matlab
+x = -2*pi:pi/20:2*pi;
+y1 = sin(x);
+y2 = cos(x)
+
+% first method
+plot(x,y1,'r-',x,y2,'b-','LineWidth',5)
+
+% second method
+plot(x,y1,'r-','LineWidth',5)
+hold on
+plot(x,y2,'b-','LineWidth',5)
+hold off
+```
+![](./pic/overlaid.png)
+- Plot color may be specified for each vector, but line specifications such as `LineWidth `invoked within the plot function will be applied to all data series
+- `hold on` is invoked after the first plot command and indicates that more data will be attributed to the existing axes;
+- `hold off` indicates that additional plotting will overwrite the axes
 ## Vocabulary
 - Scalars 标量
 - portions 部分
+- extraneous 无关的
+- eye candy 视觉上具吸引力，但没什么实质内容的东西
+- resolution 分辨率
+- domain 范围，领域
