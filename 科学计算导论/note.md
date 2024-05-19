@@ -582,6 +582,185 @@ hold off
 - Plot color may be specified for each vector, but line specifications such as `LineWidth `invoked within the plot function will be applied to all data series
 - `hold on` is invoked after the first plot command and indicates that more data will be attributed to the existing axes;
 - `hold off` indicates that additional plotting will overwrite the axes
+### Setting axes or figure properties
+```matlab
+set(gca,'Fontsize',20)
+```
+<img src="./pic/gca1.png" width=45%></img>
+<img src="./pic/gca2.png" width=45%></img>
+```matlab
+ set(gcf,'Color','w')
+```
+<img src="./pic/gcf1.png" width=45%></img>
+<img src="./pic/gcf2.png" width=45%></img>
+
+### Plotting multiple figures
+The second plot command executed (without specifying hold on) will overwrite the first plot.  
+You need to specify a new figure establish a new parent figure window
+```matlab
+x = -2*pi:pi/20:2*pi;
+y1 = sin(x);
+y2 = cos(x);
+plot(x,y1,'k-','LineWidth',5)
+figure
+plot(x,y2,'k-','LineWidth',5)
+```
+Figures numbers may also be specified with a figure number, ex. `figure(3)`  
+
+Plots may then be closed using the close command  
+`close`: closes the last figure  
+`close(n)`: closes figure number n  
+`close all`: closes all figures
+
+### Multiple axes on a figure
+Multiple axes may be assigned to a single figure using the `subplot` command or by specifying the `position` of multiple axes  
+
+`subplot(rows,columns,position)`
+- rows: rows of axes
+- columns: columns of axes
+- position: position of current axes (counted along rows)
+```matlab
+x = 0:pi/20:2*pi;
+y1 = sin(x-0);
+y2 = sin(x-0.5);
+y3 = sin(x-1);
+y4 = sin(x-1.5);
+y5 = sin(x-2);
+y6 = sin(x-2.5);
+
+subplot(2,3,1)
+plot(x,y1)
+axis tight
+
+subplot(2,3,2)
+plot(x,y2)
+axis tight
+
+subplot(2,3,3)
+plot(x,y3)
+axis tight
+
+subplot(2,3,4)
+plot(x,y4)
+axis tight
+
+subplot(2,3,5)
+plot(x,y5)
+axis tight
+
+subplot(2,3,6)
+plot(x,y6)
+axis tight
+```
+![](./pic/mulaxes.png)
+
+`axes('Position',[x,y,w,h])`
+- x: lower left hand corner x coordinate
+- y: lower left hand corner y coordinate
+- w: width of axes
+- h: height of axes
+```matlab
+axes('Position',[.1 .1 .5 .3])
+plot(x,y1)
+
+axes('Position',[.5 .5 .2 .4])
+plot(x,y3)
+```
+![](./pic/mulaxes2.png)
+### Specifying the domain and range
+A specific domain and range may be specified using `axis` or `xlim/ylim`   
+
+`axis([xmin xmax ymin ymax])` or 
+```matlab
+xlim([xmin xmax])
+ylim([ymin ymax])
+```
+e.g.
+```matlab
+plot(x,y1,'LineWidth',5)
+axis([0 1.5*pi 0 1.5])
+set(gca,'FontSize',20)
+```
+The axis command offers many predefined axis scaling/sizing operations.
+![](./pic/axisCommands.png)
+### Labeling and titling axes
+```matlab
+plot(x,y1,'LineWidth',5)
+set(gca,'FontSize',20)
+xlabel('Time (s)')
+ylabel('Voltage (V)')
+title('Generator Output')
+axis([0 2*pi -1.2 1.2])
+```
+![](./pic/labels.png)
+### Adding a legend
+```matlab
+legend('sin(x)','cos(x)','Location','NorthEast')
+```
+![](./pic/legend.png)
+### Placing text on a plot
+```matlab
+text(pi,0.2,'Text string','Color','b')
+```
+![](./pic/text.png)
+## 3D plot
+Three steps 
+1. Make a grid in the x-y plane 
+2. Find the value of z for each point of the grid 
+3. Draw the mesh or surface plot  
+
+` plot3(x, y, z, 'line specifiers','PropertyName', PropertyValue)`
+### meshgrid
+`[X, Y] = meshgrid (x, y)`
+```matlab
+x = linspace(-1, 3);
+y = linspace(4, 1, -1);
+[X, Y] = meshgrid(x, y);
+```
+![](./pic/meshgrid.png)
+- X, Y: matrices of x and y coordinates, respectively 
+- x, y: vectors that define the domain of the grid
+
+### Mesh and surface plots
+- `mesh(X,Y,Z)` lines connecting the points 
+- `surf(X,Y,Z)` areas colored
+### Other 3D Plots
+- Sphere 
+- Cylinder 
+- 3D bar 
+- 3D stem 
+- 3D scatter 
+- 3D pie
+### Controlling the View in 3D
+`view(az, el)` or `view([az, el])`  
+`az`: azimuth relative to negative y-axis (default is -37.5°)   
+`el`: elevation from x-y plane (default is 30°)  
+![](./pic/view.png)
+
+## Graphics handles
+Figures, axes, and plots can all be assigned handles  
+These handles look a lot like “variables” and serve as a pointer to the object
+```matlab
+myHandle1 = plot(x,y);
+myFig = figure;
+h = axes;
+
+```
+### `set`
+`set(<handle>,<property>,<propertyValue>)`  
+e.g.
+```matlab
+pl1 = plot(x,y);
+set(pl1,'LineWidth',2)
+```
+### `get`
+`get(<handle>,<property>)`  
+e.g.
+```matlab
+fig1 = figure
+pl1 = plot(x,y);
+get(fig1,‘Position')
+```
 ## Vocabulary
 - Scalars 标量
 - portions 部分
@@ -589,3 +768,4 @@ hold off
 - eye candy 视觉上具吸引力，但没什么实质内容的东西
 - resolution 分辨率
 - domain 范围，领域
+- consecutive 连续的

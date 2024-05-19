@@ -722,7 +722,149 @@ y = <span class="hljs-built_in">sin</span>(x);
 <li><code>p;ot()</code> and <code>scatter</code> require vectors of equal length</li>
 <li>The default plot attributes are blue lines or circular blue data points, respectively</li>
 <li>These attributes can be modified be adjusting the line specifications of the plot <code>linespec</code></li>
+<li>Straight lines may also be plotted by specifying the beginning
+and end points of the line</li>
 </ul>
+<pre><code class="language-matlab"><span class="hljs-built_in">plot</span>([<span class="hljs-number">0</span>,<span class="hljs-number">20</span>],[<span class="hljs-number">-5</span>,<span class="hljs-number">5</span>],<span class="hljs-string">&#x27;r-&#x27;</span>);
+</code></pre>
+<p><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\line.png" wifth=200></img></p>
+<h3 id="double-y-plot-plotyy">Double y plot <code>plotyy()</code></h3>
+<pre><code class="language-matlab">x = <span class="hljs-number">-2</span>*<span class="hljs-built_in">pi</span>:<span class="hljs-built_in">pi</span>/<span class="hljs-number">20</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>;
+y1 = <span class="hljs-built_in">sin</span>(x);
+y2 = <span class="hljs-built_in">cos</span>(x);
+plotyy(x,y1,x,y2);
+</code></pre>
+<p><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\plotyy.png" wifth=200></img></p>
+<h3 id="logarithmic-plot">Logarithmic plot</h3>
+<pre><code class="language-matlab"> x = <span class="hljs-built_in">logspace</span>(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">25</span>);
+ y = x.^<span class="hljs-number">5</span>;
+ loglog(x,y,<span class="hljs-string">&#x27;LineWidth&#x27;</span>,<span class="hljs-number">4</span>)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>commands</th>
+<th><code>semilogy()</code></th>
+<th><code>semilogx()</code></th>
+<th><code>loglog()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>picture</td>
+<td><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\semilogy.png" alt=""></td>
+<td><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\semilogx.png" alt=""></td>
+<td><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\loglog.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h3 id="polar-and-error-bars"><code>polar()</code> and <code>Error Bars</code></h3>
+<pre><code class="language-matlab">theta = <span class="hljs-number">0</span>:<span class="hljs-number">0.01</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>;
+rho = <span class="hljs-built_in">sin</span>(<span class="hljs-number">2</span>*theta).*<span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*theta);
+polar(theta,rho)
+
+ x = <span class="hljs-number">1</span>:<span class="hljs-number">25</span>; y = randi(<span class="hljs-number">25</span>,<span class="hljs-number">1</span>,<span class="hljs-built_in">length</span>(x));
+ y_err = <span class="hljs-number">0.25</span>*y;
+ errorbar(x,y,y_err)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>commands</th>
+<th><code>polar()</code></th>
+<th><code>errorbar()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>picture</td>
+<td><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\polar.png" alt=""></td>
+<td><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\errorbar.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ezplot"><code>ezplot</code></h3>
+<p><code>ezplot</code> produces simple plots without the need for discrete input of x/y vectors</p>
+<table>
+<thead>
+<tr>
+<th>commands</th>
+<th><code>ezploy('1/x')</code></th>
+<th><code>ezplot('1/x',[0 2*pi])</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>picture</td>
+<td><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\ezplot1.png" alt=""></td>
+<td><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\ezplot2.png" alt=""></td>
+</tr>
+<tr>
+<td>discription</td>
+<td>The default domain is -2π to 2π</td>
+<td>The domain may also be specified by a two element vector</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fplot"><code>fplot</code></h3>
+<p><code>fplot</code> intelligently selects x values based on changes to a function and may be used for rapidly changing functions</p>
+<pre><code class="language-matlab">x = <span class="hljs-number">0</span>:<span class="hljs-number">.05</span>:<span class="hljs-number">0.5</span>*<span class="hljs-built_in">pi</span>;
+y = <span class="hljs-built_in">sin</span>(<span class="hljs-number">1.</span>/x);
+<span class="hljs-built_in">plot</span>(x,y)
+
+fplot(<span class="hljs-string">&#x27;sin(1/x)&#x27;</span>,[<span class="hljs-number">0</span> <span class="hljs-number">0.5</span>*<span class="hljs-built_in">pi</span>]);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>commands</th>
+<th><code>plot()</code></th>
+<th><code>fplot()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>picture</td>
+<td><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\fplot1.png" alt=""></td>
+<td><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\fplot2.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h3 id="plotting-a-vector">Plotting a vector</h3>
+<p>Most 2D plot commands can be called with a single vector, which is often useful for debugging<br>
+The x values are then assigned the index location</p>
+<pre><code class="language-matlab">r = <span class="hljs-built_in">logspace</span>(<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">25</span>)
+<span class="hljs-built_in">plot</span>(r,<span class="hljs-string">&#x27;ko&#x27;</span>,<span class="hljs-string">&#x27;MarkerFaceColor&#x27;</span>,<span class="hljs-string">&#x27;k&#x27;</span>)
+</code></pre>
+<p><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\plot_vector.png" alt=""></p>
+<h3 id="specifying-plot-attributes">Specifying plot attributes</h3>
+<pre><code class="language-matlab"><span class="hljs-built_in">plot</span>(x,y,<span class="hljs-string">&#x27;LineSpecifiers&#x27;</span>,<span class="hljs-string">&#x27;PropertyName&#x27;</span>,PropertyValue)
+</code></pre>
+<p>Line specifiers include line style, line color and marker.(e.g. <code>ro-</code>)<br>
+Property names include <code>LineWidth</code>, <code>MarkerSize</code>, <code>MarkerEdgeColor</code>, <code>MarkerFaceColor</code></p>
+<h3 id="overlaid-plots">Overlaid plots</h3>
+<pre><code class="language-matlab">x = <span class="hljs-number">-2</span>*<span class="hljs-built_in">pi</span>:<span class="hljs-built_in">pi</span>/<span class="hljs-number">20</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>;
+y1 = <span class="hljs-built_in">sin</span>(x);
+y2 = <span class="hljs-built_in">cos</span>(x)
+
+<span class="hljs-comment">% first method</span>
+<span class="hljs-built_in">plot</span>(x,y1,<span class="hljs-string">&#x27;r-&#x27;</span>,x,y2,<span class="hljs-string">&#x27;b-&#x27;</span>,<span class="hljs-string">&#x27;LineWidth&#x27;</span>,<span class="hljs-number">5</span>)
+
+<span class="hljs-comment">% second method</span>
+<span class="hljs-built_in">plot</span>(x,y1,<span class="hljs-string">&#x27;r-&#x27;</span>,<span class="hljs-string">&#x27;LineWidth&#x27;</span>,<span class="hljs-number">5</span>)
+<span class="hljs-built_in">hold</span> on
+<span class="hljs-built_in">plot</span>(x,y2,<span class="hljs-string">&#x27;b-&#x27;</span>,<span class="hljs-string">&#x27;LineWidth&#x27;</span>,<span class="hljs-number">5</span>)
+<span class="hljs-built_in">hold</span> off
+</code></pre>
+<p><img src="file:///c:\Users\ATRI\Desktop\repos\ZJU_Courses\科学计算导论\pic\overlaid.png" alt=""></p>
+<ul>
+<li>Plot color may be specified for each vector, but line specifications such as <code>LineWidth </code>invoked within the plot function will be applied to all data series</li>
+<li><code>hold on</code> is invoked after the first plot command and indicates that more data will be attributed to the existing axes;</li>
+<li><code>hold off</code> indicates that additional plotting will overwrite the axes</li>
+</ul>
+<h3 id="setting-axes-or-figure-properties">Setting axes or figure properties</h3>
+<p><img src="file:////pic/errorbar.png" width=50%></img>
+<img src="file:////pic/ezplot1.png" width=50%></img></p>
 <h2 id="vocabulary">Vocabulary</h2>
 <ul>
 <li>Scalars 标量</li>
