@@ -415,7 +415,7 @@ y = cumprod(x)
 in1 = input('Enter data:');
 % Stores input value as a numerical value or array of values of type double
 
-in2 = imput('Enter data:','s');
+in2 = input('Enter data:','s');
 % Stores input value as a string (an array of characters)
 ```
 

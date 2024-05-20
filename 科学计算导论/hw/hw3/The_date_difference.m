@@ -65,7 +65,3 @@ else
     difference = difference + first_diff + last_diff;
 end
 end
-
-
-
- 
