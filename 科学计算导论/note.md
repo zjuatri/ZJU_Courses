@@ -524,7 +524,8 @@ theta = 0:0.01:2*pi;
 rho = sin(2*theta).*cos(2*theta);
 polar(theta,rho)
 
- x = 1:25; y = randi(25,1,length(x));
+ x = 1:25; 
+ y = randi(25,1,length(x));
  y_err = 0.25*y;
  errorbar(x,y,y_err)
 ```
@@ -533,7 +534,7 @@ polar(theta,rho)
 |picture|![](./pic/polar.png)|![](./pic/errorbar.png)|
 ### `ezplot`
 `ezplot` produces simple plots without the need for discrete input of x/y vectors
-|commands|`ezploy('1/x')`|`ezplot('1/x',[0 2*pi])`|
+|commands|`ezplot('1/x')`|`ezplot('1/x',[0 2*pi])`|
 |-|-|-|
 |picture|![](./pic/ezplot1.png)|![](./pic/ezplot2.png)|
 |discription| The default domain is -2π to 2π|The domain may also be specified by a two element vector|
