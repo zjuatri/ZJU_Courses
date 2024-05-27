@@ -1,14 +1,14 @@
 function newBallState = updateBallState (ballState, dt, walls, coefficient_of_restitution)
 
-newBallState = UpdateState(ballState,dt);
+newBallState = UpdateState(ballState,dt,walls);
 
     function wall = NearestWall (current_state,walls)
-        wall = walls(1);
-        [tmin, collisionState] = findCollision(current_state,walls(1),coefficient_of_restitution);
-        for i = 2:size(walls)
-            [t, collisionState] = findCollision(current_state,walls(i),coefficient_of_restitution);
+        wall = walls(1,:);
+        [tmin, collisionState] = findCollision(current_state,walls(1,:),coefficient_of_restitution);
+        for i = 2:size(walls,1)
+            [t, collisionState] = findCollision(current_state,walls(i,:),coefficient_of_restitution);
             if t < tmin
-                wall = walls(i);
+                wall = walls(i,:);
                 tmin = t;
             end
         end
@@ -26,7 +26,7 @@ newBallState = UpdateState(ballState,dt);
         next_state(4) = vy;
     end
 
-    function next_state = UpdateState (current_state, dt)
+    function next_state = UpdateState (current_state, dt,walls)
         nearest = NearestWall(current_state,walls);
         [t, collisionState] = findCollision (current_state, nearest, coefficient_of_restitution);
         if dt > t
@@ -39,6 +39,7 @@ newBallState = UpdateState(ballState,dt);
 end
 
 function [t, collisionState] = findCollision (ballState, wall, coefficient_of_restitution)
+collisionState=[];
 x = ballState(1);
 y = ballState(2);
 vx = ballState(3);
@@ -51,11 +52,10 @@ if wall(1) == wall(3)
     if t > 0 && ystart <= yc && yc <= yend
         collisionState(1) = wall(1);
         collisionState(2) = yc;
-        collisionState(3) = coefficient_of_restitution * collision_state(3);
-        collisionState(4) = - coefficient_of_restitution * collision_state(4);
+        collisionState(3) = - coefficient_of_restitution * vx;
+        collisionState(4) = coefficient_of_restitution * vy;
     else
         t = Inf;
-        collisionState = [];
     end
 end
 
@@ -67,8 +67,8 @@ if wall(2) == wall(4)
     if t > 0 && xstart <= xc && xc <= xend
         collisionState(1) = xc;
         collisionState(2) = wall(2);
-        collisionState(3) = - coefficient_of_restitution * collision_state(3);
-        collisionState(4) = coefficient_of_restitution * collision_state(4);
+        collisionState(3) = coefficient_of_restitution * vx;
+        collisionState(4) = - coefficient_of_restitution * vy;
     else
         t = Inf;
         collisionState = [];

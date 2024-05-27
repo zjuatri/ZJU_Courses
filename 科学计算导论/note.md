@@ -745,7 +745,6 @@ These handles look a lot like “variables” and serve as a pointer to the obje
 myHandle1 = plot(x,y);
 myFig = figure;
 h = axes;
-
 ```
 ### `set`
 `set(<handle>,<property>,<propertyValue>)`  
@@ -761,6 +760,34 @@ e.g.
 fig1 = figure
 pl1 = plot(x,y);
 get(fig1,‘Position')
+```
+## ODE
+say we have an equation of the form  
+$$\overset{...}{y}+p\ddot{y}+q\dot{y}+ry=0$$
+We start by assigning generalized variables (say x) to derivatives of y of increasing order as such  
+$$x_1 = y , x_2 = \dot{y} , x_3 = \ddot{y}$$
+Next, we rearrange the ODE to get the variable of highest order on the left side of the equation and divide out any coefficients on this variable   
+$$\overset{...}{y} = -p\ddot{y}-q\dot{y}-ry$$
+Next, we rewrite the derivatives of the generalized variables with respect to each other and the ODE
+$$\dot{x_1} = x_2,\dot{x_2} = x_3, \dot{x_3} = -px_3 -qx_2 -rx_1$$
+```matlab
+function xout = thirdOrderODE(t,x)
+% time and initial condition serve as inputs
+p = 2;
+q = 1.5;
+r = 0.1;
+
+dx1 = x(2);
+dx2 = x(3);
+dx3 = -p*x(3)-q*x(2)-r*x(1);
+
+xout = [dx1; dx2; dx3];
+%  the derivatives of the generalized variables are returned as a column vector
+end
+
+[t,x] = ode45(@thirdOrderODE,[0 10],[10 1 2]);
+% [0 10] indicates the start and end time of the solution
+% [10 1 2] indicates initial conditions. x(1) = 10, x(2) = 1, etc.
 ```
 ## Vocabulary
 - Scalars 标量

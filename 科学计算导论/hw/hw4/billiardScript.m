@@ -68,5 +68,4 @@ for i = 1:iterations
     
     % pause so that we can see the drawing
     pause (0.2);
-
 end
