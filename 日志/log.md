@@ -4,7 +4,7 @@
 ## 2024
 ### May
 #### 夏5周
-5.27  给主页加了一个FUN FUN RE-BOOT 网易云外链播放器
+5.26  给主页加了一个FUN FUN RE-BOOT 网易云外链播放器
 ```html
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2099209433&auto=1&height=66"></iframe>
 ```
@@ -20,12 +20,19 @@
 - [ ] 职规的玩意
 - [ ] ctf
 #### 夏6周
-5.28
+5.27
 写了一天的MATLAB结果只写了两个题，悲
 看了一点工程材料
-5.29
+5.28
 今天又爆了
 MATLAB作业写完了，可喜可贺，写到下午
 后来学了一点微积分，最后晚上看了一点工材
 又是废柴的一天，明天再努力吧！
+5.29
+爆*2
+早上看了一下工程材料
+下午糊了一下简历
+晚上做了志愿者
+见到了很多线虫，被奇怪地合影了
+5.30
 
