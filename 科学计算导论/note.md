@@ -789,6 +789,70 @@ end
 % [0 10] indicates the start and end time of the solution
 % [10 1 2] indicates initial conditions. x(1) = 10, x(2) = 1, etc.
 ```
+## Polynimials
+MATLAB represents polynomials as a vector
+```matlab
+p = [8 5]  % 8x+5
+p = [5 0 0 6 -7 0] % 5x^5+6x^2-7x
+```
+Value of a polynomial
+```matlab
+v = polyval(p,x)
+% p is vector of coefficients
+% x is the point to evaluate, it can be scalar, vector or matrix 
+```
+### Polynomial Functions
+- Roots of a polynomial
+`r = roots(p)`
+- Polynomial from its roots
+`p = poly(r)`
+- Polynomial multiplication(convolution)
+`c = conv(a,b)`
+- Polynomial division (deconvolution)
+`[q, r] = deconv(a,b) `
+- Derivatives of polynomials
+`pd = polyder(p)`
+## Curve Fitting
+### The Method of Least Square
+Minimize sum of squares of residuals at all data points   
+`p = polyfit(x, y, n)`  
+`x, y`: vectors of data coordinates
+`n`:degree of polynomial 
+`p`:vector of coefficients for polynomial fit
+### Fitting with other than Polynomials
+|Fitting Methods|relationship|linear form|code|
+|-|-|-|-|
+|Power|$y=bx^m$|$\ln y=m\ln x+\ln b$|`p=polyfit(log(x),log(y),1)`|
+|Exponential|$y=be^{mx}\\y=b10^{mx}$|$\ln y = mx+\ln b\\\log y = mx + \log b$|`p=polyfit(x,log(y),1)`<br>`p=polyfit(x,log10(y),1)`|
+|Logarithmic|$y=m\ln x + b\\y=m\log x + b$||`p=polyfit(log(x),y,1)`<br>`p=polyfit(log10(x),y,1`|
+|Reciprocal|$\dfrac{1}{mx+b}$|$\dfrac{1}{y}=mx+b$|`p=polyfit(x,1./y,1)`|
+## Interpolation
+` yi = interp1(x, y, xi, 'method')`
+`x, y`: vectors of data coordinates
+`xi`: horizontal coordinate of interpolation point 
+`method`: method to use for interpolation 
+### methods
+`nearest` value of data point nearest 
+`linear` linear spline 
+`spline` cubic spline interpolation 
+`pchip` piecewise cubic Hermite interpolation 
+## Probability and Statistics
+### The basics
+`avg` = mean(x) 
+`med` = median(x)
+<img src="./pic/histogram.png" width=500 align=right></img>
+
+### Histograms
+Histograms plot the frequency of occurrence of the data values not the data themselves
+`hist(y)` Data divided into 10 bins 
+`hist(y,n)` Data divided into n (scalar) bins 
+`hist(y,x)` Vector x specifies bin centers 
+
+`n = hist(y)` Vector of number of points in each bin
+### Error Function
+$$erf(x) = \dfrac{2}{\sqrt\pi}\displaystyle\int^{x}_{0}e^{-t^2}dt$$
+*高斯函数是正态分布的密度函数
+### Random Numbers
 ## Vocabulary
 - Scalars 标量
 - portions 部分
@@ -797,3 +861,5 @@ end
 - resolution 分辨率
 - domain 范围，领域
 - consecutive 连续的
+- convolution 卷积
+- interpolate 插值
