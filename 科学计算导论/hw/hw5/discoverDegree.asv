@@ -15,5 +15,4 @@ plot(x,polyval(pCoeff,x),LineWidth=1)
 xlim([min(x) max(x)])
 xlabel('x')
 ylabel('y')
-l=legend('Data','Polynomial Fit',Location='best');
 end
