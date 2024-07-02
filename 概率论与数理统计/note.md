@@ -22,7 +22,7 @@ f_Y(y)=\displaystyle\int^{+\infty}_{-\infty}f(x,y)dx$$
 给定$\{X=x\}$的情况下$Y$的条件密度函数
 $$f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}$$
 $$P(X\leq x|Y=y)=\displaystyle\int^x_{-\infty}f_{X|Y}(x|y)dx$$
-### 反函数的密度函数
+### 函数的密度函数
 $Y=g(X)$，若函数$g$是一处处可导的严格单调函数，其值域为$D$，记$y=g(x)$的反函数为$x=h(y)$，则$Y$的密度函数为
 $$f_Y(y)=\begin{cases}
     f_X(h(y))\cdot|h'(y)|,y\in D\\
@@ -53,10 +53,10 @@ $$P\{Z=z_k\}=P\{X+Y=z_k\}=\displaystyle\sum^{+\infty}_{i=1}P\{X=x_i,Y=z_k-x_i\},
 同理
 $$P\{Z=z_k\}=P\{X+Y=z_k\}=\displaystyle\sum^{+\infty}_{i=1}P\{X=z_k-y_i,Y=y_i\},k=1,2,...$$
 当$X,Y$相互独立时有
-$$P\{Z=z_k\}=P\{X=x_i\}P\{Y=z_k-y_i\}$$
+$$P\{Z=z_k\}=P\{X=x_i\}P\{Y=z_k-x_i\}$$
 $$P\{Z=z_k\}=P\{X=z_k-y_i\}P\{Y=y_i\}$$
 #### 二维连续型随机变量
-$$f_z(z)=\displaystyle\int^{+\infty}_{-\infty}f(x,z-x)dy$$
+$$f_z(z)=\displaystyle\int^{+\infty}_{-\infty}f(x,z-x)dx$$
 $$f_z(z)=\displaystyle\int^{+\infty}_{-\infty}f(z-y,y)dy$$
 当$X,Y$相互独立时有
 $$f_Z(z)=\displaystyle\int^{+\infty}_{-\infty}f_X(x)f_Y(z-x)dx$$
@@ -125,16 +125,6 @@ $$E(h(X,Y))=\displaystyle\int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}h(x,y)f
 $$E\left(c_0+\displaystyle\sum^n_{i=1}c_iX_i\right)=c_0+\displaystyle\sum^n_{i=1} c_iE(X_i)$$
 2. 若$X_i(i=1,2,...,n)$相互独立，且数学期望都存在，则有
 $$E\left(\prod^n_{i=1}X_i\right)=\prod^n_{i=1}E(X_i)$$
-### 条件期望
-给定$X=x$
-$$E\{Y|x\}=E\{Y|X=x\}=\displaystyle\sum^{+\infty}_{j=1}y_jp_j(x)$$
-$$E\{Y|x\}=E\{Y|X=x\}=\displaystyle\int^{+\infty}_{-\infty}yf_{Y|X}(y|x)dy$$
-### 全期望公式
-$$E(Y)=E[E(Y|X)]$$
-当(X,Y)为二维离散型随机变量时
-$$E(Y)=\displaystyle\sum^{+\infty}_{i=1}E(Y|X=i)P\{X=i\}$$
-当(X,Y)为二维连续型随机变量时
-$$E(Y)=\displaystyle\int^{+\infty}_{-\infty}E(Y|X=x)f_X(x)dx$$
 ### 方差
 $$Var(X)=E[(X-E(X))^2]$$
 对于离散变量
@@ -249,27 +239,19 @@ $$Y\sim N(\mu_1+\rho\frac{\sigma_1}{\sigma_2}(y-\mu_2),(\sqrt{1-\rho^2}\sigma_1)
 ## 大数定律和中心极限定理
 ### 大数定律
 #### 切比雪夫不等式
-$$P\{|X-\mu|\geq \epsilon\}\geq\frac{\sigma^2}{\epsilon^2}$$
-#### 伯努利大数定律
-设$n_A$为$n$重伯努利实验中事件$A$发生的次数，$p(0<p<1)$是事件$A$在每次实验中发生的概率，即$P(A)=p$，则对任意的$\epsilon > 0$，有
-$$\displaystyle\lim_{n\rightarrow + \infty}P\left\{\left|\frac{n_A}{n}-p\right|\geq \epsilon\right\}=0$$
-#### 辛钦大数定律
-设$\{X_i,i\geq1\}$为独立同分布的随机变量序列，且数学期望存在，记为$\mu$，则对任意的$\epsilon>0$，有
-$$\displaystyle\lim_{n\rightarrow + \infty}P\left\{\left|\frac{1}{n}\sum^n_{i=1}X_i-\mu\right|\geq \epsilon\right\}=0$$
-即$\displaystyle\frac{1}{n}X_i\sum^n_{i=1}\overset{P}{\rightarrow}\mu(n\rightarrow+\infty)$，并认为此时随机变量序列$\{X_i,i\geq1\}$服从大数定律。
-##### 推论
-设$\{X_i,i\geq1\}$为独立同分布的随机变量序列，若$h(x)$为一连续函数，且$E(h(|X_1|))<+\infty$则对任意的$\epsilon>0$，$a=E(h(X_1))$有
-$$\displaystyle\lim_{n\rightarrow + \infty}P\left\{\left|\frac{1}{n}\sum^n_{i=1}X_i-a\right|\geq \epsilon\right\}=0$$
-即$\displaystyle\frac{1}{n}\sum^n_{i=1}h(X_i)\overset{P}{\rightarrow}a(n\rightarrow+\infty)$，并认为此时随机变量序列$\{X_i,i\geq1\}$服从大数定律。
+$$P\{|X-\mu|\geq \epsilon\}\leq\frac{\sigma^2}{\epsilon^2}$$
 ### 中心极限定理
 #### 林德伯格-莱维中心极限定理
 设$\{X_i,i\geq1\}$为独立同分布的随机变量序列，且数学期望$E(X_i)=\mu$和方差$Var(X_i)=\sigma^2$均存在($\sigma>0$)，则对任意的$x\in R$，有
 $$\displaystyle \lim_{n\rightarrow +\infty}P\left\{ \dfrac{\displaystyle\sum^n_{i=1}X_i-n\mu}{\sigma\sqrt n}\leq x \right\}=\frac{1}{\sqrt{2\pi}}\displaystyle\int^x_{-\infty}e^{-\frac{t^2}{2}}dt=\varPhi(x)$$
 即
 $$\dfrac{\displaystyle\sum^n_{i=1}X_i-n\mu}{\sigma\sqrt n}\overset{近似地}{\sim}N(0,1)$$
+即
+$$\dfrac{\displaystyle\bar{X}-\mu}{\sigma/\sqrt n}\overset{近似地}{\sim}N(0,1)$$
 #### 棣莫弗-拉普拉斯中心极限定理
 设$n_A$为在$n$重伯努利试验中事件$A$发生的次数，$p$为事件$A$在每次试验中发生的概率，即$P(A)=p(0<p<1)$，则对任意的$x\in R$，有
 $$\displaystyle \lim_{n\rightarrow +\infty}P\left\{\frac{n_A-np}{\sqrt{np(1-p)}}\leq x\right\}=\frac{1}{\sqrt{2\pi}}\displaystyle\int^x_{-\infty}e^{-\frac{t^2}{2}}dt=\varPhi(x)$$
+即在林德伯格-莱维中心极限定理中取$\bar{X}=\dfrac{n_A}{n},\mu=p,\sigma=\sqrt{p(1-p)}$
 ## 统计量和抽样分布
 ### 统计量
 #### 样本均值
@@ -328,8 +310,7 @@ $$P\{\chi>F_\alpha(n)\}=\int^{+\infty}_{F_\alpha(n)}f_{F}(x)dx=\alpha$$
 2. $\displaystyle \frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)$
 3. $\overline{X}$ 与 $S^2$ 相互独立
 4. $\displaystyle\frac{\overline{X} - \mu}{S/\sqrt{n}}\sim t(n-1)$
-
-*注意：$\displaystyle\frac{\overline{X} - \mu}{\sigma/\sqrt{n}}\sim N(0,1)$
+5. $\displaystyle\frac{\overline{X} - \mu}{\sigma/\sqrt{n}}\sim N(0,1)$
 
 设 $X_1,X_2,...,X_n$ 和 $Y_1,Y_2,...,Y_n$ 是分别来自正态总体 $N(\mu_1,\sigma_1^2)$ 和 $N(\mu_2,\sigma_2^2)$，并且它们相互独立，$\overline{X},\overline{Y}$ 是样本均值，$S_1^2,S_2^2$ 是样本方差，则有：
 
@@ -348,9 +329,9 @@ $$P\{\chi>F_\alpha(n)\}=\int^{+\infty}_{F_\alpha(n)}f_{F}(x)dx=\alpha$$
 
 #### 矩法
 
-思想：用样本矩去估计相应的总体矩，换言之，用原点矩 $A_k$ 去估计 $\mu_{k}$，用中心距 $B_k$ 去估计 $\nu_{k}$。
+思想：用样本矩去估计相应的总体矩，换言之，用原点矩 $A_k$ 去估计 $\mu_{k}$，用中心距 $B_k$ 去估计 $\nu_{k}$。**矩估计的本质是反解**
 
-具体步骤如下（假设有 $k$ 个待求未知参数）：
+一般步骤如下（假设有 $k$ 个待求未知参数）：
 
 1. 列出总体的前 $k$ 阶矩
 
@@ -364,11 +345,15 @@ $$P\{\chi>F_\alpha(n)\}=\int^{+\infty}_{F_\alpha(n)}f_{F}(x)dx=\alpha$$
 
    $\hat{\theta_{i}}=g_i(A_{1},A_{2},...,A_{k})\;\;,\;\;i=1,2,...,k$
 
-值得注意的是：
-
-- 如果方程中存在恒等式，则可以顺延求 $\mu_{k+1},\mu_{k+2},...$
-- 理论上任意 $k$ 个关于 $\mu_{i}$ 的方程组都可以，但考试要求前 $k$ 个才算对
-
+##### 例题
+（书本例7.1.2）
+设总体$X$服从区间$[a,b]$上均匀分布，其中$a<b$未知。若$X_1,...,X_n$是来自总体$X$的样本，已知$\bar{X}=A_1$和$\displaystyle\frac{1}{n}\sum^{n}_{i=1}(X_i-\bar{X})^2=B_2$，试求参数$a,b$的矩估计量
+解：
+$$\mu_1=E(X)=\frac{a+b}{2},v2=Var(X)=\frac{(b-a)^2}{12}$$
+反解得
+$$a=\mu_1-\sqrt{3v_2},b=\mu_1+\sqrt{3v_2}$$
+用$A_1=x$代替$\mu_1$，$B_2=\displaystyle\frac{1}{n}\sum^{n}_{i=1}(X_i-\bar{X})^2$代替$v_2$，得到参数$a,b$的矩估计量分别为
+$$\hat{a}=A_1-\sqrt{3B_2},\hat{b}=A_1+\sqrt{3B_2}$$
 #### 极大似然法
 
 思想：用“最像” $\theta$ 真值的值去估计 $\theta$，换言之，在参数空间中找一个 $\theta$，使得 $L(\theta)$ 达到最大。
@@ -529,12 +514,14 @@ $E[(\hat\theta-\theta)^2]$ 是估计量 $\hat\theta$ 的**均方误差(Mean Squa
 ### 非正态总体参数的区间估计
 
 通常把这个非正态分布根据中心极限定理近似成一个正态分布，从而利用上文的方法构造枢轴量，并求解置信区间。
-# Chapter 8 假设检验
-
-- 橙书 P314
-- 绿书 P211
-
-# 处理假设检验问题的基本步骤
+## Chapter 8 假设检验
+### 两类错误
+若拒绝域为$\{\bar{X}\geq C\}$
+犯第一类错误的概率为
+$$\alpha(C)=P\{\bar{X}\geq C|H_0正确\}=1-\varPhi(\frac{C-\mu}{\sigma/\sqrt n})$$
+犯第二类错误的概率为
+$$\beta(C)=P\{\bar{X}<C|H_0错误\}=\varPhi(\frac{C-\mu}{\sigma/\sqrt n})$$
+### 处理假设检验问题的基本步骤
 
 1. 提出原假设和备择假设；
 2. 选择检验同计量，给出拒绝域形式；
