@@ -315,6 +315,12 @@ $\displaystyle v_B=\frac{u}{\tan\varphi}$
 右图其上任意一点$P$:$\quad v_P=CP\cdot\omega\quad\omega = \dfrac{v_A}{AC}$
 #### 几种特殊的瞬心
 ![alt text](image-40.png)
+#### 一个二级结论
+<img src='special.png' width=200 align=right>
+
+纯滚动时，设滚动圆角加速度为$\alpha$，过圆心的竖直线上距离滚动圆速度瞬心$x$处的加速度为$\alpha\cdot x$
+
+如图所示，B点的速度为$v_B=(R+r)\cdot\alpha$
 ### 例题9
 <img src='./image-41.png' width=200 align=right>
 
@@ -449,7 +455,7 @@ $$L_z=J_z\cdot\omega$$
 #### 一般情况
 $$\vec{L}_O=\vec{r}_C\times m\vec{v}_C+J_C\cdot\omega$$
 ### 动量矩定理
-$$\frac{d}{dt}\vec{M}_O(m\vec{v})=\vec{M}_O(\vec{F})$$
+$$\frac{d}{dt}\vec{L}_O(m\vec{v})=\vec{M}_O(\vec{F})$$
 ### 例题13
 <img src='./image-59.png' width=150 align=right>
 
@@ -462,3 +468,74 @@ $$\frac{d}{dt}\vec{M}_O(m\vec{v})=\vec{M}_O(\vec{F})$$
 由动量矩定理，$$\frac{dL_{O3}}{dt}=W\cdot R$$
 也即$$\frac{1}{2} m R^2 \cdot \alpha + \frac{W}{g} a_P \cdot R = W R$$
 解得$\displaystyle a_P=\frac{W}{\frac{m}{2}+\frac{W}{g}}$
+### 刚体定轴转动的微分方程
+由动量矩定理易知
+$$J_z\cdot\alpha=\sum M_z\left(\vec{F}_i\right)$$
+### 刚体平面运动的微分方程
+$$\begin{cases}ma_{Cx}=\sum F_x\\ma_{Cy}=\sum F_y\\J_C\cdot\alpha=\sum M_C(\vec{F}_i)&\end{cases}\quad or \quad \begin{cases}ma_C^\tau=\sum F_i^\tau\\ma_C^n=\sum F_i^n\\J_C\cdot\alpha=\sum M_C\left(\vec{F}_i\right)&\end{cases}$$
+### 例题14
+<img src='./image-60.png' width=250 align=right>
+
+如图杆$OA$重$W=mg$，长为$l$,$A$端用绳拉住,$OA$杆水平，当绳子突然剪断时，求$O$端约束。
+
+绳子突然剪短瞬时$\omega=0,\alpha\neq 0$
+$$J_O\cdot\alpha = M_O=mg\cdot\frac{l}{2}$$
+$J_O=\dfrac{1}{3}ml^2$
+可求得$\alpha = \dfrac{3g}{2l}$
+<img src='./image-61.png' width=250 align=right>
+
+$$a_C^n = \omega^2 \cdot\frac{l}{2}\quad a_C^\tau = \alpha\frac{l}{2}=\frac{3}{4}g$$
+由质心运动定理，
+$$ma_C^n = -F_{Ox}=0\quad ma_C^\tau = mg-F_{Oy}$$
+$$F_{Ox}=0\quad F_{Oy}=mg-ma_C^\tau=\frac{1}{4}mg$$
+### 例题15
+<img src='./image-62.png' width=300 align=right>
+
+重物$A$质量为$m_1$，系在绳子上，绳子跨过不计质量的固定滑轮$D$，并绕在鼓轮$B$上，如图示，由于重物下降，带动轮$C$，使它沿水平轨道滚动而不滑动，设鼓轮半径为$r$，轮$C$半径为$R$，两者结合在一起，总质量为$m_2$，对于其水平轴$O$的回转半径为$\rho$，求重物的加速度。
+<img src='./image-63.png' width=300 align=right>
+
+由轮子做纯滚动，$a_A=a_B=\alpha(r+R)$
+$a_O=\alpha R$
+$m_1g-F_T=ma_A$
+由质心运动定理，$F_T-F_s=ma_O$
+由动量矩定理，$J_O\alpha = F_s\cdot R +F_T \cdot r$
+$J_O= m_2 \rho^2$
+$$a_A=\frac{m_1g(r+R)^2}{m_1(R+r)^2+m_2(\rho^2+R^2)}$$
+## 第十二章 动能定理
+#### 平动刚体动能
+$$T=\frac{1}{2}mv_C^2$$
+#### 定轴转动刚体动能
+$$T=\frac{1}{2}J_z\omega^2$$
+#### 一般情况
+$$T=\frac{1}{2}mv_C^2+\frac{1}{2}J_C\omega^2$$
+
+<img src='./image-64.png' width=200 align=right>
+
+图示机构中，物块$A,B$质量均为$m$，两均质圆轮$C、D$的质量均为$2m$，半径均为$R$，轮$C$铰接于无重梁$CK$上,$D$为动滑轮。梁的长度为$3R$，绳与轮间无滑动，系统由静止开始运动求$A$物块上升的加速度。
+
+初始系统动能$T_1=0$
+系统动能$$T_2=\frac{1}{2}mv_A^2+\frac{1}{2}mv_B^2+\frac{1}{2}J_C\omega^2+\frac{1}{2}J_D\omega^2+\frac{1}{2}mv_D^2$$
+其中$$\omega_C=\frac{v_A}{R}\quad \omega_D=\frac{v_B}{R}=\frac{v_A}{2R}\quad J_C=\frac{1}{2}\cdot 2mR^2\quad J_D=\frac{1}{2}\cdot mR^2$$
+$$T_2-T_1=\frac{3}{2}mv_A^2$$
+$$W_{12}=-mgs+(2m+m)g\cdot \frac{s}{2}=\frac{1}{2}mgs$$
+$$\frac{1}{2}mgs=\frac{3}{2}mv_A^2$$
+两边对时间求导
+$$a_A=\frac{1}{6}g$$
+## 第十三章 达朗贝尔原理
+### 质点系的达朗贝尔原理
+作用在质点系上的所有外力与所有质点的惯性力系在形式上组成平衡力系
+平衡条件：
+$$\begin{cases}\sum\vec{F}_i^{(e)}+\vec{F}_{Ii}=0\\\sum\vec{M}_O(\vec{F}^{(e)})+\sum\vec{M}_O(\vec{F}_{(Ii)})=0\end{cases}$$
+### 刚体惯性力系向任一点的简化
+惯性力系下惯性力的主矢与简化中心无关，主矩与简化中心有关
+$$\begin{cases}\sum\vec{F}_{IR}=-m\vec{a}_C\\\sum\vec{M}_{IO}=-\dfrac{d(\vec{L}_O)}{dt}\end{cases}$$
+|刚体运动形式|简化中心|简化结果|
+|-|-|-|
+|平移|质心C|$\begin{cases}\vec{F}_{IC}=-ma_C \\ \vec{M}_{IC}=0\end{cases}$|
+|定轴转动（对于具有质量对称平面的刚体），转轴Z与对称平面交点O不过质心|交点O|$\begin{cases}\vec{F}_{IR}^\tau=-ma_C^\tau \\ \vec{F}_{IR}^n=-ma_C^n\\\vec{M}_{IZ}=-J_z\alpha\end{cases}$|
+|转轴Z与对称平面交点O过质心|质心C|$\begin{cases}\vec{F}_{IC}=0 \\ \vec{M}_{IC}=-J_z\alpha\end{cases}$|
+|平面运动|质心C|$\begin{cases}\vec{F}_{IC}=-ma_C \\ \vec{M}_{IC}=-J_C\alpha\end{cases}$|
+## 第十四章 虚位移原理
+在质点系的任何虚位移中，所有约束力所做虚功之和为0，称这类约束为理想约束。
+### 常见的理想约束
+光滑面约束，光滑铰链约束，二力杆、不可伸长的柔索、细绳等，固定端约束，活动铰链支座约束、固定铰链支座约束
