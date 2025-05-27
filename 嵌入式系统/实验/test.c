@@ -1,31 +1,47 @@
-#include "stm32xxxx.h" // 根据具体芯片型号包含头文件
+#include "stm32f10x.h"
 
-volatile static uint32_t ms_delay; // 声明为volatile防止编译器优化
-
-// SysTick中断服务函数
-void SysTick_Handler(void)
+void delay_ms(int ms)
 {
-    if (ms_delay > 0)
+    int i;
+    while(ms--)
     {
-        ms_delay--;
+        i=7500;
+        while(i--);
     }
 }
 
-// 延时函数
-void Delay_ms(uint32_t ms)
+int main()
 {
-    ms_delay = ms;
-    while (ms_delay > 0)
-    {
-        __WFI(); // 进入休眠模式，等待中断唤醒（不会占用CPU资源）
-    }
-}
+    int count = 0;
 
-// 系统时钟配置时初始化SysTick（通常在SystemInit()中）
-void SysTick_Init(void)
-{
-    SysTick->LOAD = (SystemCoreClock / 1000) - 1; // 设置1ms重载值
-    SysTick->VAL = 0;                             // 清除当前值
-    SysTick->CTRL = SysTick_CTRL_TICKINT_Msk |    // 启用中断
-                    SysTick_CTRL_ENABLE_Msk;      // 启动定时器
+    RCC->APB2ENR |=(1<<3);
+    RCC->APB2ENR |=(1<<6);
+    GPIOB->CRL &=0xFF0FFFFF;
+    GPIOE->CRL &=0xFF0FFFFF;
+    GPIOB->CRL |=0x00300000;
+    GPIOE->CRL |=0x00300000;
+  
+    while(1)
+    {
+        if(count < 5)
+        {
+            GPIOB->ODR |=1<<5;
+            GPIOE->ODR |=1<<5;
+            delay_ms(1000);
+            GPIOB->ODR &=~(1<<5);
+            GPIOE->ODR &=~(1<<5);
+            delay_ms(1000);
+            count++;
+        }
+        else
+        {
+            GPIOB->ODR |=1<<5;
+            GPIOE->ODR &=~(1<<5);
+            delay_ms(1000);
+            GPIOE->ODR |=1<<5;
+            GPIOB->ODR &=~(1<<5);
+            delay_ms(1000);
+        }
+    }
+    return 1;
 }
