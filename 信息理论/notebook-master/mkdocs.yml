@@ -1,0 +1,428 @@
+nav:
+  - 首页:
+    - home: index.md
+    - 朋友们！: ./Friends.md
+  - 基础课程:
+    - ./Fundemental/index.md
+    - 离散数学及其应用:
+      - ./Fundemental/Discrete-Mathematics-And-Its-Applications/index.md
+      - Chapter.1-The Foundations: ./Fundemental/Discrete-Mathematics-And-Its-Applications/Chapter1.md
+      - Chapter.4-The Number Theory and Cryptography: ./Fundemental/Discrete-Mathematics-And-Its-Applications/Chapter4.md
+      - Chapter.5-Induction and Recursion: ./Fundemental/Discrete-Mathematics-And-Its-Applications/Chapter5.md
+      - Chapter.6-Counting: ./Fundemental/Discrete-Mathematics-And-Its-Applications/Chapter6.md
+      - Chapter.8-Advanced Counting Techniques: ./Fundemental/Discrete-Mathematics-And-Its-Applications/Chapter8.md
+      - Chapter.9-Relations: ./Fundemental/Discrete-Mathematics-And-Its-Applications/Chapter9.md
+      - Chapter.10-Graphs: ./Fundemental/Discrete-Mathematics-And-Its-Applications/Chapter10.md
+      - Chapter.11-Trees: ./Fundemental/Discrete-Mathematics-And-Its-Applications/Chapter11.md
+    - 数学建模:
+      - ./Fundemental/Mathematical-Modeling/index.md
+      - 01 秘密共享: ./Fundemental/Mathematical-Modeling/01-Secret.md
+      - 02 搜索引擎的PageRank模型: ./Fundemental/Mathematical-Modeling/02-PageRank.md
+      - 03 Nim游戏: ./Fundemental/Mathematical-Modeling/03-NimGame.md
+      - 04 组合群式 - 伪币辨识: ./Fundemental/Mathematical-Modeling/04-FakeCoin.md
+      - 05 随机模型:
+        - 概率群式 - 疾病检测: ./Fundemental/Mathematical-Modeling/05-Disease.md
+        - 概率论 - MontyHall: ./Fundemental/Mathematical-Modeling/06-MontyHall.md
+        - 期望 - 赠券收集: ./Fundemental/Mathematical-Modeling/07-Coupon.md
+        - 随机过程 - 赌徒破产 & Pascal: ./Fundemental/Mathematical-Modeling/08-Gambler.md
+      - 06 秘书问题: ./Fundemental/Mathematical-Modeling/09-Secretary.md
+      - 07 安全观演: ./Fundemental/Mathematical-Modeling/10-Show.md
+      - 08 差分方程模型:
+        - 蛛网模型: ./Fundemental/Mathematical-Modeling/11-Spider.md
+        - 种群增长模型: ./Fundemental/Mathematical-Modeling/12-Population.md
+      - 09 常微分方程模型: 
+        - 追逐问题: ./Fundemental/Mathematical-Modeling/13-Chase.md
+        - 最速降线问题: ./Fundemental/Mathematical-Modeling/14-Brachistochrone.md
+        - 生物数学模型:
+          - 种群数量变化模型: ./Fundemental/Mathematical-Modeling/15-PopulationChange.md
+          - 传染病模型: ./Fundemental/Mathematical-Modeling/16-InfectiousDisease.md
+          - 种间关系模型: ./Fundemental/Mathematical-Modeling/17-Interactions.md
+      - 10 数学规划: 
+        - 数学规划建模: ./Fundemental/Mathematical-Modeling/18-MathematicalProgramming.md
+        - 案例一：赛程编制: ./Fundemental/Mathematical-Modeling/19-Schedule.md
+        - 案例二：支持向量机: ./Fundemental/Mathematical-Modeling/20-SVM.md
+        - 数学规划求解: ./Fundemental/Mathematical-Modeling/21-Solve.md
+        - 多目标规划: ./Fundemental/Mathematical-Modeling/22-MultiObjective.md
+      - 11 组合优化: ./Fundemental/Mathematical-Modeling/23-CombinatorialOptimization.md
+      - 12 图论模型: ./Fundemental/Mathematical-Modeling/24-GraphTheory.md
+      - 13 博弈论模型: ./Fundemental/Mathematical-Modeling/25-GameTheory.md
+      - X - 神经网络模型: ./Fundemental/Mathematical-Modeling/Neural-Networks.md
+      - Chapter * ALL: 
+        - ./Fundemental/Mathematical-Modeling/ALL-SUM_index.md
+        - 网页版（较为卡顿）: ./Fundemental/Mathematical-Modeling/ALL-SUM.md
+
+    - 概率论与数理统计: 
+      - ./Fundemental/Probability-and-Mathematical-Statistics/index.md
+      - 1. 概率论的基本概念: ./Fundemental/Probability-and-Mathematical-Statistics/Chap01.md
+      - 2. 随机变量及其概率分布: ./Fundemental/Probability-and-Mathematical-Statistics/Chap02.md
+      - 3. 多维随机变量及其分布: ./Fundemental/Probability-and-Mathematical-Statistics/Chap03.md
+      - 4. 随机变量的数字特征: ./Fundemental/Probability-and-Mathematical-Statistics/Chap04.md
+      - 5. 大数定律与中心极限定理: ./Fundemental/Probability-and-Mathematical-Statistics/Chap05.md
+      - 6. 统计量与抽样分布: ./Fundemental/Probability-and-Mathematical-Statistics/Chap06.md
+      - 7. 参数估计: ./Fundemental/Probability-and-Mathematical-Statistics/Chap07.md
+      - 8. 假设检验: ./Fundemental/Probability-and-Mathematical-Statistics/Chap08.md
+    - 大学物理（乙）II: ./Fundemental/Physics-II/index.md
+    - 信息理论:
+      - ./Fundemental/Information-Theory/index.md
+      - 00-引入: ./Fundemental/Information-Theory/Preface.md
+      - 01-信息的度量: 
+        - 随机变量的熵和互信息: ./Fundemental/Information-Theory/Chapter2-1.md
+        - 连续随机变量的互信息和微分熵: ./Fundemental/Information-Theory/Chapter2-2.md
+        - 平稳离散信源的熵: ./Fundemental/Information-Theory/Chapter2-3.md
+        - 作业: ./Fundemental/Information-Theory/HW2.md
+      - 02-信息的无损压缩:
+        - 等长编码: ./Fundemental/Information-Theory/Chapter3-1.md
+        - 不等长编码: ./Fundemental/Information-Theory/Chapter3-2.md
+        - 几种不等长编码: ./Fundemental/Information-Theory/Chapter3-3.md 
+        - 作业: ./Fundemental/Information-Theory/HW3.md
+      - All: ./Fundemental/Information-Theory/IT_AllSum.md
+  - 校内CS课程: 
+    - ./CS/index.md
+
+    - 数值分析:
+      - ./CS/NA/index.md
+      - Chapter 1 Mathematical Preliminaries: ./CS/NA/Chapter_01.md
+      - Chapter 2 Solutions of Equations in One Variable: ./CS/NA/Chapter_02.md
+      - Chapter 6 Direct Methods for Solving Linear Systems: ./CS/NA/Chapter_06.md
+      - Chapter 7 Iterative Techniques in Matrix Algebra: ./CS/NA/Chapter_07.md
+      - Chapter 9 Approximating Eigenvalues: ./CS/NA/Chapter_09.md
+      - Chapter 3 Interpolation and Polynomial Approximation: ./CS/NA/Chapter_03.md
+      - Chapter 8 Approximation Theory: ./CS/NA/Chapter_08.md
+      - Chapter 4 Numerical Differentiation and Integration: ./CS/NA/Chapter_04.md
+      - Chapter 5 Initial-Value Problems for Ordinary Differential Equations: ./CS/NA/Chapter_05.md
+      - Chapter * ALL: 
+        - ./CS/NA/ALL-SUM_index.md
+        - 网页版（较为卡顿）: ./CS/NA/ALL-SUM.md
+    - 人工智能初步:
+      - ./CS/AI_Start/index.md
+      - Note 01-AI数学基础:
+        - 矩阵导数运算: ./CS/AI_Start/Note01-diff.md
+    - 数字逻辑设计:
+      - ./CS/DigitalDesign/index.md
+      - Glossary: ./CS/DigitalDesign/glossary.md
+      - Chap 00-Introduction: ./CS/DigitalDesign/Chap00.md
+      - Chap 01-Digital Systems and Information: ./CS/DigitalDesign/Chap01.md
+      - Chap 02-Combinational Logic Circuits: 
+        - ./CS/DigitalDesign/Chap02/index.md
+        - 布尔代数与逻辑运算: ./CS/DigitalDesign/Chap02/Chap02_1.md
+        - 电路实现与优化: ./CS/DigitalDesign/Chap02/Chap02_2.md
+        - 逻辑门补充: ./CS/DigitalDesign/Chap02/Chap02_3.md
+      - Chap 03-Combinational Logic Design: 
+        - ./CS/DigitalDesign/Chap03/index.md
+        - 技术实现和逻辑设计: ./CS/DigitalDesign/Chap03/Chap03_1.md
+        - 组合功能模块: ./CS/DigitalDesign/Chap03/Chap03_2.md
+        - 算术函数: ./CS/DigitalDesign/Chap03/Chap03_3.md
+      - Chap 04-Sequential Circuits: 
+        - ./CS/DigitalDesign/Chap04/index.md
+        - 存储元件与时序电路分析: ./CS/DigitalDesign/Chap04/Chap04_1.md
+        # - 时序电路设计: ./CS/DigitalDesign/Chap04/Chap04_2.md
+      - Chap 05-Digital Hardware Implementation: ./CS/DigitalDesign/Chap05.md
+      # - Chap 06-Registers & Register Transfers: ./CS/DigitalDesign/Chap06.md
+      # - Chap 07-Memory Basics: ./CS/DigitalDesign/Chap07.md
+    - 图像信息处理:
+      - ./CS/DIP/index.md
+      - 01-成像与图像的基本属性: ./CS/DIP/dip1.md
+      - 02-二值图像与形态学: ./CS/DIP/dip2.md
+      - 03-图像灰度变换: ./CS/DIP/dip3.md
+      - 04-几何变换: ./CS/DIP/dip4.md
+      - 05-卷积和滤波: ./CS/DIP/dip5.md
+      - 06-傅里叶变换: ./CS/DIP/dip6.md
+      - 07-图像特征检测和提取: ./CS/DIP/dip7.md
+      - 08-深度学习: ./CS/DIP/dip8.md
+      - Final: ./CS/DIP/dip-final.md
+    - 数据结构基础:
+      - ./CS/FDS/index.md
+      - 01-算法/数据结构是什么？: ./CS/FDS/chapter_1_what_is_dsa/what_is_dsa.md
+      - 02-迭代与递归: ./CS/FDS/chapter_2_iteration_and_recursion/iteration_and_recursion.md
+      - 03-复杂度分析: 
+        - 算法效率评估: ./CS/FDS/chapter_3_complexity_analysis/performance_evaluation.md
+        - 时间复杂度: ./CS/FDS/chapter_3_complexity_analysis/time_complexity.md
+        - 空间复杂度: ./CS/FDS/chapter_3_complexity_analysis/space_complexity.md
+        - 小结: ./CS/FDS/chapter_3_complexity_analysis/summary.md
+      - 04-数据结构与数据类型总览:
+        - ./CS/FDS/chapter_4_DS&DT/index.md
+        - 数据结构分类: ./CS/FDS/chapter_4_DS&DT/classification_of_data_structure.md
+        - 基本数据类型: ./CS/FDS/chapter_4_DS&DT/basic_data_types.md
+        - 小结: ./CS/FDS/chapter_4_DS&DT/summary.md
+      - 05-表 | The List ADT: 
+        - 表: ./CS/FDS/chapter_5_array_and_linked_list/list.md
+        - 数组: ./CS/FDS/chapter_5_array_and_linked_list/array.md
+        - 链表: ./CS/FDS/chapter_5_array_and_linked_list/linked_list.md
+        - 小结: ./CS/FDS/chapter_5_array_and_linked_list/summary.md
+      - 06-栈与队列 | The Stack and Queue ADTs:
+        - 栈: ./CS/FDS/chapter_6_stack_and_queue/stack.md
+        - 队列: ./CS/FDS/chapter_6_stack_and_queue/queue.md
+        - 双向队列: ./CS/FDS/chapter_6_stack_and_queue/deque.md
+        - 环形队列: ./CS/FDS/chapter_6_stack_and_queue/circular_queue.md
+        - 小结: ./CS/FDS/chapter_6_stack_and_queue/summary.md
+      - 07-树 | The Tree ADT:
+        - 二叉树: ./CS/FDS/chapter_7_tree/binary_tree.md
+        - 二叉树遍历: ./CS/FDS/chapter_7_tree/binary_tree_traversal.md
+      # - 08-堆 | The Heap ADT: 
+      - 09-并查集 | The Disjoint Set ADT: ./CS/FDS/set.md
+    - 人工智能前沿:
+      - ./CS/AI/index.md
+      # - 知识表达与推理: ./CS/AI/Chapter02.md
+      - 搜索探寻与问题求解: 
+        - 搜索基本概念: ./CS/AI/搜索探寻与问题求解/搜索基本概念.md
+        - 贪婪最佳优先搜索: ./CS/AI/搜索探寻与问题求解/贪婪最佳优先搜索.md
+        - A-star搜索: ./CS/AI/搜索探寻与问题求解/A-star搜索.md
+        - Minimax搜索: ./CS/AI/搜索探寻与问题求解/Minimax搜索.md
+        - alpha-beta剪枝: ./CS/AI/搜索探寻与问题求解/alpha-beta剪枝.md
+        - 蒙特卡洛树搜索: ./CS/AI/搜索探寻与问题求解/蒙特卡洛树搜索.md
+      - 机器学习:
+        - 基本概念: ./CS/AI/机器学习/基本概念.md
+        - 回归分析: ./CS/AI/机器学习/回归分析.md
+        - 决策树: ./CS/AI/机器学习/决策树.md
+        - k均值聚类: ./CS/AI/机器学习/k均值聚类.md
+        - LDA: ./CS/AI/机器学习/LDA.md
+        - PCA: ./CS/AI/机器学习/PCA.md
+        - 特征人脸法: ./CS/AI/机器学习/特征人脸法.md
+        - 演化算法: ./CS/AI/机器学习/演化算法.md
+      - 神经网络与深度学习:
+        - 概述: ./CS/AI/神经网络与深度学习/概述.md
+        - 神经网络参数优化: ./CS/AI/神经网络与深度学习/神经网络参数优化.md
+        - 神经网络正则化: ./CS/AI/神经网络与深度学习/神经网络正则化.md
+        - 卷积神经网络: ./CS/AI/神经网络与深度学习/卷积神经网络.md
+        - 循环神经网络: ./CS/AI/神经网络与深度学习/循环神经网络.md
+        - 注意力机制: ./CS/AI/神经网络与深度学习/注意力机制.md
+      - 强化学习:
+        - 基本概念: ./CS/AI/强化学习/基本概念.md
+        - 马尔可夫决策过程: ./CS/AI/强化学习/马尔可夫决策过程.md
+        - 强化学习问题定义: ./CS/AI/强化学习/强化学习问题定义.md
+        - 强化学习方法: ./CS/AI/强化学习/强化学习方法.md
+      - 人工智能博弈:
+        - 基本概念: ./CS/AI/人工智能博弈/基本概念.md
+        - 纳什均衡: ./CS/AI/人工智能博弈/纳什均衡.md
+        - 人工智能与博弈论: ./CS/AI/人工智能博弈/人工智能与博弈论.md
+      - 人工智能伦理与安全:
+        - 人工智能伦理: ./CS/AI/人工智能伦理与安全/人工智能伦理.md
+        - 人工智能可解释性: ./CS/AI/人工智能伦理与安全/人工智能可解释性.md
+        - 人工智能模型安全: ./CS/AI/人工智能伦理与安全/人工智能模型安全.md
+      # ./CS/AI/Lec02.md
+    - 计算摄影学:
+      - ./CS/Computational_Photography/index.md
+      - 颜色空间、图像的数字化、滤波与频域变换: ./CS/Computational_Photography/lec01.md
+      - 泊松图像编辑与交互式数字蒙太奇: ./CS/Computational_Photography/lec02.md
+      - 交互式图像分割与抠像: 
+        - ./CS/Computational_Photography/lec03.md
+        - 常用模型: ./CS/Computational_Photography/lec03-1.md
+        - 交互式图像分割算法: ./CS/Computational_Photography/lec03-2.md
+        - 抠像算法: ./CS/Computational_Photography/lec03-3.md
+        - 基于深度学习的图像分割: ./CS/Computational_Photography/lec03-4.md
+        - 基于深度学习的扣像: ./CS/Computational_Photography/lec03-5.md
+      - 非线性优化: ./CS/Computational_Photography/lec04.md
+      - 深度学习: ./CS/Computational_Photography/lec05.md
+      - Appendix:
+        - Hammersley-Clifford定理的证明: ./CS/Computational_Photography/Hammersley-Clifford.md
+    - 多媒体技术:
+      - ./CS/MM/index.md
+      - 01-Introduction to Multimedia: ./CS/MM/Lec01.md
+      - 02-Graphics and Image Data Representations: 
+        - Graphics and Image Data Types: ./CS/MM/Lec02_1.md
+        - Popular File Formats: ./CS/MM/Lec02_2.md
+      - 03-Color in Image and Video: ./CS/MM/Lec03.md
+      - 04-Fundamental Concepts in Video: ./CS/MM/Lec04.md
+      - 05-Basics of Digital Audio: ./CS/MM/Lec05.md
+      - 06-Lossless Compression Algorithms: ./CS/MM/Lec06.md
+      - 07-Lossy Compression Algorithms: ./CS/MM/Lec07.md
+      - 08- Image Compression Standards: ./CS/MM/Lec08.md
+  - 校外CS课程: 
+    - ./CS_Online/index.md
+    - ML-4360:
+      - ./CS_Online/ML-4360/index.md
+      - Note 01 introduction: ./CS_Online/ML-4360/Lec1/Note_1_introduction.md
+      - Note 02 Image Formation: 
+        - ./CS_Online/ML-4360/Lec2/index.md
+        - Note 2-1 Primitives and Transformations: ./CS_Online/ML-4360/Lec2/Note 2-1 Primitives and Transformations.md
+        - Note 2-2 Geometric Image Formation: ./CS_Online/ML-4360/Lec2/Note 2-2 Geometric Image Formation.md
+        - Note 2-3 Photometric Image Formation: ./CS_Online/ML-4360/Lec2/Note 2-3 Photometric Image Formation.md
+        - Note 2-4 Image Sensing Pipeline: ./CS_Online/ML-4360/Lec2/Note 2-4 Image Sensing Pipeline.md
+        - Maths Basic-SVD: ./CS_Online/ML-4360/Lec2/Math Basic SVD.md
+        - HW1.1 Pen and Paper: ./CS_Online/ML-4360/Lec2/HW1.1 Pen and Paper.md
+
+      - Note 03 Structure from Motion:
+        - ./CS_Online/ML-4360/Lec3/index.md
+        - Note 3-1 Preliminaries: ./CS_Online/ML-4360/Lec3/Note 3-1 Preliminaries.md
+    - 李宏毅《机器学习》:
+      - ./CS_Online/ML_Lhy/index.md
+      - 学习计划: ./CS_Online/ML_Lhy/Plan.md
+      - Introduction of Machine / Deep Learning: ./CS_Online/ML_Lhy/Lec01.md
+  - 杂项:
+    - ./Mess/index.md
+    - 《数字图像处理编程入门》: ./Mess/DIP-C/index.md
+    - ESG商赛: 
+      - 论文阅读: ./Mess/ESG/Paper.md
+      - APP: ./Mess/ESG/APP.md
+    - 马原:
+      - ./Mess/Marxism/index.md
+      - 双十一: ./Mess/Marxism/11.md
+      - 评价体系: ./Mess/Marxism/Max.md
+    - NLP:
+      - CBOW: ./Mess/NLP/CBOW.md
+
+
+
+copyright: Copyright &copy; 2023 Jiepeng Jin
+
+site_name: "Jiepeng's notes"
+site_url: https://jiepenglab.github.io/notebook/
+repo_name: JiepengLab/notebook
+repo_url: https://github.com/JiepengLab/notebook
+
+theme:
+  name: material
+
+  palette: 
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent:  teal
+      toggle:
+        icon: material/brightness-4
+        name: 切换至日间模式
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: brown
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: 切换至夜间模式
+
+  features:
+    # - header.autohide #自动隐藏头栏
+    # - announce.dismiss # 公告栏
+    # - navigation.instant #这玩意跟公式爆了
+    - navigation.tracking # 在url中使用标题定位锚点
+    - navigation.path # 显示当前路径
+    - navigation.prune # 侧边栏自动折叠
+    - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
+    # - navigation.tabs.sticky # 滚动是隐藏顶部nav，需要配合navigation.tabs使用
+    - navigation.indexes # 指定节点index pages ，跟instant不兼容
+    - navigation.top # 一键回顶部
+    - navigation.footer # 底部导航
+    - search.highlight # 搜索高亮
+    - search.suggest # 搜索建议
+    - toc.follow # toc 跟随
+    - content.code.annotate # 代码行号
+    - content.code.copy # 代码复制
+
+  language: 'zh'
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  logo: ./images/logo.png
+  favicon: ./images/icon.jpg
+
+plugins:
+  - statistics:
+      words_per_minute: 200
+  - search:
+      lang:
+        - zh
+        - en
+        - ja
+      separator: '[\s\u200b\-]'
+#  - glightbox #git action跑不起来
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      locale: zh
+      enable_creation_date: true
+      exclude:
+        - index.md
+  # - heti: 
+  #   disable_serve: false
+  #   extra_skipped_class:
+  #     - arithmatex
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/JiepengLab
+      name: Jiepeng's Lab
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - tables
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 5
+      permalink_title: 点击此处可置顶内容
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+
+extra_css:
+  - assets/stylesheets/extra.css
+  - assets/stylesheets/glightbox.min.css
+  - assets/stylesheets/galaxy.css
+  - assets/stylesheets/charging.css
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+# - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css
+# - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css
+# - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+
+extra_javascript:
+  - assets/javascripts/katex.js 
+  - assets/javascripts/mathjax.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - assets/javascripts/titlechange.js
+  - assets/javascripts/glightbox.min.js
+  - assets/javascripts/click.js
+  - assets/javascripts/galaxy.js
+
+
