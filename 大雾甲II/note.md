@@ -8,6 +8,7 @@ $$\mathbf{F} = \frac{1}{4\pi\epsilon_0}\frac{q_1q_2}{r_{12}^2}\mathbf{e_{12}}$$
 定义电偶极矩$\mathbf{p_e}=q\mathbf{l}$，$\mathbf{l}$的方向由负电荷指向正电荷
 电偶极子中垂线上距两电荷中点$O$距离为$x$处的场强为
 $$\mathbf{E}=-\frac{1}{4\pi \epsilon_0}\frac{\mathbf{p_e}}{x^3}$$
+### 常见场强公式
 
 #### 均匀带电直线外任意一点的场强（2021 T12）
 <img src="./pic/line.jpg" width=400 align=right></img>
@@ -21,6 +22,41 @@ $$dE=\frac{1}{4\pi\epsilon_0}\frac{qdx}{Lr^2}$$
 $$\displaystyle E_x=\int dE_x=\int dE\cos\theta=\int\frac{1}{4\pi\epsilon_0}\frac{q\cos\theta}{Lr^2}dx\\\displaystyle E_y=\int dE_y=\int dE\sin\theta=\int\frac{1}{4\pi\epsilon_0}\frac{q\sin\theta}{Lr^2}dx$$
 $$r=\frac{a}{\sin\theta},x=-a\cot\theta,dx=\frac{a}{\sin^2\theta}d\theta$$
 $$\displaystyle E_x=\int^{\theta_2}_{\theta_1}\frac{q}{4\pi L\epsilon_0 a}\cos\theta d \theta=\frac{q}{4\pi L\epsilon_0 a}(\sin\theta_2-\sin\theta_1)\\\displaystyle E_y=\int^{\theta_2}_{\theta_1}\frac{q}{4\pi L\epsilon_0 a}\sin\theta d \theta=\frac{q}{4\pi L\epsilon_0 a}(\cos\theta_1-\cos\theta_2)$$
+
+#### 常见带电体的电场强度公式
+
+##### 均匀带电球面
+总电量为$Q$，半径为$R$的均匀带电球面：
+$$E = \begin{cases}
+\dfrac{Q}{4\pi\epsilon_0r^2}, & \text{球面外}\\
+0, & \text{球面内}
+\end{cases}$$
+
+##### 均匀带电球体
+总电量为$Q$，半径为$R$的均匀带电球体：
+$$E = \begin{cases}
+\dfrac{Q}{4\pi\epsilon_0r^2}, & r>R\\
+\dfrac{Qr}{4\pi\epsilon_0R^3}, & r<R
+\end{cases}$$
+
+##### 无限长均匀带电圆柱面
+线电荷密度为$\lambda$，半径为$R$的无限长均匀带电圆柱面：
+$$E = \begin{cases}
+\dfrac{\lambda}{2\pi\epsilon_0r}, & \text{柱面外}\\
+0, & \text{柱面内}
+\end{cases}$$
+
+##### 无限长均匀带电圆柱体
+线电荷密度为$\lambda$，半径为$R$的无限长均匀带电圆柱体：
+$$E = \begin{cases}
+\dfrac{\lambda}{2\pi\epsilon_0r}, & \text{柱体外}\\
+\dfrac{r\lambda}{2\pi\epsilon_0R^2}, & \text{柱体内}
+\end{cases}$$
+
+##### 无限大均匀带电平面
+面电荷密度为$\sigma$的无限大均匀带电平面：
+$$E = \frac{\sigma}{2\epsilon_0}$$
+
 ### 电通量
 $$\Phi_e =\displaystyle\int_s\mathbf{E} \cdot d \mathbf{S}$$
 ### 高斯定理
@@ -34,6 +70,12 @@ $$\Phi_e = \displaystyle\int_s\mathbf{E} \cdot d \mathbf{S}=\frac{1}{\epsilon_0}
 $$U(r)=\begin{cases}
 \dfrac{q}{4\pi \epsilon_0 R},r\leq R\\
     \dfrac{q}{4\pi \epsilon_0 r},r>R
+\end{cases}$$
+#### 均匀带电球体
+半径为$R$，总电量为$q$的均匀带电球体形成电场中电势的分布情况为
+$$U(r)=\begin{cases}
+\dfrac{q}{4\pi\epsilon_0 r}, & r>R\\
+\dfrac{q}{8\pi\epsilon_0 R}\left(3-\dfrac{r^2}{R^2}\right), & r\le R
 \end{cases}$$
 #### 电偶极子
 两点电荷为$\pm q$，相距为$l$的电偶极子电场中任一点$P$的电势
