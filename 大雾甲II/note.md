@@ -163,7 +163,7 @@ $$\mathbf{P}=\epsilon_0\chi_e\mathbf{E}=\epsilon_0(\epsilon_r-1)\mathbf{E}$$
 通过电场中任意闭合曲面的电位移通量，等于该闭合面所包围的自由电荷的代数和
 $$\oint\mathbf{D}d\mathbf{S}=\sum q_0$$
 其中$\mathbf{D}$为电位移
-$$\mathbf{D}=\epsilon\mathbf{E}+\mathbf{P}=(1+\chi_e)\epsilon_0\mathbf{E}=\epsilon_r\epsilon_0\mathbf{E}=\epsilon \mathbf{E}$$
+$$\mathbf{D}=\epsilon_0\mathbf{E}+\mathbf{P}=(1+\chi_e)\epsilon_0\mathbf{E}=\epsilon_r\epsilon_0\mathbf{E}=\epsilon \mathbf{E}$$
 其中$\epsilon$称为电介质的介电常数或电容率
 ### 电场的能量
 #### 能量密度积分法
