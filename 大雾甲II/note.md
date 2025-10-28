@@ -205,3 +205,30 @@ $$\Delta U = E\Delta l = j\Delta S\Delta R$$
 $$j=\frac{\Delta l}{\Delta R\Delta S}E=\frac{1}{\rho}E=\gamma E$$
 矢量形式为$$\mathbf{j}=\gamma \mathbf{E}$$
 $\gamma$为导体的电导率
+## 第十二章 稳恒磁场
+### 洛伦兹力
+$$\mathbf{F}=q\mathbf{v}\times \mathbf{B}$$
+标量式为
+$$F=qvB\sin\theta$$
+其中$\theta$为速度矢量$\mathbf{v}$与磁感应强度矢量$\mathbf{B}$之间的夹角
+### 毕奥-萨伐尔定律
+<img src="./pic/06.png" width=200 align=right>
+
+在导线中沿电流方向取一长为$dl$的矢量线元$d\mathbf{l}$，此线元取得足够小，方向与线元内电流密度的方向相同，称$Id\mathbf{l}$为电流元。
+$$d\mathbf{B}=\frac{\mu_0}{4\pi}\frac{I d\mathbf{l}\times \mathbf{r}}{r^3}$$
+计算某点场强时积分即可。
+
+### 常见的稳恒磁场
+#### 长导线
+<img src="./pic/07.png" width=200 align=right>
+
+设真空中一长直导线$MN$中通有电流$I$。计算距导线为$a$的场点$P$的磁感应强度。
+
+取$P$点至导线的垂足$O$为坐标原点。在载流导线上任取一电流元，它在$P$点产生的磁感应强度$d\mathbf{B}$的大小为
+$$dB=\frac{\mu_0}{4\pi}\frac{Idl\sin\theta}{r^2}$$
+则有$P$点的磁感应强度为
+$$B=\int_L dB=\int_L \frac{\mu_0}{4\pi}\frac{Idl\sin\theta}{r^2}$$
+其中
+$$l=-\frac{a}{\tan\theta},r=\frac{a}{\sin\theta},dl = \frac{a}{\sin^2\theta}d\theta$$
+代入上式可以得到
+$$B=\int_{\theta_1}^{\theta_2} \frac{\mu_0 I}{4\pi a}=\frac{\mu_0 I}{4\pi a}(\cos\theta_1-\cos\theta_2)$$

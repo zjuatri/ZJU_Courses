@@ -14,11 +14,11 @@ $$X(s) = L[x(t)] \triangleq \int_{0}^{\infty} x(t)e^{-st} dt$$
 | 时间函数 | 象函数 (Laplace) |
 |:---:|:---:|
 | 单位脉冲函数$\delta(t)=\begin{cases}\displaystyle\lim_{t_{0}\to0}\dfrac{1}{t_{0}}, & 0<t<t_{0}\\[6pt]0, & t\ge t_{0}\end{cases}$ | $1$ |
-| 单位阶跃函数$l(t)=\begin{cases}0, & t<0\\[6pt]1, & t\ge 0\end{cases}$ | $\dfrac{1}{s}$ |
+| 单位阶跃函数$1(t)=\begin{cases}0, & t<0\\[6pt]1, & t\ge 0\end{cases}$ | $\dfrac{1}{s}$ |
 | $t^{n}\ (n\ge 0)$ | $\dfrac{n!}{s^{n+1}}$ |
 | $\sin(\omega t)$ | $\dfrac{\omega}{s^{2}+\omega^{2}}$ |
 | $\cos(\omega t)$ | $\dfrac{s}{s^{2}+\omega^{2}}$ |
-|  $e^{at}$ | $\dfrac{1}{s-a}$ |
+|  $e^{at}$（t<0时函数值为0） | $\dfrac{1}{s-a}$ |
 | 常数倍 $a\,x(t)$ | $a\,X(s)$ |
 | 叠加定理 $a\,x_{1}(t)+b\,x_{2}(t)$ | $a\,X_{1}(s)+b\,X_{2}(s)$ |
 | 微分 $\dfrac{d}{dt}x(t)$ | $s\,X(s)-x(0^{+})$ |
@@ -28,9 +28,9 @@ $$X(s) = L[x(t)] \triangleq \int_{0}^{\infty} x(t)e^{-st} dt$$
 #### 信号的截取与时移
 |图像|表达式|
 |:---:|:---:|
-|![](./img/1.png)|$f_1(t)=\sin(\omega t)\cdot l(t)$ |
-|![](./img/2.png)|$f_2(t)=\sin(\omega t)\cdot l(t-t_0)$ |
-|![](./img/3.png)|$f_3(t)=\sin\big(\omega (t-t_0)\big)\cdot l(t-t_0)$ |
+|![](./img/1.png)|$f_1(t)=\sin(\omega t)\cdot 1(t)$ |
+|![](./img/2.png)|$f_2(t)=\sin(\omega t)\cdot 1(t-t_0)$ |
+|![](./img/3.png)|$f_3(t)=\sin\big(\omega (t-t_0)\big)\cdot 1(t-t_0)$ |
 #### 拉氏变换的常用基本性质
 ##### 叠加原理
 若$L[f_1(t)]=F_1(s)$，$L[f_2(t)]=F_2(s)$，则有
@@ -108,15 +108,48 @@ $$G(s) = \frac{X_o(s)}{X_i(s)} = \frac{b_0 s^m + b_1 s^{m-1} + \cdots + b_{m-1}s
 
 |变换方式|原框图|等效|
 |:-:|:-:|:-:|
-|比较点前移|![](./img/13.png)|![](./img/14.png)|
-|比较点后移|![](./img/15.png)|![](./img/16.png)|
+|引出点前移|![](./img/13.png)|![](./img/14.png)|
+|引出点后移|![](./img/15.png)|![](./img/16.png)|
 
 1. 各**前向通路传递函数的乘积保持不变**；
 2. 各**反馈回路传递函数的乘积保持不变**
 
 ![alt text](image.png)
-如上图，前向通路指的就是“主干道”$G_!G_2G_3G_4$，反馈回路指的就是$G_2G_3G_5$这样的环，上图将$G_2G_3G_5$回路的引入点$D$调至$E$则得到下图
+如上图，前向通路指的就是“主干道”$G_1G_2G_3G_4$，反馈回路指的就是$G_2G_3G_5$这样的环，上图将$G_2G_3G_5$回路的引入点$D$调至$E$则得到下图
 ![alt text](image-1.png)
 为了使前向通路传递函数和反馈回路传递函数的乘积保持不变，在反馈回路中加入$\dfrac{1}{G_4}$的环节即可。
 
 方块图简化简单来说就是从小圈到大圈依次用上面“反馈”环节的公式进行化简知道最后得到传递函数。
+## 第三章 时域瞬态响应分析
+### 机电控制系统里的典型输入信号函数
+![](./img/17.png)
+### 一阶系统的瞬态响应
+能够用一阶微分方程（只含有未知函数的一阶导数的微分方程）描述的系统。它的典型形式是**一阶惯性环节**。
+$$X_i(s)\rightarrow\boxed{\dfrac{1}{Ts+1}}\rightarrow X_o(s)$$
+#### 单位脉冲响应
+<img src = './img/19.png' width = 30% align = right>
+
+$x_i(t) = \delta(t)\Rightarrow X_i(s) = 1$
+$X_o(s) = \dfrac{1}{Ts+1}=\dfrac{\dfrac{1}{T}}{s+\dfrac{1}{T}}\Rightarrow x_o(t) = (\dfrac{1}{T}e^{-\dfrac{1}{T}t})\cdot 1(t)$
+
+$t = T$时$e^{-\dfrac{1}{T}t}=0.368$，衰减了0.632
+
+#### 单位阶跃响应
+<img src = './img/18.png' width = 30% align = right>
+
+$x_i(t) = 1(t)\Rightarrow X_i(s) = \dfrac{1}{s}$
+$X_o(s)=\dfrac{1}{Ts+1}X_i(s)=\dfrac{1}{s(Ts+1)}=\dfrac{1}{s}-\dfrac{1}{s+\dfrac{1}{T}}\Rightarrow x_o(t)=(1-e^{-\dfrac{1}{T}t})\cdot 1(t)$
+
+
+1. 一阶惯性系统总是稳定的，无振荡;
+2. 经过时间T曲线上升到0.632的高度，据此用实验的方法测出响应曲线达到稳态
+值的63.2%高度点所用的时间，即是惯性环节的时间常数$T$;
+3. 经过时间$(3 \sim 4)T$，响应曲线已达稳态值的95%~98%，可以认为其调整过程已经
+基本完成·故一般取调整时间为$(3 \sim 4)T$；
+<img src = './img/20.png' width = 30% align = right>
+
+4. 在t=0处，响应曲线的切线斜率为$\dfrac{1}{T}$;
+
+#### 单位斜坡响应
+$\displaystyle X_{\mathrm{o}}(s)=\frac{X_{\mathrm{o}}(s)}{X_{\mathrm{i}}(s)} X_{\mathrm{i}}(s)=\frac{1}{T s+1}\frac{1}{s^{2}}=\frac{1}{s^{2}}-\frac{T}{s}+\frac{T}{s+\dfrac{1}{T}}$
+
