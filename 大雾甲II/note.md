@@ -219,7 +219,7 @@ $$d\mathbf{B}=\frac{\mu_0}{4\pi}\frac{I d\mathbf{l}\times \mathbf{r}}{r^3}$$
 计算某点场强时积分即可。
 
 ### 常见的稳恒磁场
-#### 长导线
+#### 载流长直导线
 <img src="./pic/07.png" width=200 align=right>
 
 设真空中一长直导线$MN$中通有电流$I$。计算距导线为$a$的场点$P$的磁感应强度。
@@ -231,4 +231,37 @@ $$B=\int_L dB=\int_L \frac{\mu_0}{4\pi}\frac{Idl\sin\theta}{r^2}$$
 其中
 $$l=-\frac{a}{\tan\theta},r=\frac{a}{\sin\theta},dl = \frac{a}{\sin^2\theta}d\theta$$
 代入上式可以得到
-$$B=\int_{\theta_1}^{\theta_2} \frac{\mu_0 I}{4\pi a}=\frac{\mu_0 I}{4\pi a}(\cos\theta_1-\cos\theta_2)$$
+$$\boxed{B=\int_{\theta_1}^{\theta_2} \frac{\mu_0 I}{4\pi a}=\frac{\mu_0 I}{4\pi a}(\cos\theta_1-\cos\theta_2)}$$
+对于**无限长直导线**，$\theta_1 = 0,\theta_2 = \pi$
+$$\boxed{B=\frac{\mu_0 I}{2\pi a}}$$
+#### 载流圆线圈
+<img src="./pic/08.png" width=200 align=right>
+
+设真空中有一圆形线圈，其半径为$R$，通有电流$I$。下面计算其轴线上$P$点处的磁感应强度。
+如右图，在载流圆线圈上任取一电流元，它在$P$点产生的磁感应强度$d\mathbf{B}$的大小为
+$$dB=\frac{\mu_0}{4\pi}\frac{Idl}{R^2+x^2}$$
+显然$dB_\perp$相互抵消，$dB_\parallel$互相加强。
+$$\boxed{B=\int dB\cos\alpha=\int^{2\pi R}_0 \frac{\mu_0}{4\pi}\frac{I}{R^2+x^2}\frac{R}{\sqrt{R^2+x^2}}dl =\frac{\mu_0IR^2}{2({R^2+x^2)^{\frac{3}{2}}}}}$$
+#### 载流直螺线管
+<img src="./pic/10.png" width=300 align=right>
+
+对于点$P$，
+$$B = \frac{\mu_0}{2}nI(\cos\beta_2-\cos\beta_1)$$
+螺线管无限长时$\beta_1=\pi,\beta_2 = 0$
+$$B=\mu_0 n I$$
+螺线管的两个端点，相应的有$\beta_1\rightarrow \dfrac{\pi}{2},\beta_2\rightarrow 0$和$\beta_1\rightarrow \pi,\beta_2\rightarrow \dfrac{\pi}{2}$，两种情况都有
+$$B = \frac{\mu_0 n I}{2}$$
+#### 载流导体薄板
+无限大导体薄板可视为无限长直导线。
+$$\boxed{B=\frac{\mu_0 I}{2\pi a}}$$
+### 载流线圈的磁矩和磁偶极子
+<img src="./pic/09.png" width=150 align=right>
+
+将场点到场源的距离远大于线圈尺寸的载流线圈称为**磁偶极子**。
+
+假设上述载流圆线圈有$N$匝，且$x\gg R$，表达式可变为
+$$B = \frac{N\mu_0IR^2}{2x^3}=\frac{N\mu_0IS}{2\pi x^3}(S=\pi R^2)$$
+类似电偶极子的电矩，定义磁矩为
+$$\mathbf{p}_m=NIS\mathbf{e}_n$$，其中$\mathbf{e}_n$为线圈平面正法线方向上的单位矢量.
+引入磁矩后可以将磁感应强度表达式改写为
+$$\mathbf{B} = \frac{\mu_0 \mathbf{p}_m}{2\pi x^3}$$
