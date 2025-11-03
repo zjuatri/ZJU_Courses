@@ -265,3 +265,99 @@ $$B = \frac{N\mu_0IR^2}{2x^3}=\frac{N\mu_0IS}{2\pi x^3}(S=\pi R^2)$$
 $$\mathbf{p}_m=NIS\mathbf{e}_n$$，其中$\mathbf{e}_n$为线圈平面正法线方向上的单位矢量.
 引入磁矩后可以将磁感应强度表达式改写为
 $$\mathbf{B} = \frac{\mu_0 \mathbf{p}_m}{2\pi x^3}$$
+### 运动电荷的磁场
+<img src="./pic/11.png" width=250 align=right>
+
+在载流导体中取一长为$dl$的电流元，它的截面积为$S$，单位体积内有$n$个带电粒子，每个带电粒子的电量为$q$，以平均漂移速度在导体中运动,即$I=nqSv$
+$$d\mathbf{B}=\frac{\mu_0}{4\pi}\frac{Id\mathbf{l}\times \mathbf{r}}{r^3}=\frac{\mu_0}{4\pi}\frac{nqSv d\mathbf{l}\times \mathbf{r}}{r^3}$$
+电流元$dl$内有$dN=nSdl$个以速度运动着的带电粒子，电流元$Idl$所产生的磁场，就是$dN$个运动电荷产生的磁场的总和。因此，每一个以速度运动的电荷所产生的磁感应强度为
+$$\mathbf{B} = \frac{d\mathbf{B}}{dN}=\frac{\mu_0q\mathbf{v}\times \mathbf{r}}{4\pi r^3}$$
+磁感应强度方向如上图所示。
+### 磁通量
+<img src="./pic/12.png" width=250 align=right>
+
+$$\Phi_m = \int_S \mathbf{B} \cdot d\mathbf{S}$$
+在匀强磁场可以写成
+$$\Phi_m = B S \cos\theta$$
+取闭合曲面的外法线方向为法线正方向$\mathbf{n}$。在磁感应线穿出曲面处，$\mathbf{B}$与$\mathbf{n}$的夹角为锐角，相应的磁通量为正；在磁感应线穿入曲面处，$\mathbf{B}$与$\mathbf{n}$的夹角为钝角，通过该处的磁通量为负，如图所示。
+### 磁场的高斯定理
+磁场中任意闭合曲面的磁通量恒等于零，即
+$$\Phi_m = \oint_S \mathbf{B} \cdot d\mathbf{S} = 0$$
+### 安培环路定理
+在稳恒磁场中，磁感应强度$B$沿任意闭合回路的线积分，等于闭合回路所包围电流代数和的$\mu_0$倍，其数学表达式为
+$$\oint_L \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{内}$$
+### 常见的稳恒磁场2
+<img src="./pic/13.png" width=200 align=right>
+
+#### 无限长载流圆柱体
+$P$点在圆柱体外时：
+$$B\cdot 2\pi r = \mu_0 I$$
+$$B = \frac{\mu_0 I}{2\pi r}$$
+$P$点在圆柱体内时：
+$$B\cdot 2\pi r  = \mu_0 \frac{I r^2}{R^2}$$
+$$B = \frac{\mu_0 I r}{2\pi R^2}$$
+#### 载流螺绕环
+<img src="./pic/14.png" width=200 align=right>
+
+设螺绕环的总匝数为$N$，平均半径为$R$，导线中通过的电流为$I$，当环上线圈绕得很紧密时，磁场几乎全部集中在管内，在与环共轴的圆周上各点的磁感应强度的大小都相等，方向沿圆周切向。
+$$B\cdot 2\pi r = \mu_0 N I$$
+$$B = \frac{\mu_0 N I}{2\pi r}$$
+若环的截面半径比环的平均半径小得多，上式中的$r$可用平均半径$R$代替，则环内磁感应强度为
+$$B = \frac{\mu_0 N I}{2\pi R}$$
+对于螺绕环外的空间,穿过这个回路的总电流为零,故得
+$$B=0$$
+
+#### 无限长载流螺线管
+<img src="./pic/15.png" width=200 align=right>
+
+螺线管每单位长度有$n$匝
+$$\oint_L \mathbf{B} \cdot d\mathbf{l} = \int^b_a\mathbf{B}d\mathbf{l}+\int^c_b\mathbf{B}d\mathbf{l}+\int^d_c\mathbf{B}d\mathbf{l}+\int^a_d\mathbf{B}d\mathbf{l}=Bl=\mu_0 n l I$$
+$$B=\mu_0 n I$$
+### 安培力
+<img src="./pic/16.png" width=300 align=right>
+
+$$\mathbf{F} = \int^l_0 I d\mathbf{l} \times \mathbf{B}$$
+#### 安培力的特性
+如右图，作用在整个导线上的力与作用在通有同样电流，长度为$(2l+2R)$的直导线上的安培力相等。可以证明,无论中间一段导线的形状如何,其结果都一样。
+#### 长直导线之间的作用力
+<img src="./pic/17.png" width=300 align=right>
+
+每单位长度所受的力为
+
+$$\frac{dF_2}{dl_2}=\frac{\mu_0 I_1I_2}{2\pi d}$$
+电流同向相互吸引，异向相互排斥。
+在国际单位制中，电流强度是基本量，其单位“安培”就是利用平行电流间相互作用的安培力来定义的。
+#### 磁场对线圈的力矩
+<img src="./pic/18.png" width=200 align=right>
+
+取与线圈中电流方向成右螺旋关系的方向为线圈平面的法线矢量$n$的指向，线圈的面积为$S$，则磁场对线圈的力矩
+$$M = BIS\sin\theta$$
+写成矢量式，有
+$$\mathbf{M} = \mathbf{p}_m \times \mathbf{B}$$
+其中$\mathbf{p}_m = NIS\mathbf{e_n}$为线圈的磁矩。
+## 第十三章 磁场中的磁介质
+### 磁感应强度、磁化强度和磁场强度
+磁感应强度$\mathbf{B}$与磁场强度$\mathbf{H}$、磁化强度$\mathbf{M}$之间的关系为
+$$\mathbf{B}=\mu_0(\mathbf{H}+\mathbf{M})$$
+### 磁介质中的安培环路定理
+磁场强度$\mathbf{H}$沿任意闭合路径的环流,等于穿过该路径所围面积的传导电流的代数和。
+$$\oint_L \mathbf{H} \cdot d\mathbf{l} =  I_0$$
+### 磁化率
+对于各向同性的线性磁介质，磁化强度$\mathbf{M}$与磁场强度$\mathbf{H}$成正比，即
+$$\mathbf{M}=\chi_m \mathbf{H}$$
+其中$\chi_m$为磁介质的磁化率。
+### 磁导率
+由$$\mathbf{B}=\mu_0(\mathbf{H}+\mathbf{M})$$
+和$$\mathbf{M}=\chi_m \mathbf{H}$$
+可得
+$$\mathbf{B}=\mu_0(\mathbf{H}+\chi_m \mathbf{H})=\mu_0(1+\chi_m)\mathbf{H}$$
+定义$\mu_r = 1+\chi_m$为磁介质的相对磁导率。
+则有
+$$\mathbf{B}=\mu_0\mu_r \mathbf{H}=\mu \mathbf{H}$$
+其中$\mu = \mu_0\mu_r$为磁介质的磁导率。
+### 磁化电流线密度
+磁化电流线密度的定义是磁介质表面单位长度的磁化电流强度，即
+$$j_m = \frac{\Delta I_m}{l}$$
+磁介质表面上某处磁化强度在量值上等于该处磁化电流的线密度，即
+$$j_m = |\mathbf{M}|$$
+磁化电流流向与$\mathbf{M}$成右螺旋关系，即将右手拇指指向 $\mathbf{M}$ 的方向，四指环绕方向就是表面磁化电流的方向。
