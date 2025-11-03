@@ -24,7 +24,7 @@ $$X(s) = L[x(t)] \triangleq \int_{0}^{\infty} x(t)e^{-st} dt$$
 | 微分 $\dfrac{d}{dt}x(t)$ | $s\,X(s)-x(0^{+})$ |
 | 积分 $\displaystyle\int_{0}^{t} x(\tau)\,d\tau$ | $\dfrac{X(s)}{s}+\dfrac{x^{-1}(0^{+})}{s}$ |
 | 衰减定理 $e^{-at}x(t)$ | $X(s+a)$ |
-| 延时定理 $x(t-a)\cdot u(t-a)$ | $e^{-as}X(s)$ |
+| 延时定理 $x(t-a)\cdot 1(t-a)$ | $e^{-as}X(s)$ |
 #### 信号的截取与时移
 |图像|表达式|
 |:---:|:---:|
@@ -68,7 +68,7 @@ $$ \lim _{t \rightarrow \infty} f(t)=\lim _{s \rightarrow 0} s F(s) $$
 $$f(t) = 2e^{-3t}-e^{-2t}$$
 
 ### 传递函数
-传递函数为在零起始条件下，线性定常系统输出象函数$X_o(s)$与输入象函数$X_i(s)$之比
+传递函数为**在零起始条件**下，线性定常系统输出象函数$X_o(s)$与输入象函数$X_i(s)$之比
 $$G(s)\triangleq\frac{X_o(s)}{X_i(s)}$$
 
 具体地说，设线性定常系统的微分方程为：
@@ -153,3 +153,19 @@ $X_o(s)=\dfrac{1}{Ts+1}X_i(s)=\dfrac{1}{s(Ts+1)}=\dfrac{1}{s}-\dfrac{1}{s+\dfrac
 #### 单位斜坡响应
 $\displaystyle X_{\mathrm{o}}(s)=\frac{X_{\mathrm{o}}(s)}{X_{\mathrm{i}}(s)} X_{\mathrm{i}}(s)=\frac{1}{T s+1}\frac{1}{s^{2}}=\frac{1}{s^{2}}-\frac{T}{s}+\frac{T}{s+\dfrac{1}{T}}$
 
+#### 总结
+**系统对输入信号导数的响应，就等于系统对该输入信号响应的导数；**
+**系统对输入信号积分的响应，就等于系统对该输入信号响应的积分。**
+### 二阶系统的瞬态响应
+用二阶微分方程描述的系统称为二阶系统。它的典型形式是二阶振荡环节。
+$$X_i(s)\rightarrow\boxed{\dfrac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^2}}\rightarrow X_o(s)$$
+其中$\zeta$为阻尼比，$\omega_n$为无自振角频率
+
+则易知对于传递函数为$\dfrac{1}{Ms^2+Ds+k}$的二阶系统，有
+$$\zeta =\frac{D}{2\sqrt{Mk}},\omega_n = \sqrt{\frac{k}{M}}$$
+
+把$s^2 + 2\zeta \omega_n s + \omega_n^2=0$称为该二阶系统的特征方程，则两个特征根为$s_{1,2}=-\zeta \omega_n \pm  \omega_n\sqrt{\zeta^2-1}$
+
+根据$\zeta$和1的大小关系将系统分为欠阻尼、临界阻尼和过阻尼。
+#### 欠阻尼
+$0<\zeta<1$时为欠阻尼。特征根为两个具有负实部的共轭复根，时间响应振荡衰减，也称为二阶振荡环节 。根的实部是衰减系数，虚部是振荡周期。
