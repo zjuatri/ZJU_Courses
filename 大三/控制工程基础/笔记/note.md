@@ -164,8 +164,58 @@ $$X_i(s)\rightarrow\boxed{\dfrac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^
 则易知对于传递函数为$\dfrac{1}{Ms^2+Ds+k}$的二阶系统，有
 $$\zeta =\frac{D}{2\sqrt{Mk}},\omega_n = \sqrt{\frac{k}{M}}$$
 
-把$s^2 + 2\zeta \omega_n s + \omega_n^2=0$称为该二阶系统的特征方程，则两个特征根为$s_{1,2}=-\zeta \omega_n \pm  \omega_n\sqrt{\zeta^2-1}$
+把$s^2 + 2\zeta \omega_n s + \omega_n^2=0$称为该二阶系统的特征方程，则两个特征根为$s_{1,2}=-\zeta \omega_n \pm  j\omega_n\sqrt{1-\zeta^2}$
+
+将
 
 根据$\zeta$和1的大小关系将系统分为欠阻尼、临界阻尼和过阻尼。
-#### 欠阻尼
-$0<\zeta<1$时为欠阻尼。特征根为两个具有负实部的共轭复根，时间响应振荡衰减，也称为二阶振荡环节 。根的实部是衰减系数，虚部是振荡周期。
+
+|状态|$\zeta$大小|单位阶跃响应|特性|
+|:-:|:-:|:-:|:-:|
+|欠阻尼|$0<\zeta<1$|稳定衰减震荡|振荡，$\zeta$愈小，振荡愈严重但响应愈快|
+|临界阻尼|$\zeta = 1$|稳定单调上升|无振荡、无超调，过渡过程长;|
+|过阻尼|$\zeta > 1$|稳定单调上升|无振荡、无超调，过渡过程长;|
+|无阻尼|$\zeta = 0$|等幅周期振荡|等幅振荡|
+|负阻尼|$-1<\zeta < 0$|发散震荡上升|阶跃响应发散，系统不稳定|
+|负阻尼|$\zeta < -1$|发散单调上升|阶跃响应发散，系统不稳定|
+
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="./img/21.png" style="height: 300px;">
+  <img src="./img/22.png" style="height: 300px;">
+  <img src="./img/23.png" style="height: 300px;">
+</div>
+
+#### 单位阶跃响应
+|状态|单位阶跃响应|
+|:-:|:-:|
+|欠阻尼|$x_o(t) = 1 - \frac{e^{-\zeta \omega_n t}}{\sqrt{1-\zeta^2}} \sin(\omega_d t + \arctan \frac{\sqrt{1-\zeta^2}}{\zeta})$，其中**有阻尼自然频率**$\omega_d = \omega_n\sqrt{1-\zeta^2}$|
+|临界阻尼|$x_o(t) = 1 - (1+\omega_n t)e^{-\omega_n t}$|
+|过阻尼|$x_o(t) = 1 - \dfrac{s_1 e^{s_2 t} - s_2 e^{s_1 t}}{s_1 - s_2}$，其中$s_1$和$s_2$为特征方程的两个实根。|
+|零阻尼|$x_o(t) = 1 - \cos(\omega_n t)$|
+#### 时域瞬态响应性能指标
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+<div>
+
+|指标|公式|
+|:-:|:-:|
+|上升时间|$t_r = \dfrac{\pi - \arccos(\zeta)}{\omega_d}$|
+|峰值时间|$t_p = \dfrac{\pi}{\omega_d}$|
+|最大超调量|$M_p = e^{-\dfrac{\zeta \pi}{\sqrt{1-\zeta^2}}}$|
+|调节时间|$t_s \approx \dfrac{3}{\zeta \omega_n}(\Delta = \pm 5 \%)\\ t_s \approx \dfrac{4}{\zeta \omega_n}(\Delta = \pm 2 \%)$ |
+
+</div>
+<div>
+<img src="./img/24.png" width="500">
+</div>
+</div>
+
+## 第四章 控制系统频率特性
+### 系统频率响应
+<img src="./img/25.png" width="500" align="right">
+
+频率响应是指控制系统或元件对**正弦输入信号**的**稳态响应**
+$$G(j\omega) = A(\omega) e^{j\phi(\omega)}$$
+|概念|定义|公式|
+|:-:|:-:|:-:|
+|幅频特性|输出信号幅值与输入信号幅值之比随频率变化的规律|$A(\omega) = \|G(j\omega)\|$|
+|相频特性|输出信号相位与输入信号相位之差随频率变化的规律|$\phi(\omega) = \angle G(j\omega)$|
