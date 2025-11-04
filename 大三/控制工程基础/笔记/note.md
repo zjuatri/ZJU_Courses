@@ -48,7 +48,7 @@ $$L\left[\int f(t)dt\right] = \frac{F(s)}{s} + \frac{f^{-1}(0)}{s}$$
 同理有
 $$ L\left[\underbrace{\int \dots \int}_{n} f(t)(dt)^n\right] = \frac{F(s)}{s^n} + \frac{f^{-1}(0)}{s^n} + \frac{f^{-2}(0)}{s^{n-1}} + \dots + \frac{f^{-n}(0)}{s}$$
 
-若$ \quad f^{-1}(0) = f^{-2}(0) = \dots = f^{-n}(0) = 0$，则有
+若$f^{-1}(0) = f^{-2}(0) = \dots = f^{-n}(0) = 0$，则有
 $$ L\left[\underbrace{\int \dots \int}_{n} f(t)(dt)^n\right] = \frac{F(s)}{s^n}$$
 ##### 衰减定理
 $$L[e^{-at}f(t)]=F(s+a)$$
@@ -219,3 +219,18 @@ $$G(j\omega) = A(\omega) e^{j\phi(\omega)}$$
 |:-:|:-:|:-:|
 |幅频特性|输出信号幅值与输入信号幅值之比随频率变化的规律|$A(\omega) = \|G(j\omega)\|$|
 |相频特性|输出信号相位与输入信号相位之差随频率变化的规律|$\phi(\omega) = \angle G(j\omega)$|
+
+<img src="./img/26.png" width="500" align="right">
+由复数的性质可知，对于一般系统，幅值比相乘、相位差相加。
+
+幅值比$$\frac{A_o}{A_i}=|G_1(j\omega)|\cdot|G_2(j\omega)|\cdots |G_n(j\omega)|$$
+相位差$$\varphi = \angle G_1(j\omega)+\angle G_2(j\omega)+\cdots+\angle G_n(j\omega)$$
+### 乃氏图
+<img src="./img/27.png" width="300" align="right">
+
+对于图示的系统, 其开环频率特性为$G(jω)H(jω)$。乃氏图用于研究开环频率特性，又叫做**开环幅相曲线**。它是极坐标系下以 **（**$G(jω)H(jω)$ **的）**$A(\omega)$为极径，以$\phi(\omega)$为极角的图像。（实际上也是$R(j\omega)$为实轴值，$I(j\omega)$为虚轴值的图像）。
+#### 乃氏图作图
+1. 由$G(j\omega)$写出其实部$R(j\omega)$和虚部$I(j\omega)$，从而写出幅频特性$A(\omega)$和相频特性$\phi(\omega)$。
+2. 求出$\omega = 0,\omega=+\infty$时的$G(j\omega)$，标注在乃氏图上作为起点和终点。
+3. 求乃氏图与实轴与虚轴的交点并标注于图上。
+4. 将这些点通过平滑的曲线连在一起。
