@@ -161,8 +161,7 @@ $\displaystyle X_{\mathrm{o}}(s)=\frac{X_{\mathrm{o}}(s)}{X_{\mathrm{i}}(s)} X_{
 $$X_i(s)\rightarrow\boxed{\dfrac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^2}}\rightarrow X_o(s)$$
 其中$\zeta$为阻尼比，$\omega_n$为无自振角频率
 
-则易知对于传递函数为$\dfrac{1}{Ms^2+Ds+k}$的二阶系统，有
-$$\zeta =\frac{D}{2\sqrt{Mk}},\omega_n = \sqrt{\frac{k}{M}}$$
+对于任意二阶系统，将分母的二次项化为1，通过其他系数列方程即可求得$\zeta$和$\omega_n$
 
 把$s^2 + 2\zeta \omega_n s + \omega_n^2=0$称为该二阶系统的特征方程，则两个特征根为$s_{1,2}=-\zeta \omega_n \pm  j\omega_n\sqrt{1-\zeta^2}$
 
