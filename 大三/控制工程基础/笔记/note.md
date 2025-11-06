@@ -1,12 +1,12 @@
 # ~~自动控制原理~~  控制工程基础 补天笔记
 ## 第二章 控制系统的动态数学模型
-### 线性微分方程
+<!-- ### 线性微分方程
 1. 未知函数的各阶导数都是一次；
 2. 各阶导数的系数可以是常数或是自变量的已知函数；
 $$\frac{d^2\theta(t)}{dt^2} + 2\frac{d\theta(t)}{dt} = 1\\\frac{d^2\theta(t)}{dt^2} + 2\theta(t)\frac{d\theta(t)}{dt} = 1\\t\frac{d^2\theta(t)}{dt^2} + 2e^{3t}\frac{d\theta(t)}{dt} = \cos(4t) + 1\\\frac{d^2\theta(t)}{dt^2} + 2\left(\frac{d\theta(t)}{dt}\right)^2 = \cos(4t) + 1$$
 
 从上至下为
-线性、非线性、线性、非线性
+线性、非线性、线性、非线性 -->
 ### 拉普拉斯变换
 对于指数级函数$x(t)$，有$\displaystyle\int_{0}^{\infty} x(t)e^{-\sigma t} dt < \infty$，则可定义$x(t)$的拉氏变换$X(s)$：
 $$X(s) = L[x(t)] \triangleq \int_{0}^{\infty} x(t)e^{-st} dt$$
@@ -229,11 +229,11 @@ $$\displaystyle\frac{Y_o(s)}{F_i(s)} = \frac{\dfrac{1}{Ms^2}}{1 + \dfrac{1}{Ms^2
 
 对于右图所示的系统，顾名思义，我们称$G(s)H(s)$为**开环传递函数**，称$\dfrac{G(s)}{1+G(s)H(s)}$为**闭环传递函数**。
 #### 开环增益
-将开环传递函数 $G(s)H(s)$ 写成标准形式（或称“尾1形式”），此时 $G(s)H(s)$ 表达式最前面的那个常数就是开环增益 $K$。
-标准形式为将 $G(s)H(s)$ 分子和分母中所有的一阶和二阶因式都写成 $(Ts+1)$ 或 $(T^2s^2 + 2\zeta Ts + 1)$ 的形式。
+将开环传递函数 $G(s)H(s)$ 写成尾1形式，此时 $G(s)H(s)$ 表达式最前面的那个常数就是开环增益 $K$。
+尾1形式为将 $G(s)H(s)$ 分子和分母中所有的一阶和二阶因式都写成 $(Ts+1)$ 或 $(T^2s^2 + 2\zeta Ts + 1)$ 的形式。
 
 例如：假设一个系统的开环传递函数为：$$G(s)H(s) = \frac{100}{s(s+5)}$$
-为了找到 $K$，我们将其改写为标准形式：$$G(s)H(s) = \frac{100}{s \cdot 5(\frac{s}{5} + 1)} = \frac{20}{s(0.2s+1)}$$在这个标准形式中，开环增益 $K = 20$。
+为了找到 $K$，我们将其改写为尾1形式：$$G(s)H(s) = \frac{100}{s \cdot 5(\frac{s}{5} + 1)} = \frac{20}{s(0.2s+1)}$$在这个标准形式中，开环增益 $K = 20$。
 #### 单位反馈
 如果图示系统中$H(s)=1$，则称该系统为单位负反馈系统。
 ## 第三章 时域瞬态响应分析
@@ -361,12 +361,6 @@ $$G(j\omega) = A(\omega) e^{j\phi(\omega)}$$
 
 幅值比$$\frac{A_o}{A_i}=|G_1(j\omega)|\cdot|G_2(j\omega)|\cdots |G_n(j\omega)|$$
 相位差$$\varphi = \angle G_1(j\omega)+\angle G_2(j\omega)+\cdots+\angle G_n(j\omega)$$
-### 二阶系统系统闭环频域指标
-|指标|公式|
-|:-:|:-:|
-|谐振频率|$\omega_r = \omega_n\sqrt{1-2\zeta^2}$|
-|谐振峰值|$M_r = \dfrac{1}{2\zeta\sqrt{1-\zeta^2}}$|
-|截止频率(带宽频率)|$\omega_b = \omega_n\sqrt{\sqrt{(1-2\zeta^2)^2+1}+(1-2\zeta^2)}$|
 ### 乃氏图
 <img src="./img/32.png" width="300" align="right">
 
@@ -386,6 +380,7 @@ $$n = 20 \lg |N|$$
 - 对数相频特性$\varphi(\omega) = \angle G(j\omega)$
 
 如右图，伯德图分为两张图：$L(\omega)$关于$\omega$的图和$\varphi(\omega)$关于$\omega$的图。半对数坐标系采用十倍频程分度，可以理解为横坐标为$\lg \omega$，也就是说如果$\omega_2 = 10 \omega_1,\omega_3=10\omega_2$，那么在坐标轴上$\omega_3,\omega_2$之间的距离和$\omega_2,\omega_1$之间的距离是相等的，且称为一个**十倍频程**，英语写作$dec$。但是横坐标坐标轴上标注的数据仍为$\omega$而不是$\lg \omega$。
+注意：伯德图横坐标没有0
 #### 典型环节的伯德图
 ##### 比例环节
 <img src="./img/29.png" width="300" align="right">
@@ -399,9 +394,69 @@ $$A(\omega) = K,\varphi(\omega) = 0 \Rightarrow L(\omega) = 20 \lg K$$
 
 $$G(s) = \frac{1}{s},G(j\omega) = \frac{1}{j\omega}\Rightarrow A(\omega) = \frac{1}{\omega},\varphi(\omega) = -90^\circ \\ \Rightarrow L(\omega) = -20 \lg \omega$$
 
+显然$\omega = 1$时幅频特性曲线经过零点
+
+不难推出，如果是多重积分环节，即$G(s) = \dfrac{1}{s^v}$，那么幅频特性曲线的斜率就是$[-20v]$；如果$G(s) = \dfrac{K}{s}$，那么$L(\omega) = 20\lg K-20\lg \omega$，也就是说，幅频特性曲线一定经过$(1,20\lg K)$
+
+注：伯德图上的斜率可以标dB/dec，也可以简写为中括号，就代表了dB/dec这个单位，如右图。
+
+##### 一阶惯性环节
+<img src="./img/56.png" width="300" align="right">
+
+$$G(s)=\frac{1}{1+Ts},G(j\omega) = \frac{1}{1+T\omega j}\\ L(\omega) = 20\lg \frac{1}{\sqrt{1+T^2\omega^2}}=-20\lg \sqrt{1+T^2\omega^2}$$
+在处理伯德图时，我们总是将$T\omega$作为一个整理来考虑
+容易得到
+当$\omega T \ll 1$，即$\omega \ll \dfrac{1}{T}$时，$ L(\omega) =-20\lg \sqrt{1+T^2\omega^2}\approx -20\lg 1 = 0$
+当$\omega T \gg 1$，即$\omega \gg \dfrac{1}{T}$时，
+当$\omega T \ll 1$，即$\omega \ll \dfrac{1}{T}$时，$ L(\omega) =-20\lg \sqrt{1+T^2\omega^2}\approx -20\lg T\omega $
+如图所示，我们用渐近线来近似代表幅频特性曲线，即近似认为
+$\omega < \dfrac{1}{T}$时，$ L(\omega) =0,\ \ \omega > \dfrac{1}{T}$时，$  L(\omega) =-20\lg T\omega$
+这里$\omega = \dfrac{1}{T}$称为转折频率。
+对于相频特性，相角从$0^\circ$变为$-90^\circ$，转折频率时相角为$-45^\circ$
+##### 一阶微分环节
+<img src="./img/57.png" width="300" align="right">
+
+$$G(s) = 1+Ts,G(j\omega)=1+T\omega j\\ L(\omega) =20\lg \sqrt{1+T^2\omega^2}$$
+同上分析，$\omega<\dfrac{1}{T}$时，$L(\omega) = 0$；$\omega>\dfrac{1}{T}$时，$L(\omega) = 20\lg T\omega$
+$\omega = \dfrac{1}{T}$称为转折频率。
+
+对于相频特性，相角从$0^\circ$变为$90^\circ$，转折频率时相角为$45^\circ$
 <br>
 <br>
 
+##### 二阶振荡环节
+$$G(s) = \frac{1}{T^2s^2+2\zeta T s+1},G(j\omega) = \frac{1}{1-T^2\omega^2+2\zeta T\omega j}\\ L(\omega) = 20 \lg \frac{1}{\sqrt{(1-T^2\omega^2)^2+4\zeta^2T^2\omega^2}}$$
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="./img/58.png" style="height: 300px;">
+  <img src="./img/59.png" style="height: 300px;">
+</div>
+
+同上分析，$\omega<\dfrac{1}{T}$时，$L(\omega) = 0$
+$\omega>\dfrac{1}{T}$时，$L(\omega) = -20\lg (\omega T)^2=-40\lg \omega T$
+
+很容易分析出，当$\zeta\geq\dfrac{\sqrt 2}{2}$时，$L(\omega)$单调递减，而当$\zeta<\dfrac{\sqrt 2}{2}$时，增益曲线存在最大值，如左图。$\omega = \omega_r = \omega_n(1-2\zeta^2)$时$L(\omega)$最大，该频率称为谐振频率，此时的$A(\omega)$值称为谐振峰值$M_r= \dfrac{1}{2\zeta\sqrt{1-\zeta^2}}$。
+
+对于相频特性，相角从$0^\circ$变为$-180^\circ$，转折频率时相角为$90^\circ$
+#### 伯德图的绘制
+1. 将开环传递函数写成尾1形式
+2. 分出各典型环节，确定基准线。根据积分环节的个数可以确定基准线的斜率，根据开环增益可以确定基准线的位置，因为基准线总是经过$(1,20\lg K)$
+3. 列出各环节的转折频率
+4. 将各环节叠加作图。
+
+##### 例题
+作出以下传递函数的伯德图
+$$G(s) = \frac{7.5(0.2s + 1)(s + 1)}{s(s^2 + 16s + 100)}$$
+
+<img src="./img/60.png" width="400" align="right">
+
+先画幅频图。首先，将该函数化为尾1形式
+$$G(s) = \frac{\dfrac{3}{400}(0.2s + 1)(s + 1)}{s(\dfrac{s^2}{100} + \dfrac{16}{100}s + 1)}$$
+可以看出积分环节个数为1.因此基准线斜率为$[-20]$，且经过点$(1,20\lg \dfrac{3}{400})$
+接下来分出各典型环节。除了积分环节，还有一阶微分环节$(0.2s+1),(s+1)$和二阶震荡环节$\dfrac{1}{\dfrac{s^2}{100} + \dfrac{16}{100}s + 1}$
+
+其转折频率分别为5,1,10
+从小到大进行分析。到达转折频率1时微分环节$s+1$让幅频曲线斜率上升$[20]$，到达转折频率5时微分环节$0.2s+1$让幅频曲线斜率上升$[20]$，到达转折频率10时二阶振荡环节$\dfrac{1}{\dfrac{s^2}{100} + \dfrac{16}{100}s + 1}$让幅频曲线斜率$[-40]$，从而可以画出幅频图如上。
+对于相频图，同样先考虑积分环节。一个积分环节提供$-90^\circ$的相角，所以初始值为$-90^\circ$。微分环节$s+1$相角从$0^\circ$到$90^\circ$，到达转折频率1时提供$45^\circ$的相角。微分环节$0.2s+1$到达转折频率5时提供$45^\circ$的相角，这时还同时受到微分环节$s+1$和二阶振荡环节$\dfrac{1}{\dfrac{s^2}{100} + \dfrac{16}{100}s + 1}$的作用，总体来说是先向上后向下，最后的相角趋于$-90^\circ+90^\circ+90^\circ-180^\circ=-90^\circ$
 ### 最小相位系统
 传递函数在右半s平面没有零点和极点(即**传递函数零、极点的实部均小于等于零**)且不含延时环节，这种传递函数称之为**最小相位传递函数**，该传递函数所描述的系统，称为**最小相位系统**。
 
@@ -411,8 +466,18 @@ $G_1(s)$零点和极点都小于0，是最小相位系统；$G_2(s)$零点大于
 顾名思义，最小相位系统的相位滞后最小。
 #### 最小相位系统的性质
 最小相位系统的对数幅频特性与相频特性之间存在着唯一的对应关系。这就是说根据系统的对数幅频特性，可以唯一地确定相应的相频特性和传递函数。反之亦然。
-
+### 二阶系统系统闭环频域指标
+|指标|公式|
+|:-:|:-:|
+|谐振频率|$\omega_r = \omega_n\sqrt{1-2\zeta^2}$|
+|谐振峰值|$M_r = \dfrac{1}{2\zeta\sqrt{1-\zeta^2}}$|
+|截止频率(带宽频率)|$\omega_b = \omega_n\sqrt{\sqrt{(1-2\zeta^2)^2+1}+(1-2\zeta^2)}$|
 ## 第五章 控制系统稳定性分析
+### 稳定的充要条件
+系统稳定与以下条件等价
+1. 系统的所有闭环极点，均具有负的实部
+2. 所有闭环极点，均严格位于左半S平面
+3. 闭环特征方程的根均具有负的实部
 ### 劳斯判据
 <img src="./img/32.png" width="300" align="right">
 
