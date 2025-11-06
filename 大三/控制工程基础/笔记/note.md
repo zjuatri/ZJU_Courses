@@ -12,26 +12,26 @@ $$\frac{d^2\theta(t)}{dt^2} + 2\frac{d\theta(t)}{dt} = 1\\\frac{d^2\theta(t)}{dt
 $$X(s) = L[x(t)] \triangleq \int_{0}^{\infty} x(t)e^{-st} dt$$
 式中，称$X(s)$为象函数，$x(t)$为原函数。$s$为复变数，其量纲为时间的倒数，即频率。象函数$X(s)$的量纲为$x(t)$的量纲与时间量纲的乘积。
 #### 常用的拉氏变换和反变换
-| 时间函数 | 象函数 (Laplace) |
-|:---:|:---:|
-| 单位脉冲函数$\delta(t)=\begin{cases}\displaystyle\lim_{t_{0}\to0}\dfrac{1}{t_{0}}, & 0<t<t_{0}\\[6pt]0, & t\ge t_{0}\end{cases}$ | $1$ |
-| 单位阶跃函数$1(t)=\begin{cases}0, & t<0\\[6pt]1, & t\ge 0\end{cases}$ | $\dfrac{1}{s}$ |
-| $t^{n}\ (n\ge 0)$ | $\dfrac{n!}{s^{n+1}}$ |
-| $\sin(\omega t)$ | $\dfrac{\omega}{s^{2}+\omega^{2}}$ |
-| $\cos(\omega t)$ | $\dfrac{s}{s^{2}+\omega^{2}}$ |
-|  $e^{at}$（t<0时函数值为0） | $\dfrac{1}{s-a}$ |
-| 常数倍 $a\,x(t)$ | $a\,X(s)$ |
-| 叠加定理 $a\,x_{1}(t)+b\,x_{2}(t)$ | $a\,X_{1}(s)+b\,X_{2}(s)$ |
-| 微分 $\dfrac{d}{dt}x(t)$ | $s\,X(s)-x(0^{+})$ |
-| 积分 $\displaystyle\int_{0}^{t} x(\tau)\,d\tau$ | $\dfrac{X(s)}{s}+\dfrac{x^{-1}(0^{+})}{s}$ |
-| 衰减定理 $e^{-at}x(t)$ | $X(s+a)$ |
-| 延时定理 $x(t-a)\cdot 1(t-a)$ | $e^{-as}X(s)$ |
+|                                                             时间函数                                                             |              象函数 (Laplace)              |
+| :------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------: |
+| 单位脉冲函数$\delta(t)=\begin{cases}\displaystyle\lim_{t_{0}\to0}\dfrac{1}{t_{0}}, & 0<t<t_{0}\\[6pt]0, & t\ge t_{0}\end{cases}$ |                    $1$                     |
+|                              单位阶跃函数$1(t)=\begin{cases}0, & t<0\\[6pt]1, & t\ge 0\end{cases}$                               |               $\dfrac{1}{s}$               |
+|                                                        $t^{n}\ (n\ge 0)$                                                         |           $\dfrac{n!}{s^{n+1}}$            |
+|                                                         $\sin(\omega t)$                                                         |     $\dfrac{\omega}{s^{2}+\omega^{2}}$     |
+|                                                         $\cos(\omega t)$                                                         |       $\dfrac{s}{s^{2}+\omega^{2}}$        |
+|                                                    $e^{at}$（t<0时函数值为0）                                                    |              $\dfrac{1}{s-a}$              |
+|                                                         常数倍 $a\,x(t)$                                                         |                 $a\,X(s)$                  |
+|                                                叠加定理 $a\,x_{1}(t)+b\,x_{2}(t)$                                                |         $a\,X_{1}(s)+b\,X_{2}(s)$          |
+|                                                     微分 $\dfrac{d}{dt}x(t)$                                                     |             $s\,X(s)-x(0^{+})$             |
+|                                         积分 $\displaystyle\int_{0}^{t} x(\tau)\,d\tau$                                          | $\dfrac{X(s)}{s}+\dfrac{x^{-1}(0^{+})}{s}$ |
+|                                                      衰减定理 $e^{-at}x(t)$                                                      |                  $X(s+a)$                  |
+|                                                  延时定理 $x(t-a)\cdot 1(t-a)$                                                   |               $e^{-as}X(s)$                |
 #### 信号的截取与时移
-|图像|表达式|
-|:---:|:---:|
-|![](./img/1.png)|$f_1(t)=\sin(\omega t)\cdot 1(t)$ |
-|![](./img/2.png)|$f_2(t)=\sin(\omega t)\cdot 1(t-t_0)$ |
-|![](./img/3.png)|$f_3(t)=\sin\big(\omega (t-t_0)\big)\cdot 1(t-t_0)$ |
+|       图像       |                       表达式                        |
+| :--------------: | :-------------------------------------------------: |
+| ![](./img/1.png) |          $f_1(t)=\sin(\omega t)\cdot 1(t)$          |
+| ![](./img/2.png) |        $f_2(t)=\sin(\omega t)\cdot 1(t-t_0)$        |
+| ![](./img/3.png) | $f_3(t)=\sin\big(\omega (t-t_0)\big)\cdot 1(t-t_0)$ |
 #### 拉氏变换的常用基本性质
 ##### 叠加原理
 若$L[f_1(t)]=F_1(s)$，$L[f_2(t)]=F_2(s)$，则有
@@ -83,36 +83,36 @@ $$G(s) = \frac{X_o(s)}{X_i(s)} = \frac{b_0 s^m + b_1 s^{m-1} + \cdots + b_{m-1}s
 2. 零点：传递函数分子为零时的s值
 3. 极点：传递函数分母为零时的s值
 #### 典型环节的传递函数
-|环节|时间函数|相函数|传递函数|例子|
-|:-:|:-:|:-:|:-:|:-:|
-|比例环节|$x_o(t)=kx_i(t)$|$X_o(s)=kX_i(s)$|$G(s)=k$|运算放大器、齿轮传动副|
-|积分环节|$x_o(t)=\displaystyle\int_{0}^{t} x_i(t)\,dt$|$X_o(s)=\dfrac{1}{s}X_i(s)$|$G(s)=\dfrac{1}{s}$|RC 有源积分网络|
-|微分环节|$x_o(t)=\dfrac{d}{dt}x_i(t)$|$X_o(s)=sX_i(s)$| $G(s)=s$|永磁式直流测速机、阻尼器|
-|一阶惯性环节（机械系统）|$T\dfrac{dx_o(t)}{dt}+x_o(t)=x_i(t)$|$X_o(s)=\dfrac{1}{T s+1}X_i(s)$|$G(s)=\dfrac{1}{T s+1}$|弹簧-阻尼系统|
-|一阶惯性环节（滤波电路）|$\begin{cases}u_i(t)=i(t)R+\dfrac{1}{C}\displaystyle\int i(t)\,dt\\[4pt]u_o(t)=\dfrac{1}{C}\displaystyle\int i(t)\,dt\end{cases}$|$\begin{cases}U_i(s)=\left(R+\dfrac{1}{Cs}\right)I(s)=\dfrac{RCs+1}{Cs}I(s)\\[4pt]U_o(s)=\dfrac{1}{Cs}I(s)\\[4pt]\Rightarrow U_o(s)=\dfrac{1}{RCs+1}U_i(s)\end{cases}$|$G(s)=\dfrac{1}{RCs+1}$|RC 低通滤波电路（无源）|
-|二阶振荡环节|$T^2\displaystyle\frac{d^2 x_o(t)}{dt^2} + 2\zeta T \displaystyle\frac{d x_o(t)}{dt} + x_o(t) = x_i(t)$|$X_o(s)=\dfrac{1}{T^2 s^2 + 2\zeta T s + 1}\,X_i(s)$|$G(s)=\dfrac{1}{T^2 s^2 + 2\zeta T s + 1}$|满足 $0<\zeta<1$ 时为振荡系统（弹簧-质量-阻尼、二阶滤波器）|
-|近似微分环节|$T\displaystyle\frac{dx_o(t)}{dt}+x_o(t)=\displaystyle\frac{dx_i(t)}{dt}$|$X_o(s)=\dfrac{s}{Ts+1}X_i(s)$|$G(s)=\dfrac{s}{Ts+1}$|无源微分网络|
+|           环节           |                                                             时间函数                                                              |                                                                                 相函数                                                                                 |                  传递函数                  |                            例子                             |
+| :----------------------: | :-------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------: | :---------------------------------------------------------: |
+|         比例环节         |                                                         $x_o(t)=kx_i(t)$                                                          |                                                                            $X_o(s)=kX_i(s)$                                                                            |                  $G(s)=k$                  |                   运算放大器、齿轮传动副                    |
+|         积分环节         |                                           $x_o(t)=\displaystyle\int_{0}^{t} x_i(t)\,dt$                                           |                                                                      $X_o(s)=\dfrac{1}{s}X_i(s)$                                                                       |            $G(s)=\dfrac{1}{s}$             |                       RC 有源积分网络                       |
+|         微分环节         |                                                   $x_o(t)=\dfrac{d}{dt}x_i(t)$                                                    |                                                                            $X_o(s)=sX_i(s)$                                                                            |                  $G(s)=s$                  |                  永磁式直流测速机、阻尼器                   |
+| 一阶惯性环节（机械系统） |                                               $T\dfrac{dx_o(t)}{dt}+x_o(t)=x_i(t)$                                                |                                                                    $X_o(s)=\dfrac{1}{T s+1}X_i(s)$                                                                     |          $G(s)=\dfrac{1}{T s+1}$           |                        弹簧-阻尼系统                        |
+| 一阶惯性环节（滤波电路） | $\begin{cases}u_i(t)=i(t)R+\dfrac{1}{C}\displaystyle\int i(t)\,dt\\[4pt]u_o(t)=\dfrac{1}{C}\displaystyle\int i(t)\,dt\end{cases}$ | $\begin{cases}U_i(s)=\left(R+\dfrac{1}{Cs}\right)I(s)=\dfrac{RCs+1}{Cs}I(s)\\[4pt]U_o(s)=\dfrac{1}{Cs}I(s)\\[4pt]\Rightarrow U_o(s)=\dfrac{1}{RCs+1}U_i(s)\end{cases}$ |          $G(s)=\dfrac{1}{RCs+1}$           |                   RC 低通滤波电路（无源）                   |
+|       二阶振荡环节       |              $T^2\displaystyle\frac{d^2 x_o(t)}{dt^2} + 2\zeta T \displaystyle\frac{d x_o(t)}{dt} + x_o(t) = x_i(t)$              |                                                          $X_o(s)=\dfrac{1}{T^2 s^2 + 2\zeta T s + 1}\,X_i(s)$                                                          | $G(s)=\dfrac{1}{T^2 s^2 + 2\zeta T s + 1}$ | 满足 $0<\zeta<1$ 时为振荡系统（弹簧-质量-阻尼、二阶滤波器） |
+|       近似微分环节       |                             $T\displaystyle\frac{dx_o(t)}{dt}+x_o(t)=\displaystyle\frac{dx_i(t)}{dt}$                             |                                                                     $X_o(s)=\dfrac{s}{Ts+1}X_i(s)$                                                                     |           $G(s)=\dfrac{s}{Ts+1}$           |                        无源微分网络                         |
 ### 方块图
 #### 组成部分
-|组成部分|描述|图示|
-|:-:|:-:|:-:|
-|基本单元|图中指向方块的箭头表示输入，从方块出来的箭头表示输出，$G(s)$表示其传递函数。|![](./img/4.png)|
-|比较点|代表两个或两个以上的输入信号进行相加或相减的元件|![](./img/5.png)|
-|引出点|它表示信号引出和测量的位置，同一位置引出的几个信号，其大小和性质完全一样。|![](./img/6.png)|
+| 组成部分 |                                     描述                                     |       图示       |
+| :------: | :--------------------------------------------------------------------------: | :--------------: |
+| 基本单元 | 图中指向方块的箭头表示输入，从方块出来的箭头表示输出，$G(s)$表示其传递函数。 | ![](./img/4.png) |
+|  比较点  |               代表两个或两个以上的输入信号进行相加或相减的元件               | ![](./img/5.png) |
+|  引出点  |  它表示信号引出和测量的位置，同一位置引出的几个信号，其大小和性质完全一样。  | ![](./img/6.png) |
 #### 环节连接方式
-|连接方式|原框图|等效|
-|:-:|:-:|:-:|
-|串联|![](./img/7.png)|![](./img/8.png)|
-|并联|![](./img/9.png)|![](./img/10.png)|
-|反馈|![](./img/11.png)|![](./img/12.png)|
+| 连接方式 |      原框图       |       等效        |
+| :------: | :---------------: | :---------------: |
+|   串联   | ![](./img/7.png)  | ![](./img/8.png)  |
+|   并联   | ![](./img/9.png)  | ![](./img/10.png) |
+|   反馈   | ![](./img/11.png) | ![](./img/12.png) |
 #### 变换法则
 
-|变换方式|原框图|等效|
-|:-:|:-:|:-:|
-|引出点前移|![](./img/13.png)|![](./img/14.png)|
-|引出点后移|![](./img/15.png)|![](./img/16.png)|
-|比较点前移|![](./img/35.png)|![](./img/36.png)|
-|比较点后移|![](./img/37.png)|![](./img/38.png)|
+|  变换方式  |      原框图       |       等效        |
+| :--------: | :---------------: | :---------------: |
+| 引出点前移 | ![](./img/13.png) | ![](./img/14.png) |
+| 引出点后移 | ![](./img/15.png) | ![](./img/16.png) |
+| 比较点前移 | ![](./img/35.png) | ![](./img/36.png) |
+| 比较点后移 | ![](./img/37.png) | ![](./img/38.png) |
 
 1. 各**前向通路传递函数的乘积保持不变**；
 2. 各**反馈回路传递函数的乘积保持不变**
@@ -276,14 +276,14 @@ $$X_i(s)\rightarrow\boxed{\dfrac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^
 
 根据$\zeta$和1的大小关系将系统分为欠阻尼、临界阻尼和过阻尼。
 
-|状态|$\zeta$大小|单位阶跃响应|特性|
-|:-:|:-:|:-:|:-:|
-|欠阻尼|$0<\zeta<1$|稳定衰减震荡|振荡，$\zeta$愈小，振荡愈严重但响应愈快|
-|临界阻尼|$\zeta = 1$|稳定单调上升|无振荡、无超调，过渡过程长;|
-|过阻尼|$\zeta > 1$|稳定单调上升|无振荡、无超调，过渡过程长;|
-|无阻尼|$\zeta = 0$|等幅周期振荡|等幅振荡|
-|负阻尼|$-1<\zeta < 0$|发散震荡上升|阶跃响应发散，系统不稳定|
-|负阻尼|$\zeta < -1$|发散单调上升|阶跃响应发散，系统不稳定|
+|   状态   |  $\zeta$大小   | 单位阶跃响应 |                  特性                   |
+| :------: | :------------: | :----------: | :-------------------------------------: |
+|  欠阻尼  |  $0<\zeta<1$   | 稳定衰减震荡 | 振荡，$\zeta$愈小，振荡愈严重但响应愈快 |
+| 临界阻尼 |  $\zeta = 1$   | 稳定单调上升 |       无振荡、无超调，过渡过程长;       |
+|  过阻尼  |  $\zeta > 1$   | 稳定单调上升 |       无振荡、无超调，过渡过程长;       |
+|  无阻尼  |  $\zeta = 0$   | 等幅周期振荡 |                等幅振荡                 |
+|  负阻尼  | $-1<\zeta < 0$ | 发散震荡上升 |        阶跃响应发散，系统不稳定         |
+|  负阻尼  |  $\zeta < -1$  | 发散单调上升 |        阶跃响应发散，系统不稳定         |
 
 <div style="display: flex; justify-content: space-around; align-items: center;">
   <img src="./img/21.png" style="height: 300px;">
@@ -292,23 +292,23 @@ $$X_i(s)\rightarrow\boxed{\dfrac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^
 </div>
 
 <!-- #### 单位阶跃响应
-|状态|单位阶跃响应|
-|:-:|:-:|
-|欠阻尼|$x_o(t) = 1 - \frac{e^{-\zeta \omega_n t}}{\sqrt{1-\zeta^2}} \sin(\omega_d t + \arctan \frac{\sqrt{1-\zeta^2}}{\zeta})$，其中**有阻尼自然频率**$\omega_d = \omega_n\sqrt{1-\zeta^2}$|
-|临界阻尼|$x_o(t) = 1 - (1+\omega_n t)e^{-\omega_n t}$|
-|过阻尼|$x_o(t) = 1 - \dfrac{s_1 e^{s_2 t} - s_2 e^{s_1 t}}{s_1 - s_2}$，其中$s_1$和$s_2$为特征方程的两个实根。|
-|零阻尼|$x_o(t) = 1 - \cos(\omega_n t)$| -->
+|   状态   |                                                                                     单位阶跃响应                                                                                     |
+| :------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  欠阻尼  | $x_o(t) = 1 - \frac{e^{-\zeta \omega_n t}}{\sqrt{1-\zeta^2}} \sin(\omega_d t + \arctan \frac{\sqrt{1-\zeta^2}}{\zeta})$，其中**有阻尼自然频率**$\omega_d = \omega_n\sqrt{1-\zeta^2}$ |
+| 临界阻尼 |                                                                     $x_o(t) = 1 - (1+\omega_n t)e^{-\omega_n t}$                                                                     |
+|  过阻尼  |                                       $x_o(t) = 1 - \dfrac{s_1 e^{s_2 t} - s_2 e^{s_1 t}}{s_1 - s_2}$，其中$s_1$和$s_2$为特征方程的两个实根。                                        |
+|  零阻尼  |                                                                           $x_o(t) = 1 - \cos(\omega_n t)$                                                                            | --> |
 #### 二阶系统阶跃响应的性能指标
 注意：不需要是单位阶跃响应
 <div style="display: flex; align-items: flex-start; gap: 20px;">
 <div>
 
-|指标|公式|
-|:-:|:-:|
-|上升时间|$t_r = \dfrac{\pi - \arccos(\zeta)}{\omega_d}$|
-|峰值时间|$t_p = \dfrac{\pi}{\omega_d}$|
-|最大超调量|$M_p = e^{-\dfrac{\zeta \pi}{\sqrt{1-\zeta^2}}}$|
-|调节时间|$t_s \approx \dfrac{3}{\zeta \omega_n}(\Delta = \pm 5 \%，默认)\\ t_s \approx \dfrac{4}{\zeta \omega_n}(\Delta = \pm 2 \%)$ |
+|    指标    |                                                            公式                                                             |
+| :--------: | :-------------------------------------------------------------------------------------------------------------------------: |
+|  上升时间  |                                       $t_r = \dfrac{\pi - \arccos(\zeta)}{\omega_d}$                                        |
+|  峰值时间  |                                                $t_p = \dfrac{\pi}{\omega_d}$                                                |
+| 最大超调量 |                                      $M_p = e^{-\dfrac{\zeta \pi}{\sqrt{1-\zeta^2}}}$                                       |
+|  调节时间  | $t_s \approx \dfrac{3}{\zeta \omega_n}(\Delta = \pm 5 \%，默认)\\ t_s \approx \dfrac{4}{\zeta \omega_n}(\Delta = \pm 2 \%)$ |
 
 </div>
 <div>
@@ -351,25 +351,50 @@ $$G(s)H(s)=\frac{s-5}{s^2(s-2)(s-0.2)}$$
 
 频率响应是指控制系统或元件对**正弦输入信号**的**稳态响应**
 $$G(j\omega) = A(\omega) e^{j\phi(\omega)}$$
-|概念|定义|公式|
-|:-:|:-:|:-:|
-|幅频特性|输出信号幅值与输入信号幅值之比随频率变化的规律|$A(\omega) = \|G(j\omega)\|$|
-|相频特性|输出信号相位与输入信号相位之差随频率变化的规律|$\phi(\omega) = \angle G(j\omega)$|
+|   概念   |                      定义                      |                公式                |
+| :------: | :--------------------------------------------: | :--------------------------------: |
+| 幅频特性 | 输出信号幅值与输入信号幅值之比随频率变化的规律 |    $A(\omega) = \|G(j\omega)\|$    |
+| 相频特性 | 输出信号相位与输入信号相位之差随频率变化的规律 | $\phi(\omega) = \angle G(j\omega)$ |
 
 <img src="./img/26.png" width="500" align="right">
 由复数的性质可知，对于一般系统，幅值比相乘、相位差相加。
 
 幅值比$$\frac{A_o}{A_i}=|G_1(j\omega)|\cdot|G_2(j\omega)|\cdots |G_n(j\omega)|$$
 相位差$$\varphi = \angle G_1(j\omega)+\angle G_2(j\omega)+\cdots+\angle G_n(j\omega)$$
+#### 例题
+求某单位反馈系统的开环传递函数为$G(s) = \dfrac{10}{s+1}$,试求输入$x_i = 2\cos(2 t - 45^\circ)$时输出$x_o$的稳态响应表达式。
+
+闭环传递函数$\Phi(s) = \dfrac{\dfrac{10}{s+1}}{1+\dfrac{10}{s+1}}=\dfrac{10}{s+11}$
+$$A(\omega) = |\Phi(j\omega)|=\dfrac{10}{\sqrt{\omega^2+11^2}},\varphi(\omega) = \angle\Phi(j\omega)=-\arctan \dfrac{\omega}{11}$$
+
+由题可知$\omega = 2$，$A(2) = \dfrac{2 \sqrt 5}{5},\varphi(2) = -10.3^\circ$
+从而$x_o(t) =  \dfrac{4 \sqrt 5}{5}\cos(2t-55.3^\circ)$
 ### 乃氏图
 <img src="./img/32.png" width="300" align="right">
 
 对于图示的系统, 其开环频率特性为$G(jω)H(jω)$。乃氏图用于研究开环频率特性，又叫做**开环幅相曲线**。它是极坐标系下以 **（**$G(jω)H(jω)$ **的）**$A(\omega)$为极径，以$\phi(\omega)$为极角的图像，$\omega \in (0,+\infty)$。（实际上也是$R(j\omega)$为实轴值，$I(j\omega)$为虚轴值的图像）。乃氏图与负实轴的交点处的频率称为**穿越频率**$\omega_x$。
 #### 乃氏图作图
-1. 由$G(j\omega)$写出其实部$R(j\omega)$和虚部$I(j\omega)$，从而写出幅频特性$A(\omega)$和相频特性$\phi(\omega)$。
-2. 求出$\omega = 0,\omega = 0^+,\omega=+\infty$时的$G(j\omega)$，若$G(j0)\neq G(j0^+)$则将这两点在复平面用平滑的虚线连接
-3. 求乃氏图与实轴与虚轴的交点并标注于图上（$R(j\omega)=0,I(j\omega)=0$或$\phi(\omega)= n \cdot 90^\circ$）。
-4. 将这些点通过平滑的曲线连在一起。
+1. 由$G(j\omega)$写出幅频特性$A(\omega)$和相频特性$\phi(\omega)$。
+2. 求出$\omega = 0,\omega = 0^+,\omega=+\infty$时的$G(j\omega)$，若$G(j0)\neq G(j0^+)$，则将这两点在复平面用虚线半圆连接
+3. 求乃氏图与实轴与虚轴的交点并标注于图上（由$\phi(\omega)$等于特定角度求出）。
+4. 将这些点通过平滑的曲线连在一起，虚线的箭头从$\omega = 0$指向$\omega = 0^+$，实线的箭头从$\omega = 0^+$指向$\omega = +\infty$ 。
+##### 例题
+试画出以下系统的奈氏图
+$$G(s) = \frac{(0.2s+1)(0.025s+1)}{s^2(0.005s+1)(0.001s+1)}$$
+
+易知$$A(\omega) = |G(j\omega)| = \dfrac{\sqrt{1+0.04\omega^2}\sqrt{1+(0.025\omega)^2}}{\omega^2\sqrt{1+(0.005\omega)^2}\sqrt{1+(0.001\omega)^2}} \\ \varphi(\omega) = -\pi + \arctan 0.2\omega+ \arctan 0.025\omega-\arctan 0.005\omega - \arctan 0.001\omega(\omega>0)$$
+为什么说要分开考虑$0$和$0^+$的值，因为$\omega = 0$时$j\omega$的相角不是$90^\circ$，而是$0^\circ$，所以$\varphi$发生了改变。你也可以按照积分环节的个数来确定虚线的位置。一个积分环节相当于$-90^\circ$
+$$\varphi(0) = 0,\varphi(0^+)=(-\pi)^+,\varphi(+\infty)=-\pi  \\ A(0)=A(0^+) = +\infty,A(+\infty) = 0$$
+此处的$(-\pi)^+$我用来表示比$-\pi$大一个微小量的数。不然你不知道无穷远处的图像在实轴上方还是下方。这里明显是下方。实际上从$\varphi$很容易看出这个图形始终在实轴的下方。
+![](./img/63.png)
+
+虚线从$\varphi(0)$画到$\varphi(0^+)$，如左图蓝色虚线，出头代表了$\varphi(0^+)$比$-\pi$稍大一些。由于最终$A(+\infty)=0$,最后还是回到原点，我们可以知道图像类似左图，但是不知道图像与虚轴有几个交点，可能是左图也可能是右图（当然我们知道答案是右图）
+令$\varphi(\omega) = -\dfrac{\pi}{2}$，则有$$\frac{\pi}{2}+\arctan0.005\omega + \arctan 0.001\omega = \arctan 0.2\omega + \arctan 0.025\omega$$
+两边取正切
+$$-\frac{1}{\tan (\arctan0.005\omega + \arctan 0.001\omega)}=\tan(\arctan 0.2\omega + \arctan 0.025\omega)\\ - \frac{1-0.005\omega\cdot 0.001\omega}{0.005\omega+0.001\omega}=\frac{0.2\omega+0.025\omega}{1-0.2\omega\cdot0.025\omega}$$
+解得
+$$\omega_1 = 16.7,|G(j\omega_1)| = 0.013\\ \omega_2 = 38.2,|G(j\omega_2)| =0.0022$$
+值得一提的是，控制工程基础这门课，只是让你画奈氏图的时候，虚线好像可以不用画。但是当你使用后面的奈奎斯特判据的时候却是必不可少的。
 ### 伯德图
 <img src="./img/28.png" width="300" align="right">
 
@@ -480,11 +505,11 @@ $$G(s) = \frac{K(\dfrac{s}{400}+1)}{(\dfrac{s}{2}+1)(\dfrac{s}{200}+1)(\dfrac{s}
 所以也可以这么说，斜率变化为$[+20]$时在分子上乘一个$\dfrac{s}{\omega}+1$，斜率变化为$[-20]$时在分母上乘一个$\dfrac{s}{\omega}+1$，这里的$\omega$为对应的转折频率。
 低频段$\dfrac{K}{s^0}$经过点$(1,20\lg K)$，即$60 = 20\lg K,K=1000$
 ### 二阶系统系统闭环频域指标
-|指标|公式|
-|:-:|:-:|
-|谐振频率|$\omega_r = \omega_n\sqrt{1-2\zeta^2}$|
-|谐振峰值|$M_r = \dfrac{1}{2\zeta\sqrt{1-\zeta^2}}$|
-|截止频率(带宽频率)|$\omega_b = \omega_n\sqrt{\sqrt{(1-2\zeta^2)^2+1}+(1-2\zeta^2)}$|
+|           指标           |                               公式                               |
+| :----------------------: | :--------------------------------------------------------------: |
+|         谐振频率         |              $\omega_r = \omega_n\sqrt{1-2\zeta^2}$              |
+|         谐振峰值         |            $M_r = \dfrac{1}{2\zeta\sqrt{1-\zeta^2}}$             |
+| 截止频率/带宽频率/频带宽 | $\omega_b = \omega_n\sqrt{\sqrt{(1-2\zeta^2)^2+1}+(1-2\zeta^2)}$ |
 ## 第五章 控制系统稳定性分析
 ### 稳定的充要条件
 系统稳定与以下条件等价
@@ -508,34 +533,83 @@ $$a_0 s^n + a_1 s^{n-1} + \dots + a_{n-1} s + a_n = 0$$
 2. 从第三行起，每个元素的分母为其**上一行的第一个元素**，分子为**其前两行的第一列两个元素和其前两行的下一列两个元素合成的2x2矩阵行列式值的相反数**（见下公式）
 具体地说，有$$b_1 = \frac{a_1 a_2 - a_0 a_3}{a_1},b_2 = \frac{a_1 a_4 - a_0 a_5}{a_1}$$
 3. 依此类推，直到阵列的第n+1行；即$s_0$行
-
 #### 劳斯稳定判据判断系统的稳定性
 1. 劳斯阵列第一列所有项> 0 $\Rightarrow$ 系统稳定
 2. 劳斯阵列第一列存在<0的项 $\Rightarrow$ 系统不稳定
 3. 劳斯阵列第一列存在=0的项 $\Rightarrow$ 系统处于临界稳定状态
-### 奈斯奎特判据
-$$Z = P-2(N^+-N^-)$$
+4. 对于二阶系统，有一个很好的结论：系数均大于0即稳定。
+#### 例题
+<img src="./img/64.png" width="250" align="right">
+
+对于右图系统，确定使系统特征值均落在$s$平面中$Re=-1$这条线左边的$a$值。
+
+$$\frac{X_o}{X_i} = \dfrac{\dfrac{10(s+a)}{s(s+2)(s+3)}}{1+\dfrac{10(s+a)}{s(s+2)(s+3)}}=\frac{\cdots}{s^3+5s^2+16s+10a}$$
+令$s = z-1$，那么如果对于$z$来说所有的特征根实部均小于0，那么对于$s$来说所有的特征根实部都小于-1
+<img src="./img/65.png" width="200" align="right">
+
+代入特征方程，化简得
+$$z^3 + 2z^2 +9z + 10a-12 = 0$$
+列出劳斯阵列，第一列所有项都大于0
+解得$1.2<a<3$
+### 奈奎斯特判据
+$$Z = P-2(N^+-N^-)=0$$
+这里$Z$为右半$s$平面中闭环特征根的个数
+$P$为右半$s$平面中开环极点的个数
+在$s$平面上，我们只看$Re=-1$线的左边，在这个区域内，如果奈氏图（包括虚线）顺时针穿越实轴，记为一次负穿越，即$N^-$，如果逆时针穿越实轴，记为一次正穿越，即$N^+$，如果奈氏图是从实轴出发的，那么叫做半穿越，同样是逆正顺负，但是一次半穿越只记$\dfrac{1}{2}$
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="./img/66.png" style="height: 200px;">
+  <img src="./img/67.png" style="height: 200px;">
+    <img src="./img/68.png" style="height: 200px;">
+      <img src="./img/69.png" style="height: 200px;">  
+</div>
+
+如果奈氏图穿过$(-1,0)$点，那么系统临界稳定
+系统稳定与闭环特征方程的根均具有负的实部等价，也就是说$Z=0$时系统稳定。
+<img src="./img/70.png" width="250" align="right">
+
+#### 例题
+系统开环传递函数$G(s) = \dfrac{10(s+0.5)}{s(s+1)(s-1)}$，用奈奎斯特判据判断闭环系统稳定性。
+
+容易得到$P=1$
+画出右图所示奈奎斯特图，发现只有一个负的半穿越
+$$Z = P-2(N^+-N^-)=2\neq 0$$
+系统不稳定。
 ### 稳定裕量
 <img src="./img/34.png" width="300" align="right">
 
 稳定裕量的概念适用于“开环是最小相位系统”的闭环系统。
 
-#### 截止频率
-截止频率$\omega_c$是使得$|G(j\omega_c)|=1$的频率，在乃氏图上表示为乃氏图与单位圆的交点处的频率。
+#### 剪切频率
+剪切频率$\omega_c$是使得$|G(j\omega_c)|=1$的频率，在乃氏图上表示为乃氏图与单位圆的交点处的频率。
 #### 穿越频率
 穿越频率$\omega_g$是使得$\angle G(j\omega_g) = -180^\circ$的频率，在乃氏图上表示为乃氏图与负实轴的交点处的频率。
 #### 相角裕度
-$$r = 180^\circ + \angle G(j\omega_c)$$
-#### 幅值裕度
-$$h = \frac{1}{|G(j\omega_g)|}$$
+$$\gamma = 180^\circ + \angle G(j\omega_c)$$
+#### 幅值裕度/增益裕度
+$$K_g = \frac{1}{|G(j\omega_g)|}$$
 
-|h大小|r大小|系统稳定性|
-|:-:|:-:|:-:|
-|h>1|r>0|系统稳定|
-|h=1|r=0|系统临界稳定|
-|h<1|r<0|系统不稳定|
+| $K_g$大小 | $\gamma$大小 |  系统稳定性  |
+| :-------: | :----------: | :----------: |
+|  $K_g>1$  |  $\gamma>0$  |   系统稳定   |
+|  $K_g=1$  |  $\gamma=0$  | 系统临界稳定 |
+|  $K_g<1$  |  $\gamma<0$  |  系统不稳定  |
 ## 第六章 控制系统的误差分析和计算
-### 
+误差定义为
+$$e(t) = x_{oi}(t)-x_o(t)$$
+其中$x_{oi}(t)$为期望输出的信号，$x_o(t)$是实际输出的信号。误差信号的稳态分量即为稳态误差，记为$e_{ss}$
+根据终值定理，有
+$$e_{ss} = \lim_{t\rightarrow \infty}e(t) = \lim_{s\rightarrow 0}sE(s)$$
+### 负反馈系统的稳态误差
+<img src="./img/72.png" width="300" align="right">
+
+求稳态误差之前**一定要先判稳**。稳定的系统才有稳态误差。
+如图，期望输出的信号为$\dfrac{1}{H(s)}X_i(s)$，此时比较点负端值为0，没有偏差。实际输出的值为$X_o$,根据误差的定义，$E(s) =\dfrac{1}{H(s)}X_i(s)- X_o = \dfrac{X_i(s)-X_o(s)H(s)}{H(s)}=\dfrac{\epsilon(s)}{H(s)}=\dfrac{1}{H(s)(1+G(s)H(s))}X_i$
+可以求得稳态误差为
+$$e_{ss} = \lim_{s\rightarrow 0}sE(s) =  \lim_{s\rightarrow 0} s\dfrac{1}{H(s)(1+G(s)H(s))}X_i$$
+显然，对于单位负反馈系统，则有
+$$e_{ss} = \lim_{s\rightarrow 0}sE(s) =  \lim_{s\rightarrow 0} s\dfrac{1}{1+G(s)}X_i$$
+此时有$E(s) =X_i(s)- X_o(s) = \epsilon(s)$
+
 ## 第七章 控制系统的综合与校正
 
 ## 第八章 根轨迹法
