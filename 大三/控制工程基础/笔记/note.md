@@ -234,37 +234,30 @@ $$\displaystyle\frac{Y_o(s)}{F_i(s)} = \frac{\dfrac{1}{Ms^2}}{1 + \dfrac{1}{Ms^2
 
 例如：假设一个系统的开环传递函数为：$$G(s)H(s) = \frac{100}{s(s+5)}$$
 为了找到 $K$，我们将其改写为标准形式：$$G(s)H(s) = \frac{100}{s \cdot 5(\frac{s}{5} + 1)} = \frac{20}{s(0.2s+1)}$$在这个标准形式中，开环增益 $K = 20$。
+#### 单位反馈
+如果图示系统中$H(s)=1$，则称该系统为单位负反馈系统。
 ## 第三章 时域瞬态响应分析
 ### 机电控制系统里的典型输入信号函数
 ![](./img/17.png)
-### 一阶系统的瞬态响应
+### 一阶系统的瞬态响应（了解过程即可）
 能够用一阶微分方程（只含有未知函数的一阶导数的微分方程）描述的系统。它的典型形式是**一阶惯性环节**。
 $$X_i(s)\rightarrow\boxed{\dfrac{1}{Ts+1}}\rightarrow X_o(s)$$
 #### 单位脉冲响应
-<img src = './img/19.png' width = 30% align = right>
+<!-- <img src = './img/19.png' width = 30% align = right> -->
 
 $x_i(t) = \delta(t)\Rightarrow X_i(s) = 1$
 $X_o(s) = \dfrac{1}{Ts+1}=\dfrac{\dfrac{1}{T}}{s+\dfrac{1}{T}}\Rightarrow x_o(t) = (\dfrac{1}{T}e^{-\dfrac{1}{T}t})\cdot 1(t)$
 
-$t = T$时$e^{-\dfrac{1}{T}t}=0.368$，衰减了0.632
 
 #### 单位阶跃响应
-<img src = './img/18.png' width = 30% align = right>
+<!-- <img src = './img/18.png' width = 30% align = right> -->
 
 $x_i(t) = 1(t)\Rightarrow X_i(s) = \dfrac{1}{s}$
 $X_o(s)=\dfrac{1}{Ts+1}X_i(s)=\dfrac{1}{s(Ts+1)}=\dfrac{1}{s}-\dfrac{1}{s+\dfrac{1}{T}}\Rightarrow x_o(t)=(1-e^{-\dfrac{1}{T}t})\cdot 1(t)$
 
-
-1. 一阶惯性系统总是稳定的，无振荡;
-2. 经过时间T曲线上升到0.632的高度，据此用实验的方法测出响应曲线达到稳态
-值的63.2%高度点所用的时间，即是惯性环节的时间常数$T$;
-3. 经过时间$(3 \sim 4)T$，响应曲线已达稳态值的95%~98%，可以认为其调整过程已经
-基本完成·故一般取调整时间为$(3 \sim 4)T$；
-<img src = './img/20.png' width = 30% align = right>
-
-4. 在t=0处，响应曲线的切线斜率为$\dfrac{1}{T}$;
-
 #### 单位斜坡响应
+<!-- <img src = './img/20.png' width = 30% align = right> -->
+
 $\displaystyle X_{\mathrm{o}}(s)=\frac{X_{\mathrm{o}}(s)}{X_{\mathrm{i}}(s)} X_{\mathrm{i}}(s)=\frac{1}{T s+1}\frac{1}{s^{2}}=\frac{1}{s^{2}}-\frac{T}{s}+\frac{T}{s+\dfrac{1}{T}}$
 
 #### 总结
@@ -298,14 +291,15 @@ $$X_i(s)\rightarrow\boxed{\dfrac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^
   <img src="./img/23.png" style="height: 300px;">
 </div>
 
-#### 单位阶跃响应
+<!-- #### 单位阶跃响应
 |状态|单位阶跃响应|
 |:-:|:-:|
 |欠阻尼|$x_o(t) = 1 - \frac{e^{-\zeta \omega_n t}}{\sqrt{1-\zeta^2}} \sin(\omega_d t + \arctan \frac{\sqrt{1-\zeta^2}}{\zeta})$，其中**有阻尼自然频率**$\omega_d = \omega_n\sqrt{1-\zeta^2}$|
 |临界阻尼|$x_o(t) = 1 - (1+\omega_n t)e^{-\omega_n t}$|
 |过阻尼|$x_o(t) = 1 - \dfrac{s_1 e^{s_2 t} - s_2 e^{s_1 t}}{s_1 - s_2}$，其中$s_1$和$s_2$为特征方程的两个实根。|
-|零阻尼|$x_o(t) = 1 - \cos(\omega_n t)$|
-#### 时域瞬态响应性能指标
+|零阻尼|$x_o(t) = 1 - \cos(\omega_n t)$| -->
+#### 二阶系统阶跃响应的性能指标
+注意：不需要是单位阶跃响应
 <div style="display: flex; align-items: flex-start; gap: 20px;">
 <div>
 
@@ -314,7 +308,7 @@ $$X_i(s)\rightarrow\boxed{\dfrac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^
 |上升时间|$t_r = \dfrac{\pi - \arccos(\zeta)}{\omega_d}$|
 |峰值时间|$t_p = \dfrac{\pi}{\omega_d}$|
 |最大超调量|$M_p = e^{-\dfrac{\zeta \pi}{\sqrt{1-\zeta^2}}}$|
-|调节时间|$t_s \approx \dfrac{3}{\zeta \omega_n}(\Delta = \pm 5 \%)\\ t_s \approx \dfrac{4}{\zeta \omega_n}(\Delta = \pm 2 \%)$ |
+|调节时间|$t_s \approx \dfrac{3}{\zeta \omega_n}(\Delta = \pm 5 \%，默认)\\ t_s \approx \dfrac{4}{\zeta \omega_n}(\Delta = \pm 2 \%)$ |
 
 </div>
 <div>
@@ -322,7 +316,36 @@ $$X_i(s)\rightarrow\boxed{\dfrac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^
 </div>
 </div>
 
+### 例题
+![](./img/55.png)
+
+(1)
+闭环传递函数$$G(s) = \dfrac{\dfrac{L}{Js^2}}{1+\dfrac{L}{Js^2}}=\frac{\dfrac{L}{J}}{s^2+\dfrac{L}{J}}$$
+输入为单位阶跃响应，输出为$$X_o(s)=X_i(s)G(s)=\frac{1}{s}\frac{\dfrac{L}{J}}{s^2+\dfrac{L}{J}}=\frac{1}{s}-\frac{s}{s^2+\dfrac{L}{J}}$$
+$$x_o(t)=\left(1-\cos\sqrt{\frac{L}{J}}t\right)\cdot 1(t)$$
+响应为等幅震荡，$L$增大，$J$减小时，角频率$\omega$增大。
+(2)
+闭环传递函数$$G(s) = \dfrac{\dfrac{L}{Js^2}(1+T_d s)}{1+\dfrac{L}{Js^2}(1+T_d s)}=\frac{\cdots}{s^2+\dfrac{LT_d}{J}s+\dfrac{L}{J}}$$
+分母对比$s^2+2\zeta\omega_n+\omega_n^2$
+可知$\omega_n = \sqrt{\dfrac{L}{J}},\zeta = \dfrac{T_d}{2}\sqrt{\dfrac{L}{J}}=1$
+求得$T_d = 2\sqrt{\dfrac{J}{L}}=20$
+(3)
+由第1小题可知$\zeta = 0$，峰值时间$t_1 = \dfrac{\pi}{\omega_d}=10\pi$
+最后的稳态$1$值可以视作$k$阶跃响应在时间$t$造成的影响和$1-k$阶跃响应在时间$(t-t_1)$共同造成的结果
+$$1 =k \left(1-\cos\sqrt{\frac{L}{J}}t\right)+(1-k)\left(1-\cos\sqrt{\frac{L}{J}}(t-t_1)\right)$$
+取$t=t_1=10\pi$代入方程，可以解得
+$$k=0.5$$
+
 ## 第四章 控制系统频率特性
+### A阶B型系统
+#### 阶
+“阶”是指系统闭环传递函数的**分母多项式（即特征方程）的最高次幂**。这等同于描述该系统动态行为的微分方程的阶数。
+#### 型
+“型”是指系统开环传递函数 $G(s)H(s)$ 在 $s=0$ 处的极点个数。换句话说，它是在开环传递函数中“积分环节” $\dfrac{1}{s}$ 的数量。
+#### 例子
+开环传递函数
+$$G(s)H(s)=\frac{s-5}{s^2(s-2)(s-0.2)}$$
+对应的系统为四阶II型系统
 ### 系统频率响应
 <img src="./img/25.png" width="500" align="right">
 
@@ -338,6 +361,12 @@ $$G(j\omega) = A(\omega) e^{j\phi(\omega)}$$
 
 幅值比$$\frac{A_o}{A_i}=|G_1(j\omega)|\cdot|G_2(j\omega)|\cdots |G_n(j\omega)|$$
 相位差$$\varphi = \angle G_1(j\omega)+\angle G_2(j\omega)+\cdots+\angle G_n(j\omega)$$
+### 二阶系统系统闭环频域指标
+|指标|公式|
+|:-:|:-:|
+|谐振频率|$\omega_r = \omega_n\sqrt{1-2\zeta^2}$|
+|谐振峰值|$M_r = \dfrac{1}{2\zeta\sqrt{1-\zeta^2}}$|
+|截止频率(带宽频率)|$\omega_b = \omega_n\sqrt{\sqrt{(1-2\zeta^2)^2+1}+(1-2\zeta^2)}$|
 ### 乃氏图
 <img src="./img/32.png" width="300" align="right">
 
