@@ -594,22 +594,67 @@ $$K_g = \frac{1}{|G(j\omega_g)|}$$
 |  $K_g=1$  |  $\gamma=0$  | 系统临界稳定 |
 |  $K_g<1$  |  $\gamma<0$  |  系统不稳定  |
 ## 第六章 控制系统的误差分析和计算
-误差定义为
+**偏差**（按输入定义的误差）定义为
+$$\epsilon(t) = x_i(t)-y(t)$$
+其中$x_i(t)$为输入信号，$y(t)$为反馈信号
+**误差**（按输出定义的误差）定义为
 $$e(t) = x_{oi}(t)-x_o(t)$$
 其中$x_{oi}(t)$为期望输出的信号，$x_o(t)$是实际输出的信号。误差信号的稳态分量即为稳态误差，记为$e_{ss}$
 根据终值定理，有
 $$e_{ss} = \lim_{t\rightarrow \infty}e(t) = \lim_{s\rightarrow 0}sE(s)$$
 ### 负反馈系统的稳态误差
-<img src="./img/72.png" width="300" align="right">
+<img src="./img/73.png" width="400" align="right">
 
 求稳态误差之前**一定要先判稳**。稳定的系统才有稳态误差。
-如图，期望输出的信号为$\dfrac{1}{H(s)}X_i(s)$，此时比较点负端值为0，没有偏差。实际输出的值为$X_o$,根据误差的定义，$E(s) =\dfrac{1}{H(s)}X_i(s)- X_o = \dfrac{X_i(s)-X_o(s)H(s)}{H(s)}=\dfrac{\epsilon(s)}{H(s)}=\dfrac{1}{H(s)(1+G(s)H(s))}X_i$
-可以求得稳态误差为
-$$e_{ss} = \lim_{s\rightarrow 0}sE(s) =  \lim_{s\rightarrow 0} s\dfrac{1}{H(s)(1+G(s)H(s))}X_i$$
-显然，对于单位负反馈系统，则有
-$$e_{ss} = \lim_{s\rightarrow 0}sE(s) =  \lim_{s\rightarrow 0} s\dfrac{1}{1+G(s)}X_i$$
-此时有$E(s) =X_i(s)- X_o(s) = \epsilon(s)$
+如右图，根据定义，偏差为
+$$\epsilon(s) = X_i(s)-Y(s)=X_i(s)-X_o(s)H(s)$$
+$X_i(s)$通过负反馈系统得到$X_o(s)$,等价于经过一个理想传函$\mu(s)$,得到一个理想的输出$X_{oi}(s)$，根据误差的定义，误差$E(s) = X_{oi}(s) - X_o(s) = \mu(s)X_i(s)-X_o(s)$。在实际负反馈控制系统中，偏差$\epsilon(s)$趋近于零，从而有$\mu(s)X_i(s)=X_o(s)=\dfrac{Y(s)}{H(s)}=\dfrac{X_i(s)}{H(s)}$，从而得到$\mu(s) = \dfrac{1}{H(s)}$
+$$E(s) = \mu(s)X_i(s)-X_o(s)=\dfrac{1}{H(s)}X_i(s)-X_o(s) = \dfrac{\epsilon(s)}{H(s)}$$
+<img src="./img/74.png" width="300" align="right">
 
+考虑右图这种最简单的负反馈系统，根据终值定理，有稳态误差
+$$\boxed{e_{ss}(t) = \lim_{s\rightarrow 0}s\dfrac{E(s)}{X_i(s)}X_i(s)= \lim_{s\rightarrow 0}s\dfrac{1}{H(s)(1+G(s)H(s))}X_i(s)}$$
+稳态偏差
+$$\epsilon_{ss}(t) = \lim_{s\rightarrow 0}s\dfrac{\epsilon(s)}{X_i(s)}X_i(s)= \lim_{s\rightarrow 0}s\dfrac{1}{1+G(s)H(s)}X_i(s)$$
+特别的，当系统为单位负反馈系统，即$H(s) = 1$时，偏差与误差相等，有稳态误差
+$$\boxed{e_{ss}(t) =\epsilon_{ss}(t)= \lim_{s\rightarrow 0}s\dfrac{1}{1+G(s)}X_i(s)}$$
+注：简单来说，偏差$\epsilon$就是比较点后的那个值，而误差就是$\dfrac{\epsilon}{H(s)}$
+### 静态误差系数法
+值得一提的是，静态误差系数法求得的是**稳态偏差（即按输入定义的误差）**，而我们一般所说的稳态误差只有在单位反馈系统才与稳态偏差相等。
+
+使用该方法首先要将开环传递函数$G(s)H(s)$化为尾1型，即$G(s)H(s) = \dfrac{K(T_1s+1)\cdots}{s^v(T_2s+1)\cdots}$，设$G(s)H(s) = \dfrac{K}{s^v}G(0)$，则易知$\displaystyle\lim_{s\rightarrow 0}G_0 = 1$
+由终值定理
+$$\epsilon_{ss} = \lim_{s\rightarrow 0} s\dfrac{1}{1+G(s)H(s)}X_i(s) =\lim_{s\rightarrow 0} s\dfrac{1}{1+\dfrac{K}{s^v}G_0}X_i(s) =\lim_{s\rightarrow 0} s\dfrac{1}{1+\dfrac{K}{s^v}}X_i(s)$$
+
+以输入为单位阶跃响应为例，此时$X_i(s) = \dfrac{1}{s}$
+$$\epsilon_{ss} = =\lim_{s\rightarrow 0}\dfrac{1}{1+\dfrac{K}{s^v}}$$
+我们仅对$v=0,1,2$进行讨论，可知$v=0$时，$\epsilon_{ss} = \dfrac{1}{1+K}$
+$v=1,2$时，$\epsilon_{ss} =0$
+
+可以列出以下表格
+| 系统类别 |  单位阶跃$1(t)$  |  等速输入$t$   | 加速度输入$\dfrac{1}{2}t^2$ |
+| :------: | :--------------: | :------------: | :-------------------------: |
+|   0型    | $\dfrac{1}{1+K}$ |    $\infty$    |          $\infty$           |
+|   I型    |        0         | $\dfrac{1}{K}$ |          $\infty$           |
+|   II型   |        0         |       0        |       $\dfrac{1}{K}$        |
+
+
+由于$$\epsilon_{ss} =\lim_{s\rightarrow 0} s\dfrac{1}{1+\dfrac{K}{s^v}}X_i(s)=\lim_{s\rightarrow 0} \dfrac{1}{\dfrac{1}{sX_i (s)}+\dfrac{K}{s^{v+1}X_i(s)}}$$
+该式的值完全由$\displaystyle\lim_{s\rightarrow 0}\dfrac{K}{s^{v+1}X_i(s)}$决定，将该式定义为静态误差系数，得到表格如下
+
+| 系统类别 |  静态位置误差系数$K_p$   |   静态速度误差系数$K_v$   |  静态加速度误差系数$K_a$ |
+| :------: | :------: | :------: | :---: |
+|   0型    |   $K$    |    0     |   0   |
+|   I型    | $\infty$ |   $K$    |   0   |
+|   II型   | $\infty$ | $\infty$ |  $K$  |
+
+综上，对于典型输入信号组合$x_i(t) = A \cdot 1(t) + Bt + \dfrac{1}{2} C t^{2}$
+稳态偏差为
+$$\boxed{e_{ss} = \frac{A}{1 + K_p} + \frac{B}{K_v} + \frac{C}{K_a}}$$
+### 干扰引起的稳态误差
+干扰其实就是另一个输入。当系统存在多个输入时，将各个输入的稳态误差相加即可得到系统的稳态误差。即
+$$e_{ss} = e_{ssr}+e_{ssn}$$
+需要注意的是，我们的误差是由题目中的输入$R(s)$决定，而不是干扰$N(s)$，这一点上他们不能等同看待。
 ## 第七章 控制系统的综合与校正
 
 ## 第八章 根轨迹法
