@@ -739,7 +739,7 @@ $$\varphi_m = \gamma^*-\gamma_0+10^\circ=52.44^\circ<60^\circ$$
 
 **相角裕度$\gamma = 180^\circ + \angle G(j\omega_c)$完全由$\omega_c$时的相角决定，因此在理想状态下，最大超前角要加在$\omega=\omega_c$处，因此要让$\omega_m = \omega_c$**，此处$\omega_c$为校正后的截止频率
 
-$$\alpha = \dfrac{1+\sin \varphi_m}{1-\sin\varphi_m}=8.65^\circ,10\lg \alpha = 9.37dB$$
+$$\alpha = \dfrac{1+\sin \varphi_m}{1-\sin\varphi_m}=8.65,10\lg \alpha = 9.37dB$$
 
 要让$\omega_m = \omega_c$，需要让$L(\omega_c)+L(\omega_m) = 0$，因此有$$L(\omega_c) = -10\lg \alpha = -9.37 dB$$
 由图像可以列出
@@ -817,9 +817,10 @@ $$\dfrac{y-20\lg 30}{\lg 2.7 - \lg 1} = -20$$
 
 #### 经验公式
 其实滞后校正时有一个经验公式，适用于需要校正的$I$型系统
-$$K_v = \beta w_c$$
+$$K_v = \dfrac{1}{\beta} w_c$$
 这里$\omega_c$任取符合题目条件的截止频率
-可以尝试用它快速求出$\beta$并验算。
+然后$\omega_2 = \dfrac{1}{10}\omega_c$
+可以尝试用它快速求出滞后校正环节的传递函数并验算。
 ## 第八章 根轨迹法
 <img src="./img/32.png" width="300" align="right">
 
@@ -829,7 +830,7 @@ $$
 G(s)H(s) = \frac{K^* (s-z_1) (s-z_2) \cdots (s-z_m)}{(s-p_1) (s-p_2) \cdots (s-p_n)} = \frac{K^* \prod_{i=1}^{m} (s-z_i)}{\prod_{j=1}^{n} (s-p_j)}
 $$
 其中$K^*$称为根轨迹增益。
-该系统的闭环传递函数为$G(s) = \dfrac{G(s)H(s)}{1+G(s)H(s)}$，特征方程为$1 + G(s)H(s) = 0$
+该系统的闭环传递函数为$G(s) = \dfrac{G(s)}{1+G(s)H(s)}$，特征方程为$1 + G(s)H(s) = 0$
 根轨迹是指**随着根轨迹增益$K^*$的变化，闭环系统特征方程的根在复平面上所描绘的轨迹**。
 ### 根轨迹的绘制法则
 1. 根轨迹的起点和终点:根轨迹起始于**开环极点**,终止于**开环零点**;如果开环零点个数m少于开环极点个数n,则有n-m条根轨迹终止于无穷远处。注意：这句话的意思是，一个开环极点只能指向一个开环零点（或者指向无穷远），一个开环零点也只能被一个开环极点指向。**在根轨迹图上极点用x表示，零点用o表示。**
