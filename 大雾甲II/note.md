@@ -252,8 +252,10 @@ $$B=\mu_0 n I$$
 螺线管的两个端点，相应的有$\beta_1\rightarrow \dfrac{\pi}{2},\beta_2\rightarrow 0$和$\beta_1\rightarrow \pi,\beta_2\rightarrow \dfrac{\pi}{2}$，两种情况都有
 $$B = \frac{\mu_0 n I}{2}$$
 #### 载流导体薄板
-无限大导体薄板可视为无限长直导线。
-$$\boxed{B=\frac{\mu_0 I}{2\pi a}}$$
+无限长载流导体薄板宽度为$a$,测量点距薄板距离为$y$
+$$\boxed{B=\frac{\mu_0 I}{\pi a}\arctan\frac{a}{2y}}$$
+测量点距离足够远时，无限大导体薄板可视为无限长直导线。
+$$\boxed{B=\frac{\mu_0 I}{2\pi y}}$$
 ### 载流线圈的磁矩和磁偶极子
 <img src="./pic/09.png" width=150 align=right>
 
@@ -304,6 +306,12 @@ $$B\cdot 2\pi r = \mu_0 N I$$
 $$B = \frac{\mu_0 N I}{2\pi r}$$
 若环的截面半径比环的平均半径小得多，上式中的$r$可用平均半径$R$代替，则环内磁感应强度为
 $$B = \frac{\mu_0 N I}{2\pi R}$$
+
+记螺线管每单位长度有$n$匝，则$n = \dfrac{N}{2\pi R}$
+可知
+
+$$B=\mu_0 n I$$
+
 对于螺绕环外的空间,穿过这个回路的总电流为零,故得
 $$B=0$$
 
@@ -335,6 +343,9 @@ $$M = BIS\sin\theta$$
 写成矢量式，有
 $$\mathbf{M} = \mathbf{p}_m \times \mathbf{B}$$
 其中$\mathbf{p}_m = NIS\mathbf{e_n}$为线圈的磁矩。
+### 磁力的功
+可以证明,一个任意的闭合载流回路,在磁场中改变位置或形状时,磁力或磁力矩所做的功都为
+$$A = I \Delta \varPhi$$
 ## 第十三章 磁场中的磁介质
 ### 磁感应强度、磁化强度和磁场强度
 磁感应强度$\mathbf{B}$与磁场强度$\mathbf{H}$、磁化强度$\mathbf{M}$之间的关系为
@@ -361,3 +372,16 @@ $$j_m = \frac{\Delta I_m}{l}$$
 磁介质表面上某处磁化强度在量值上等于该处磁化电流的线密度，即
 $$j_m = |\mathbf{M}|$$
 磁化电流流向与$\mathbf{M}$成右螺旋关系，即将右手拇指指向 $\mathbf{M}$ 的方向，四指环绕方向就是表面磁化电流的方向。
+## 第十四章 电磁感应
+### 法拉第电磁感应定律
+$$\varepsilon_i = - d\frac{d\Phi}{d t} = -\int_s\mathbf B\cdot d \mathbf S$$
+### 全磁通和磁通链数
+如果导体回路由N匝线圈串联组成，则当磁通量变化时，整个回路中的总感应电动势等于各匝线圈中产生的感应电动势之和。如果通过各匝线圈的磁通量不等，则
+$$\mathscr{E}_{i} = -\frac{\mathrm{d}}{\mathrm{d}t} \left( \sum_{i=1}^{N} \Phi_{i} \right) = -\frac{\mathrm{d}\Psi}{\mathrm{d}t}$$
+$\Psi =  \displaystyle\sum_{i=1}^{N} \Phi_{i}$是穿过各匝线圈的磁通量的总和,称为穿过线圈的全磁通，又叫**磁通链数**。
+### 感生电场和磁通量变化率的关系
+<img src="./pic/19.png" width=200 align=right>
+
+$$\oint_{L} \boldsymbol{E}_{i} \cdot \text{d}\boldsymbol{l} = \varepsilon_i=- \int_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \text{d}\boldsymbol{S}$$
+
+单位正电荷绕闭合回路一周涡旋电场力所做的功等于感生电动势等于回路L所围任意曲面S中磁通量的变化率。
