@@ -186,6 +186,19 @@ $$W=\int^{\infty}_{R}wdV=\frac{Q^2}{8\pi\epsilon_0R}$$
 $$C=4\pi\epsilon_0R,W=\frac{1}{2}\frac{Q^2}{C}=\frac{Q^2}{8\pi\epsilon_0R}$$
 解三：
 $$W=\frac{1}{2}\int Udq=\frac{1}{2}\int^{Q}_0\frac{Q}{4\pi\epsilon_0R}dq=\frac{Q^2}{8\pi\epsilon_0 R}$$
+### 例题
+#### 例1
+<img src="./pic/20.png" width=200 align=right>
+
+一接地导体球壳$A$,其内、外半径分别为$R_A$和$R$,内有一半径为$R_B$的同心导体球$B$,带电量为$q$,已知$R_A=2R_B$,$R=3R_B$。今在距球心$o$为$d=4R_B$处,放一电量为$Q$的点电荷,设球壳离地很远:并与地相连。试问:
+(1)球壳$A$带的总电量是多少?
+(2)若用导线将$A$与$B$相连,球壳$A$的带电量又是多少?
+
+这种题目的固定套路都是先求圆心处的电势，然后再与接地的零电势点联系起来。
+
+设球壳$A$带的总电量是$q'$
+导体球$B$所带的电荷都分布在其外表面，对圆心的电势贡献$\varphi_1 = \dfrac{1}{4\pi\epsilon_0}\dfrac{q}{R_B}$
+取球壳之间的同心圆截面做高斯定理，可知球壳$A$内表面带电$-q$，对圆心的电势贡献$\varphi_2 = -\dfrac{1}{4\pi\epsilon_0}\dfrac{q}{R_A}$
 ## 第十一章 稳恒电流
 ### 电流和电流密度
 电流强度$I$和电流密度矢量$\mathbf{j}$的定义
