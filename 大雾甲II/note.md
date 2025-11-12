@@ -101,8 +101,8 @@ $$\displaystyle U_p=\int^{p_0}_p\mathbf{E}d\mathbf{l}=\int^{p_0}_p\frac{\lambda}
 $$U_p= -\frac{\lambda}{2\pi\epsilon_0}\ln r+C$$
 ### 电场强度和电势的关系
 $$\mathbf{E}=-\nabla U$$
-### 例题
-#### 例题1
+#### 例题
+
 <img src="./pic/24.png" width=200 align=right>
 
 电量$Q$均匀分布在长为$2l$的细线上。试求:
@@ -139,8 +139,28 @@ $$\int^{\frac{l}{\sqrt{l^2+y^2}}}_0\dfrac{1}{1-s}ds = -\ln(1-s)|^{\frac{l}{\sqrt
 若导体内有空腔,而腔内无其他带电体（如右图），则不难证明
 1. 导体空腔内表面无电荷存在
 2. 导体空腔内场强处处为0
-
 #### 例1
+<img src="./pic/25.png" width=300 align=right>
+
+在半径为$R$的中性金属球壳外有一点电荷$q$,与球心$o$相距$l$,如图所示。设它们离地和其他物体都很远，试问:
+(1)球内各点电势多大?
+(2)若把金属球壳接地，则球上的感应电荷$q'$有多大?
+
+(1)金属球壳表面会有感应电荷。任何感应电荷$dq'$对球心$o$的电势贡献为
+$$dU = \dfrac{1}{4\pi\epsilon_0}\frac{dq'}{R}$$
+而金属球壳本身总带电为0，可知感应电荷对球心的电势贡献总和为零。
+因此球心处电势为
+$$U_o = \dfrac{1}{4\pi\epsilon_0}\frac{q}{l}$$
+根据高斯定理，球壳内任意一点都没有电荷，因此电场处处为0，电势均相同。球壳内电势均为
+$$U = \dfrac{1}{4\pi\epsilon_0}\frac{q}{l}$$
+(2)球壳接地表示球壳电势为0
+也就是说
+$$U_o =0$$
+感应电荷对球心的电势
+$$U_q' = \dfrac{1}{4\pi\epsilon_0}\dfrac{q'}{R}$$
+$$U_{q'} +U_q = 0$$
+从而$q' = -\dfrac{R}{l}q$
+#### 例2
 <img src="./pic/21.png" width=200 align=right>
 
 一接地导体球壳$A$,其内、外半径分别为$R_A$和$R$,内有一半径为$R_B$的同心导体球$B$,带电量为$q$,已知$R_A=2R_B$,$R=3R_B$。今在距球心$o$为$d=4R_B$处,放一电量为$Q$的点电荷,设球壳离地很远:并与地相连。试问:
@@ -278,28 +298,7 @@ $$W=\int^{\infty}_{R}wdV=\frac{Q^2}{8\pi\epsilon_0R}$$
 $$C=4\pi\epsilon_0R,W=\frac{1}{2}\frac{Q^2}{C}=\frac{Q^2}{8\pi\epsilon_0R}$$
 解三：
 $$W=\frac{1}{2}\int Udq=\frac{1}{2}\int^{Q}_0\frac{Q}{4\pi\epsilon_0R}dq=\frac{Q^2}{8\pi\epsilon_0 R}$$
-### 例题
-#### 例1
-<img src="./pic/25.png" width=300 align=right>
 
-在半径为$R$的中性金属球壳外有一点电荷$q$,与球心$o$相距$l$,如图所示。设它们离地和其他物体都很远，试问:
-(1)球内各点电势多大?
-(2)若把金属球壳接地，则球上的感应电荷$q'$有多大?
-
-(1)金属球壳表面会有感应电荷。任何感应电荷$dq'$对球心$o$的电势贡献为
-$$dU = \dfrac{1}{4\pi\epsilon_0}\frac{dq'}{R}$$
-而金属球壳本身总带电为0，可知感应电荷对球心的电势贡献总和为零。
-因此球心处电势为
-$$U_o = \dfrac{1}{4\pi\epsilon_0}\frac{q}{l}$$
-根据高斯定理，球壳内任意一点都没有电荷，因此电场处处为0，电势均相同。球壳内电势均为
-$$U = \dfrac{1}{4\pi\epsilon_0}\frac{q}{l}$$
-(2)球壳接地表示球壳电势为0
-也就是说
-$$U_o =0$$
-感应电荷对球心的电势
-$$U_q' = \dfrac{1}{4\pi\epsilon_0}\dfrac{q'}{R}$$
-$$U_{q'} +U_q = 0$$
-从而$q' = -\dfrac{R}{l}q$
 ## 第十一章 稳恒电流
 ### 电流和电流密度
 电流强度$I$和电流密度矢量$\mathbf{j}$的定义
