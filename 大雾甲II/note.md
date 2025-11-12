@@ -101,6 +101,32 @@ $$\displaystyle U_p=\int^{p_0}_p\mathbf{E}d\mathbf{l}=\int^{p_0}_p\frac{\lambda}
 $$U_p= -\frac{\lambda}{2\pi\epsilon_0}\ln r+C$$
 ### 电场强度和电势的关系
 $$\mathbf{E}=-\nabla U$$
+### 例题
+#### 例题1
+<img src="./pic/24.png" width=200 align=right>
+
+电量$Q$均匀分布在长为$2l$的细线上。试求:
+(1)在带电直线的中垂线上离带电直线中心距离为$y$的$A$点的电势$U$和场强$E$;
+<!-- (2)在带电直线的延长线上，距带电直线中心的距离为$x$的$B$点的电势$U$和场强$E$。 -->
+
+(1)电荷线密度$\lambda = \dfrac{Q}{2l}$
+
+A点的电势
+$$U_A =\displaystyle 2\int_0^l \dfrac{1}{4\pi \epsilon_0}\cdot\dfrac{\lambda dx}{\sqrt{x^2+y^2}}=\dfrac{Q}{4\pi\epsilon_0 l}\int^l_0\dfrac{1}{\sqrt{x^2+y^2}}dx=\dfrac{Q}{4\pi\epsilon_0 l}\ln\dfrac{\sqrt{l^2+y^2}+l}{y}$$
+由
+$$\boldsymbol{E} = -\nabla U$$
+可知$$E_A = -\dfrac{dU_A}{dy} = -\dfrac{Q}{4\pi\epsilon_0 l}(-\dfrac{l}{y\sqrt{l^2+y^2}})=\dfrac{Q}{4\pi\epsilon_0y\sqrt{l^2+y^2}}$$
+方向沿$y$轴正方向
+
+注：如何求$$\int^l_0\dfrac{1}{\sqrt{x^2+y^2}}dx$$
+设$x = y\tan\theta，\theta \in [0,\dfrac{\pi}{2})$，则有$\theta = \arctan \dfrac{x}{y}$
+$$\int^l_0\dfrac{1}{\sqrt{x^2+y^2}}dx = \int^{\arctan\frac{l}{y}}_0\dfrac{1}{\dfrac{y}{\cos\theta}}d(y\tan\theta)=\int^{\arctan\frac{l}{y}}_0\dfrac{1}{\cos\theta}d\theta = \int^{\arctan\frac{l}{y}}_0\dfrac{1}{1-\sin^2\theta} d\sin\theta$$
+设$s = \sin\theta = \dfrac{x}{\sqrt{x^2+y^2}}$
+$$\int^{\arctan\frac{l}{y}}_0\dfrac{1}{1-\sin^2\theta} d\sin\theta = \int^{\frac{l}{\sqrt{l^2+y^2}}}_0\dfrac{1}{1-s^2}ds = \dfrac{1}{2}\int^{\frac{l}{\sqrt{l^2+y^2}}}_0(\dfrac{1}{1+s}+\dfrac{1}{1-s})ds$$
+$$\int^{\frac{l}{\sqrt{l^2+y^2}}}_0\dfrac{1}{1+s}ds = \ln(1+s)|^{\frac{l}{\sqrt{l^2+y^2}}}_0=\ln(1+\dfrac{l}{\sqrt{l^2+y^2}})$$
+$$\int^{\frac{l}{\sqrt{l^2+y^2}}}_0\dfrac{1}{1-s}ds = -\ln(1-s)|^{\frac{l}{\sqrt{l^2+y^2}}}_0=-\ln(1-\dfrac{l}{\sqrt{l^2+y^2}})$$
+
+从而有$$\int^l_0\dfrac{1}{\sqrt{x^2+y^2}}dx = \dfrac{1}{2}(\ln\dfrac{l+\sqrt{l^2+y^2}}{\sqrt{l^2+y^2}}-\ln\frac{\sqrt{l^2+y^2}-l}{\sqrt{l^2+y^2}})=\dfrac{1}{2}\ln\dfrac{\sqrt{l^2+y^2}+l}{\sqrt{l^2+y^2}-l}=\dfrac{1}{2}\ln\dfrac{(\sqrt{l^2+y^2}+l)^2}{y^2}=\ln\dfrac{\sqrt{l^2+y^2}+l}{y}$$
 ## 第十章 静电场中的导体和电介质
 ### 静电平衡
 #### 基本性质
@@ -112,7 +138,7 @@ $$\mathbf{E}=-\nabla U$$
 
 若导体内有空腔,而腔内无其他带电体（如右图），则不难证明
 1. 导体空腔内表面无电荷存在
-2. 导体空腔内场强处处为0
+2. 导体空腔内场强处处为0（高斯定理）
 ### 电容器的电容
 两导体带有等量异号的电荷$Q$，导体间的电势差为$U_A-U_B$
 $$C=\frac{Q}{U_A-U_B}$$
@@ -186,6 +212,28 @@ $$W=\int^{\infty}_{R}wdV=\frac{Q^2}{8\pi\epsilon_0R}$$
 $$C=4\pi\epsilon_0R,W=\frac{1}{2}\frac{Q^2}{C}=\frac{Q^2}{8\pi\epsilon_0R}$$
 解三：
 $$W=\frac{1}{2}\int Udq=\frac{1}{2}\int^{Q}_0\frac{Q}{4\pi\epsilon_0R}dq=\frac{Q^2}{8\pi\epsilon_0 R}$$
+### 例题
+#### 例1
+<img src="./pic/25.png" width=300 align=right>
+
+在半径为$R$的中性金属球壳外有一点电荷$q$,与球心$o$相距$l$,如图所示。设它们离地和其他物体都很远，试问:
+(1)球内各点电势多大?
+(2)若把金属球壳接地，则球上的感应电荷$q'$有多大?
+
+(1)金属球壳表面会有感应电荷。任何感应电荷$dq'$对球心$o$的电势贡献为
+$$dU = \dfrac{1}{4\pi\epsilon_0}\frac{dq'}{R}$$
+而金属球壳本身总带电为0，可知感应电荷对球心的电势贡献总和为零。
+因此球心处电势为
+$$U_o = \dfrac{1}{4\pi\epsilon_0}\frac{q}{l}$$
+根据高斯定理，球壳内任意一点都没有电荷，因此电场处处为0，电势均相同。球壳内电势均为
+$$U = \dfrac{1}{4\pi\epsilon_0}\frac{q}{l}$$
+(2)球壳接地表示球壳电势为0
+也就是说
+$$U_o =0$$
+感应电荷对球心的电势
+$$U_q' = \dfrac{1}{4\pi\epsilon_0}\dfrac{q'}{R}$$
+$$U_{q'} +U_q = 0$$
+从而$q' = -\dfrac{R}{l}q$
 ## 第十一章 稳恒电流
 ### 电流和电流密度
 电流强度$I$和电流密度矢量$\mathbf{j}$的定义
