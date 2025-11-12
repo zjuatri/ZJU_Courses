@@ -133,12 +133,43 @@ $$\int^{\frac{l}{\sqrt{l^2+y^2}}}_0\dfrac{1}{1-s}ds = -\ln(1-s)|^{\frac{l}{\sqrt
 1. 导体内部场强处处为0
 2. 导体表面外侧，紧靠表面处的场强处处与表面垂直
 3. 导体是个等势体，导体表面是个等势面
-#### 带空腔的导体
 <img src="./pic/05.png" width=200 align=right>
 
+#### 带空腔的导体
 若导体内有空腔,而腔内无其他带电体（如右图），则不难证明
 1. 导体空腔内表面无电荷存在
-2. 导体空腔内场强处处为0（高斯定理）
+2. 导体空腔内场强处处为0
+
+#### 例1
+<img src="./pic/21.png" width=200 align=right>
+
+一接地导体球壳$A$,其内、外半径分别为$R_A$和$R$,内有一半径为$R_B$的同心导体球$B$,带电量为$q$,已知$R_A=2R_B$,$R=3R_B$。今在距球心$o$为$d=4R_B$处,放一电量为$Q$的点电荷,设球壳离地很远:并与地相连。试问:
+(1)球壳$A$带的总电量是多少?
+(2)若用导线将$A$与$B$相连,球壳$A$的带电量又是多少?
+
+这种题目的固定套路都是先求圆心处的电势，然后再与接地的零电势点联系起来。
+
+(1)
+设球壳$A$带的总电量是$q'$
+导体球$B$所带的电荷都分布在其外表面，对圆心的电势贡献$\varphi_1 = \dfrac{1}{4\pi\epsilon_0}\dfrac{q}{R_B}$
+取球壳之间的同心圆截面做高斯定理，可知球壳$A$内表面带电$-q$，对圆心的电势贡献$\varphi_2 = -\dfrac{1}{4\pi\epsilon_0}\dfrac{q}{R_A}$
+球壳$A$的外表面带电$q'+q$，对圆心的电势贡献$\varphi_3 = \dfrac{1}{4\pi\epsilon_0}\dfrac{q'+q}{R}$
+点电荷对圆心的电势贡献$\varphi_4 = \dfrac{1}{4\pi\epsilon_0}\dfrac{Q}{d}$
+
+圆心的电势为$$\varphi_o = \dfrac{q}{4\pi\epsilon_0 R_B}-\dfrac{q}{8\pi\epsilon_0 R_B}+\dfrac{q'+q}{12\pi\epsilon_0 R_B}+\dfrac{Q}{16\pi\epsilon_0R_B}$$
+
+取$R_B<r<R_A$的高斯面
+$$E\cdot 4\pi r^2 = \dfrac{1}{\epsilon_0}q$$
+即$$E = \dfrac{q}{4\pi r^2 \epsilon_0}$$
+$$U_{A外}-U_o = U_{A内}-U_{B外} = -\int^{R_A}_{R_B}\dfrac{q}{4\pi r^2 \epsilon_0} dr = \dfrac{q}{4\pi\epsilon_0}(\dfrac{1}{R_A}-\dfrac{1}{R_B})$$
+由于接地，可知$U_{A外}=0$
+可知$U_o =  \dfrac{q}{4\pi\epsilon_0}(\dfrac{1}{R_B}-\dfrac{1}{R_A})$，有$\varphi_o = U_o$
+$$\dfrac{q}{4\pi\epsilon_0}(\dfrac{1}{R_B}-\dfrac{1}{2R_B}) = \dfrac{q}{4\pi\epsilon_0 R_B}-\dfrac{q}{8\pi\epsilon_0 R_B}+\dfrac{q'+q}{12\pi\epsilon_0 R_B}+\dfrac{Q}{16\pi\epsilon_0R_B}$$
+
+$$q' = -q-\dfrac{3}{4}Q$$
+(2)用导线相连之后球壳$A$内电场强度处处为0（否则电场驱动自由电子移动直到稳定），则由高斯定理，球壳$A$内部没有电荷。设球壳A外部带电$q'$，则有
+$$U_o = \dfrac{1}{4\pi\epsilon_0}\dfrac{q'}{R}+ \dfrac{1}{4\pi\epsilon_0}\dfrac{Q}{d}=0$$
+可以求得$$q' = -\dfrac{3}{4}Q$$
 ### 电容器的电容
 两导体带有等量异号的电荷$Q$，导体间的电势差为$U_A-U_B$
 $$C=\frac{Q}{U_A-U_B}$$
@@ -164,6 +195,41 @@ $$C=\frac{4\pi\epsilon_0R_AR_B}{R_B-R_A}$$
 $$E=\frac{Q}{4\pi\epsilon_0r^2}$$
 $$U_A-U_B=\displaystyle\int^{R_B}_{R_A}\mathbf{E}d\mathbf{r}=\int^{R_B}_{R_A}\frac{Q}{4\pi\epsilon_0r^2}=\frac{Q}{4\pi\epsilon_0}\left(\frac{1}{R_A}-\frac{1}{R_B}\right)$$
 $$C=\frac{Q}{U_A-U_B}=\frac{4\pi\epsilon_0R_AR_B}{R_B-R_A}$$
+#### 例1
+两个半径各为$a$和$b$的金属球,用细导线相连,它们间的距离比它们自身的线度大得多。今给此系统带上电荷$Q$求:
+(1)留在每个球上的电荷;
+(2)此系统的电容。
+
+导线相连，即电势相等。
+$$\dfrac{Q_A}{4\pi\epsilon_0 a} =\dfrac{Q_B}{4\pi\epsilon_0 b} $$且
+$$Q_A+Q_B = Q$$
+
+解得$$Q_A = \dfrac{a}{a+b}Q,Q_B = \dfrac{b}{a+b}Q$$
+此系统的电容为
+$$C = \dfrac{Q}{U} = \dfrac{Q}{\dfrac{Q}{4\pi\epsilon_0(a+b)}} = 4\pi\epsilon_0(a+b)$$
+<img src="./pic/22.png" width=200 align=right>
+
+#### 例2
+如图所示，一电容器的两极板都是边长为$a$的正方形金属平板，两板不是严格平行,而有一夹角$\theta$。当$\theta$很小且忽略边缘效应时，该电容器的电容$C=$()
+A.$\displaystyle \frac{\varepsilon_0 a^2}{b} \left(1 - \frac{a\theta}{2b}\right) $  B. $\displaystyle \frac{\varepsilon_0 a^2}{b} \left(1 - \frac{a\theta}{4b}\right) $
+
+C.  $\displaystyle \frac{\varepsilon_0 a^2}{2b} \left(1 - \frac{a\theta}{b}\right) $ D.  $\displaystyle \frac{\varepsilon_0 a^2}{4b} \left(1 - \frac{a\theta}{b}\right) $
+
+建立如图所示的坐标系，可以将该电容器看做无数板面积为$\mathrm{d}S = a\mathrm{d}x$，极板间距离为$d = b+x\tan\theta$的电容器并联。
+<img src="./pic/23.png" width=200 align=right>
+
+每个小电容器的电容$\mathrm{d}C = \epsilon_0\dfrac{\mathrm{d} S}{d}=\dfrac{\epsilon_0a\mathrm{d}x}{b+x\tan\theta}$
+
+则并联后的总电容
+<br>
+<br>
+<br>
+
+$$C = \int^a_0 \dfrac{\epsilon_0a\mathrm{d}x}{b+x\tan\theta}=\dfrac{\epsilon_0 a}{\tan\theta}\int^a_0\dfrac{\mathrm{d}x}{x+\dfrac{b}{\tan\theta}}=\dfrac{\epsilon_0 a}{\tan\theta}(\ln(a+\dfrac{b}{\tan\theta})-\ln(\dfrac{b}{\tan\theta}))=\dfrac{\epsilon_0 a}{\tan\theta}\ln(1+\dfrac{a\tan\theta}{b})$$
+
+$x\rightarrow 0$时$\ln(1+x) = x-\dfrac{1}{2}x^2$，则有$\ln(1+\dfrac{a\tan\theta}{b})=\dfrac{a\tan\theta}{b}-\dfrac{1}{2}(\dfrac{a\tan\theta}{b})^2=\dfrac{a\theta}{b}(1-\dfrac{a\theta}{2b})$
+有$$C =\dfrac{\epsilon_0 a}{\theta}\dfrac{a\theta}{b}(1-\dfrac{a\theta}{2b})$$
+答案为A
 ### 电介质
 #### 电介质对电场的影响
 $$U=\frac{U_0}{\epsilon_r}$$
