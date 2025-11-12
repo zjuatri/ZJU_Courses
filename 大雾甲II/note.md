@@ -398,3 +398,36 @@ $\Psi =  \displaystyle\sum_{i=1}^{N} \Phi_{i}$是穿过各匝线圈的磁通量�
 $$\oint_{L} \boldsymbol{E}_{i} \cdot \text{d}\boldsymbol{l} = \varepsilon_i=- \int_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \text{d}\boldsymbol{S}$$
 
 单位正电荷绕闭合回路一周涡旋电场力所做的功等于感生电动势等于回路L所围任意曲面S中磁通量的变化率。
+### 自感系数
+根据毕奥-萨伐尔定律,载流回路在空间任一点产生的磁感应强度$\boldsymbol{B}$都与回路中的电流强度$I$成正比，因此,通过回路的全磁通$\Psi$也与$I$成正比，即
+$$\Psi = L I$$
+式中$L$是比例系数,称为线圈的自感系数,简称自感。
+显然有感应电动势
+$$\varepsilon_L =- \dfrac{d\varPhi}{dt} = -L\dfrac{dI}{dt}$$
+### 互感系数
+<img src="./pic/20.png" width=200 align=right>
+
+设有两个相邻回路1和2,分别通以电流$I_1$和$I_2$。根据毕奥-萨伐尔定律,在回路1中电流$I_1$所产生的磁场中,任意一点的磁感应强度都和$I_1$成正比,因此通过回路2的全磁通也必然和$I_1$成正比,即
+$$\Psi_{21} = M_{21}I_1$$
+同理,回路2中电流$I_2$所产生的磁场通过回路1的全磁通$\Psi_{12}$为
+$$\Psi_{12} = M_{12}I_2$$
+可以证明$$M_{12} = M_{21} = M$$称为两回路的互感系数，简称互感。
+当回路1中的电流$I_1$变化时，在回路2中产生的互感电动势为
+$$\varepsilon_{21} = - \dfrac{d \Psi_{21}}{dt} = -M\dfrac{dI_1}{dt}$$
+当回路1中的电流$I_2$变化时，在回路1中产生的互感电动势为
+$$\varepsilon_{12} = - \dfrac{d \Psi_{12}}{dt} = -M\dfrac{dI_2}{dt}$$
+### 自感磁能
+在一个自感系数为$L$的线圈中建立稳定电流$I_0$时,线圈中所储存的磁能为
+$$W_m = \dfrac{1}{2}LI_0^2$$
+称为线圈的自感磁能
+### 磁能密度
+单位体积内的磁能，即磁能密度为
+$$\omega_m = \dfrac{1}{2}\boldsymbol{B}\cdot \boldsymbol{H}$$
+## 第十五章 电磁场与电磁波
+### 全电流安培环路定理
+$$\oint_{L} \boldsymbol{H} \cdot \mathrm{d}\boldsymbol{l} = \sum I + \frac{\mathrm{d}\Phi_{\mathrm{D}}}{\mathrm{d}t} = \sum I + \int_{S} \frac{\partial \boldsymbol{D}}{\partial t} \cdot \mathrm{d}\boldsymbol{S}$$
+### 电磁波的波动方程
+$$E = E_0\cos\omega(t-\frac{x}{c}) \\ \  \\ H = H_0\cos\omega(t-\frac{x}{c})$$
+
+电磁波在真空中的传播速度为
+$$c = \dfrac{1}{\sqrt{\varepsilon_0\mu_0}}$$
