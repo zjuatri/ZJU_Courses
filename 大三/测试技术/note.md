@@ -1,5 +1,5 @@
 # 机械工程测试技术
-## 傅里叶变换
+## 傅里叶级数
 ### 傅里叶三角级数（单边谱）
 $$x(t) = \dfrac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos n\omega_0 t + b_n \sin n\omega_0 t \right)$$
 或者
@@ -8,11 +8,11 @@ $$x(t) = \dfrac{a_0}{2} + \sum_{n=1}^{\infty} \left(\sqrt{a_n^2+b_n^2} \sin \lef
 $$\begin{cases}
 \omega_0 = \dfrac{2\pi}{T} \\
 \\
-\displaystyle a_0 = \dfrac{2}{T} \int_{-\frac{2}{T}}^{\frac{2}{T}} x(t) dt \\
+\displaystyle a_0 = \dfrac{2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} x(t) dt \\
 \\
-\displaystyle a_n = \dfrac{2}{T} \int_{-\frac{2}{T}}^{\frac{2}{T}} x(t) \cos n\omega_0 t dt \\
+\displaystyle a_n = \dfrac{2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} x(t) \cos n\omega_0 t dt \\
 \\
-\displaystyle b_n = \dfrac{2}{T} \int_{-\frac{2}{T}}^{\frac{2}{T}} x(t) \sin n\omega_0 t dt
+\displaystyle b_n = \dfrac{2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} x(t) \sin n\omega_0 t dt
 \end{cases}$$
 
 显然当$x(t)$为奇函数时$a_0 = a_n = 0$，当$x(t)$为偶函数时$b_n = 0$。
@@ -21,7 +21,7 @@ $\arctan$接受一个参数，其值域为$(-\dfrac{\pi}{2}, \dfrac{\pi}{2})$，
 因此需要一个能够识别角度象限的$\mathrm{atan2}$函数，它接受两个参数，即$a_n$和$b_n$。它能根据 $a_n$ 和 $b_n$ 的正负号，准确地判断出相位角所在的四个象限。
 $a_n = -1$, $b_n = -1$时，
 $\arctan(1) = \pi/4$ ；$\text{atan2}(a_n, b_n) = \text{atan2}(-1, -1) = -3\pi/4$。
-### 例题（幅频谱和相角谱）
+#### 例题（幅频谱和相角谱）
 <img src="./pic/01.png" align = right width = 300 />
 
 求图所示周期方波信号的傅里叶级数的三角函数展开式，并画出其幅频谱和相角谱。
@@ -43,7 +43,7 @@ b_n &= -\dfrac{4A}{n(2\pi)} [\cos(n\pi) - 1] \\
 \dfrac{4A}{n\pi} & n \text{ 为奇数} \\
 0 & n \text{ 为偶数}
 \end{cases}$$
-三角函数展开式将 $a_n$ 和 $b_n$ 代入傅里叶级数：$$x(t) = a_0 + \sum_{n=1}^{\infty} (a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t))$$$$x(t) = \sum_{n=1, 3, 5...}^{\infty} \dfrac{4A}{n\pi} \sin(n\omega_0 t)$$展开为：$$x(t) = \dfrac{4A}{\pi} \left( \sin(\omega_0 t) + \dfrac{1}{3}\sin(3\omega_0 t) + \dfrac{1}{5}\sin(5\omega_0 t) + \dots \right)$$
+三角函数展开式将 $a_n$ 和 $b_n$ 代入傅里叶级数：$$x(t) = \dfrac{a_0}{2} + \sum_{n=1}^{\infty} (a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t))$$$$x(t) = \sum_{n=1, 3, 5...}^{\infty} \dfrac{4A}{n\pi} \sin(n\omega_0 t)$$展开为：$$x(t) = \dfrac{4A}{\pi} \left( \sin(\omega_0 t) + \dfrac{1}{3}\sin(3\omega_0 t) + \dfrac{1}{5}\sin(5\omega_0 t) + \dots \right)$$
 
 
 幅频谱 $A_n$ 是信号在第 $n$ 次谐波频率 $n\omega_0$ 上的幅值。$$A_n = \sqrt{a_n^2 + b_n^2} \quad (n \ge 1)$$幅频谱是 $A_n$ 关于 $n\omega_0$的离散函数图。
@@ -60,12 +60,106 @@ $$\phi_n = \text{atan2}(a_n, b_n) \quad (n \ge 1)$$
 ### 傅里叶复指数级数（双边谱）
 $$x(t) = \sum_{n=-\infty}^{\infty} C_n e^{j n \omega_0 t} = \sum_{n=-\infty}^{\infty} |C_n| e^{j \varphi_n} e^{j n \omega_0 t} \quad n=0, \pm 1, \pm 2, \pm 3, \dots$$
 其中
-$$ C_n = \dfrac{1}{T} \int_{-T/2}^{T/2} x(t) e^{-j n \omega_0 t} dt$$
-<!-- $$|L_n| = \dfrac{An}{2} = \dfrac{\sqrt{a_n^2 + b_n^2}}{2} \quad \angle L_n = \phi_n = -\arctan \dfrac{b_n}{a_n}$$ -->
+$$ \begin{cases}
+\displaystyle C_n = \dfrac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} x(t) e^{-j n \omega_0 t} dt \\
+\\
+|C_n| = \sqrt{\mathrm{Re}(C_n)^2+\mathrm{Im}(C_n)^2} \\
+\\
+\displaystyle \varphi_n =\mathrm{atan2}(\mathrm{Im}(C_n),\mathrm{Re}(Cn)) 
+\end{cases}$$
+
 欧拉公式
-$$\cos \varphi = \dfrac{e^{j\varphi} + e^{-j\varphi}}{2}$$$$\sin \varphi = \dfrac{j(e^{-j\varphi}-e^{j\varphi} )}{2}$$
+$$\cos \varphi = \dfrac{e^{j\varphi} + e^{-j\varphi}}{2}$$$$\sin \varphi = \dfrac{e^{j\varphi}-e^{-j\varphi} }{2j}$$
 
-### 例题
-<img src="./pic/01.png" align = right width = 300 />
+#### 例题
+<img src="./pic/04.png" align = right width = 400 />
 
-求图所示周期方波信号的傅里叶级数的复指数展开式，并画出其幅频谱和相角谱。
+正弦整流信号如下图所示，请对其进行复指数基展开，并绘出双边谱。
+
+周期$T=\dfrac{T_0}{2}$
+$$C_n  = \frac{1}{\dfrac{T_0}{2}} \int_{0}^{\frac{T_0}{2}} A \sin(\omega_0 t) \cdot e^{-j n (2\omega_0) t} dt =  \frac{2A}{T_0} \int_{0}^{\frac{T_0}{2}} \sin(\omega_0 t) e^{-j 2n\omega_0 t} dt$$
+用欧拉公式代换
+$$\begin{align*}
+C_n &= \frac{2A}{T_0} \int_{0}^{\frac{T_0}{2}} \left( \frac{e^{j\omega_0 t} - e^{-j\omega_0 t}}{2j} \right) e^{-j 2n\omega_0 t} dt \\
+&= \frac{A}{jT_0} \int_{0}^{\frac{T_0}{2}} \left( e^{j\omega_0 (1-2n)t} - e^{-j\omega_0 (1+2n)t} \right) dt \\
+&= \frac{A}{jT_0} \left[ \frac{e^{j\omega_0 (1-2n)t}}{j\omega_0 (1-2n)} - \frac{e^{-j\omega_0 (1+2n)t}}{-j\omega_0 (1+2n)} \right]_{0}^{\frac{T_0}{2}} \\
+&= \frac{A}{jT_0 \cdot j\omega_0} \left[ \frac{e^{j\omega_0 (1-2n)t}}{1-2n} + \frac{e^{-j\omega_0 (1+2n)t}}{1+2n} \right]_{0}^{\frac{T_0}{2}}\\
+&\overset{\omega_0 = \frac{2\pi}{T_0}}{=}\frac{A}{-2\pi} \left[ \frac{e^{j\omega_0 (1-2n)t}}{1-2n} + \frac{e^{-j\omega_0 (1+2n)t}}{1+2n} \right]_{0}^{\frac{T_0}{2}}\\
+&=\frac{2A}{\pi (1 - 4n^2)}
+\end{align*}$$
+（最后一步通常求出来是一个$e^{j\varphi}$形式，用欧拉公式代换即可。）
+$C_n$在$n\neq 0 $时是负数，$n = 0$时为正数。因此其相角在$n=0$时为0，$n\neq 0 $时是$\pm\pi$。
+
+由双边幅频谱为偶函数，而双边相频谱为奇函数的原则作图。
+$$ 
+|C_n| = \dfrac{2A}{\pi (1 - 4n^2)} \\
+\\
+\displaystyle \varphi_n =\begin{cases}0 \quad n=0\\ \pi \quad n>0 \\ -\pi \quad n<0\end{cases}
+$$
+
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="./pic/05.png" style="height: 300px;">
+  <img src="./pic/06.png" style="height: 300px;">
+</div>
+
+## 傅里叶变换
+描述周期信号使用傅里叶级数，描述非周期信号使用傅里叶变换。
+### 傅里叶变换与傅里叶逆变换
+傅里叶变换为
+$$X(\omega) = \int_{-\infty}^{+\infty}x(t)e^{-j\omega t} \mathrm{d}t$$
+由$\omega = 2\pi f$，上式也可以写作
+$$X(f)=\int_{-\infty}^{+\infty}x(t)e^{-2j\pi ft} \mathrm{d}t$$
+傅里叶逆变换为
+$$x(t) = \dfrac{1}{2\pi}\int_{-\infty}^{+\infty}X(\omega)e^{j\omega t} \mathrm{d}\omega$$
+对应的，也可以写作
+$$x(t) = \int_{-\infty}^{+\infty}X(\omega)e^{2j \pi f t} \mathrm{d}f$$
+则称二者互为傅里叶变换对，记作$x(t) \rightleftharpoons X(\omega)$或$x(t) \rightleftharpoons X(f)$
+### 傅里叶变换的性质
+#### 对称性质
+若$x(t) \rightleftharpoons X(f)$，则$ x(-f)\rightleftharpoons X(t)$
+#### 时间尺度改变性质
+若$x(t) \rightleftharpoons X(f)$，则$x(kt) \rightleftharpoons \dfrac{1}{k}X(\dfrac{1}{k}f)$
+#### 时移性质
+若$x(t) \rightleftharpoons X(f)$，则$x(t\pm t_0)\rightleftharpoons e^{\pm 2j\pi f t_0}X(f) $
+#### 频移性质
+若$x(t) \rightleftharpoons X(f)$，则$e^{\pm 2j\pi f_0 t}x(t)\rightleftharpoons X(f\mp f_0) $
+#### 微分性质
+若 $x(t) \rightleftharpoons X(f)$
+$$F\left[\frac{d x(t)}{dt}\right] = (j2\pi f) X(f)$$
+即
+$$F\left[x(t)\right]^{(n)} = (j2\pi f)^n X(f)$$
+#### 积分性质
+若 $x(t) \rightleftharpoons X(f)$
+$$F\left[\int_{-\infty}^{t} x(\tau) d\tau\right] = \frac{1}{j2\pi f} X(f)$$
+同理，左边积几次分，右边分母上的$j2\pi f$就是几次。
+### 卷积定理
+卷积定义为
+$$x_1(t) * x_2(t)= \int_{-\infty}^{+\infty} x_1(\tau) x_2(t-\tau) d\tau$$
+#### 时域卷积定理
+如果$x_1(t) \rightleftharpoons X_1(f),x_2(t) \rightleftharpoons X_2(f)$
+$$F[x_1(t) * x_2(t)] = X_1(f) \cdot X_2(f)$$
+或者写成
+$$F[x_1(t) * x_2(t)] = X_1(\omega) \cdot X_2(\omega)$$
+#### 频域卷积定理
+如果$x_1(t) \rightleftharpoons X_1(f),x_2(t) \rightleftharpoons X_2(f)$
+$$F[x_1(t) \cdot x_2(t)] = X_1(f) * X_2(f)$$
+或者写成
+$$F[x_1(t) \cdot x_2(t)] = \frac{1}{2\pi} [X_1(\omega) * X_2(\omega)]$$
+### 单位脉冲函数$\delta(t)$
+<img src="./pic/07.png" align = right width = 250 />
+
+单位脉冲函数的定义
+$$\delta(t) = \begin{cases} \infty & t=0 \\ 0 & t \neq 0 \end{cases}$$
+且有
+$$\int_{-\infty}^{+\infty} \delta(t) dt = 1$$
+#### 频谱
+<img src="./pic/08.png" align = right width = 250 />
+
+$\delta(t)$函数的频谱（即傅里叶变换）为
+$$\Delta(f) = \int_{-\infty}^{+\infty} \delta(t) e^{-j2\pi ft} dt = e^0 = 1$$
+因此$\delta(t)$ 的频谱是均匀谱，等强度，无线宽
+#### 乘积性质
+$$ x(t) \delta(t-t_0) = x(t_0) \delta(t-t_0)$$
+$t\neq t_0$时，式子两边都是0；$t=t_0$时，两边显然相等。
+这个式子的意思是：用 $x(t)$ 去乘以 $\delta(t-t_0)$，其效果等同于把 $x(t)$ 在 $t=t_0$ 时的值 $x(t_0)$（这是一个常数）**采样**出来，然后乘以 $\delta(t-t_0)$。
+#### 
