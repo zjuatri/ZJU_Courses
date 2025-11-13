@@ -4,125 +4,80 @@ clc;
 close all;
 
 % --- 2. 定义参数 ---
-A_val = 1; % 假设 A=1 用于绘图
-A_str = 'A'; % 用于标签的字符串
-n_range = -3:3; % 谐波次数 n
+f0 = 1; 
+f_axis = [-2*f0, -f0, 0, f0, 2*f0]; 
 
-% --- 3. 计算横轴数据 (w/w0 的值) ---
-w_axis_data = 2 * n_range; % 数据点: [-6, -4, -2, 0, 2, 4, 6]
+% --- 3. 定义频谱数据 ---
+imag_data = [0, 0.5, 0, -0.5, 0];
+phase_data = [0, pi/2, 0, -pi/2, 0];
 
-% --- 4. 计算幅频谱 |Cn| (用于绘图) ---
-Cn_mag = (2 * A_val) ./ (pi * abs(1 - 4 * n_range.^2));
-
-% --- 5. 计算相频谱 (用于绘图) ---
-Cn_phase = zeros(size(n_range)); 
-Cn_phase(n_range > 0) = pi;     
-Cn_phase(n_range < 0) = -pi;    
-
-% --- 6. 生成标签 (为 'latex' 解释器添加 $ 符号) ---
-
-% 幅度标签
-amp_labels = cell(size(n_range));
-for i = 1:length(n_range)
-    n = n_range(i);
-    if n == 0
-        amp_labels{i} = sprintf('$\\frac{2%s}{\\pi}$', A_str);
-    else
-        denom = abs(1 - 4*n^2);
-        amp_labels{i} = sprintf('$\\frac{2%s}{%d\\pi}$', A_str, denom);
-    end
-end
-
-% 相位标签
-phase_labels = cell(size(n_range));
-for i = 1:length(n_range)
-    n = n_range(i);
-    if n == 0
-        phase_labels{i} = '0';
-    elseif n > 0
-        phase_labels{i} = '$\pi$';
-    else
-        phase_labels{i} = '$-\pi$';
-    end
-end
-
-% --- 7. 生成 X 轴刻度标签 (为 'latex' 解释器添加 $ 符号) ---
-x_tick_labels = cell(size(n_range));
-for i = 1:length(w_axis_data)
-    w_val = w_axis_data(i);
-    if w_val == 0
-        x_tick_labels{i} = '0';
-    else
-        x_tick_labels{i} = sprintf('$%d\\omega_0$', w_val);
-    end
-end
-
-
-% --- 8. 绘图 (图 1: 幅频谱) ---
-figure('Name', '双边幅频谱');
+% --- 4. 绘图 (图 1: 虚频谱 - 保留箭头) ---
+figure('Name', '双边虚频谱 Im[X(f)]');
 hold on;
-stem(w_axis_data, Cn_mag, 'filled', 'LineWidth', 2, 'MarkerSize', 8);
+grid on;
 
-% 添加分式标签 (必须用 'latex' 渲染 \frac)
-y_offset_amp = max(Cn_mag) * 0.05;
-for i = 1:length(w_axis_data)
-    text(w_axis_data(i), Cn_mag(i) + y_offset_amp, amp_labels{i}, ...
-        'HorizontalAlignment', 'center', ...
-        'VerticalAlignment', 'bottom', ...
-        'FontSize', 12, 'Color', 'k', ...
-        'Interpreter', 'latex'); % <-- 保留 'latex'
+pos_idx = imag_data > 0;
+neg_idx = imag_data < 0;
+
+% 绘制正值 (使用向上箭头 '^')
+if any(pos_idx)
+    stem(f_axis(pos_idx), imag_data(pos_idx), ...
+         'filled', 'LineWidth', 2, 'Marker', '^', ...
+         'Color', 'b', 'MarkerFaceColor', 'b', 'MarkerSize', 8);
+end
+% 绘制负值 (使用向下箭头 'v')
+if any(neg_idx)
+    stem(f_axis(neg_idx), imag_data(neg_idx), ...
+         'filled', 'LineWidth', 2, 'Marker', 'v', ...
+         'Color', 'b', 'MarkerFaceColor', 'b', 'MarkerSize', 8);
 end
 
-% --- 标题和轴标签使用 'tex' 解释器 ---
-% 'tex' 可以处理中文和简单的符号 |C_n|
-title('双边幅频谱 |C_n|', 'Interpreter', 'tex', 'FontSize', 14); % <-- *** 修正: 'latex' 改为 'tex' ***
-xlabel('\omega', 'Interpreter', 'tex', 'FontSize', 14); % <-- *** 修正: 'latex' 改为 'tex', 移除 $ ***
-ylabel('幅度', 'FontSize', 12);
-% ---
-grid on;
-ax = gca;
-ax.FontSize = 12;
-
-% 刻度标签 (xticklabels) 必须用 'latex' 渲染 \omega_0
-xticks(w_axis_data);
-xticklabels(x_tick_labels);
-ax.TickLabelInterpreter = 'latex'; % <-- 保留 'latex'
+plot(f_axis, zeros(size(f_axis)), 'k-', 'LineWidth', 0.5); 
+text(-f0, 0.5, '1/2', 'HorizontalAlignment', 'center', 'VerticalAlignment', 'bottom', 'FontSize', 12);
+text(f0, -0.5, '-1/2', 'HorizontalAlignment', 'center', 'VerticalAlignment', 'top', 'FontSize', 12);
+title('x(t) = sin(2\pi f_0 t) 的虚频谱 ', 'FontSize', 14);
+xlabel('频率 f', 'Interpreter', 'tex', 'FontSize', 12);
+ylabel('虚部 Im[X(f)]', 'Interpreter', 'tex', 'FontSize', 12);
+ax = gca; ax.FontSize = 12;
+ylim([-0.6, 0.6]); 
+xticks(f_axis);
+xticklabels({sprintf('-2f_0'), sprintf('-f_0'), '0', sprintf('f_0'), sprintf('2f_0')});
+ax.TickLabelInterpreter = 'tex';
 hold off;
 
 
-% --- 9. 绘图 (图 2: 相频谱) ---
-figure('Name', '双边相频谱');
+% --- 5. 绘图 (图 2: 相频谱 - *** 修正为圆点 ***) ---
+figure('Name', '双边相频谱 \angle X(f)');
 hold on;
-stem(w_axis_data, Cn_phase, 'filled', 'LineWidth', 2, 'MarkerSize', 8);
+grid on;
 
-% 添加相位标签 (使用 'latex' 渲染 \pi)
-y_offset_phase = 0.3;
-for i = 1:length(w_axis_data)
-    text(w_axis_data(i), Cn_phase(i) + y_offset_phase, phase_labels{i}, ...
-        'HorizontalAlignment', 'center', ...
-        'VerticalAlignment', 'bottom', ...
-        'FontSize', 14, 'Color', 'k', ...
-        'Interpreter', 'latex'); % <-- 保留 'latex'
+% *** 修正: 找出非零点 ***
+nonzero_idx = phase_data ~= 0;
+
+% *** 修正: 使用 'o' (圆点) 作为标记 ***
+if any(nonzero_idx)
+    stem(f_axis(nonzero_idx), phase_data(nonzero_idx), ...
+         'filled', 'LineWidth', 2, 'Marker', 'o', ... % <-- 改为 'o'
+         'Color', 'r', 'MarkerFaceColor', 'r', 'MarkerSize', 8);
 end
 
-% --- 标题和轴标签使用 'tex' 解释器 ---
-% 'tex' 可以处理中文和简单的符号 \phi_n
-title('双边相频谱 \phi_n', 'Interpreter', 'tex', 'FontSize', 14); % <-- *** 修正: 'latex' 改为 'tex', 移除 $ ***
-xlabel('\omega', 'Interpreter', 'tex', 'FontSize', 14); % <-- *** 修正: 'latex' 改为 'tex', 移除 $ ***
-ylabel('相位 (弧度)', 'FontSize', 12);
-% ---
-grid on;
-ax = gca;
-ax.FontSize = 12;
+plot(f_axis, zeros(size(f_axis)), 'k-', 'LineWidth', 0.5);
 
-% 刻度标签 (xticklabels) 必须用 'latex' 渲染 \omega_0
-xticks(w_axis_data);
-xticklabels(x_tick_labels);
-ax.TickLabelInterpreter = 'latex'; % <-- 保留 'latex'
+% 在非零点上标注数值
+text(-f0, pi/2, '\pi/2', 'HorizontalAlignment', 'center', ...
+     'VerticalAlignment', 'bottom', 'FontSize', 12, 'Interpreter', 'tex');
+text(f0, -pi/2, '-\pi/2', 'HorizontalAlignment', 'center', ...
+     'VerticalAlignment', 'top', 'FontSize', 12, 'Interpreter', 'tex');
 
-% Y 轴刻度标签 (yticks) 必须用 'latex' 渲染 \pi
-yticks([-pi, 0, pi]);
-yticklabels({'$$-\pi$$', '0', '$$\pi$$'});
-ax.TickLabelInterpreter = 'latex'; % 确保 Y 轴也用 latex
-ylim([-1.2*pi, 1.2*pi]);
+% --- 图形美化 ---
+title('x(t) = sin(2\pi f_0 t) 的相频谱 ', 'FontSize', 14);
+xlabel('频率 f', 'Interpreter', 'tex', 'FontSize', 12);
+ylabel('相位 \angle X(f) (弧度)', 'Interpreter', 'tex', 'FontSize', 12);
+ax = gca; ax.FontSize = 12;
+ylim([-1.2*pi, 1.2*pi]); 
+xticks(f_axis);
+xticklabels({sprintf('-2f_0'), sprintf('-f_0'), '0', sprintf('f_0'), sprintf('2f_0')});
+ax.TickLabelInterpreter = 'tex';
+yticks([-pi, -pi/2, 0, pi/2, pi]);
+yticklabels({'-\pi', '-\pi/2', '0', '\pi/2', '\pi'});
 hold off;
