@@ -348,7 +348,7 @@ $$F = -\frac{dW}{dx} = \frac{1}{2}\frac{Q^2 d}{\epsilon_0 a}\frac{\epsilon_r - 1
 $$I=\frac{dq}{dt},j=\frac{dI}{dS}$$
 也即$$dI=\mathbf{j}\cdot d\mathbf{S},I=\int_S\mathbf{j}\cdot d\mathbf{S}$$
 ### 电流与漂移速度
-设$n$为导线内单位体积电子数
+设$n$为导线内单位体积的电子数
 $$I=env_d\Delta S,\mathbf{j}=en\mathbf{v}_d$$
 <!-- ### 电流连续性方程及稳恒的条件
 电流连续性方程
@@ -422,6 +422,31 @@ $$B = \frac{\mu_0 n I}{2}$$
 $$\boxed{B=\frac{\mu_0 I}{\pi a}\arctan\frac{a}{2y}}$$
 测量点距离足够远时，无限大导体薄板可视为无限长直导线。
 $$\boxed{B=\frac{\mu_0 I}{2\pi y}}$$
+#### 例1
+<img src="./pic/29.png" width=150 align=right>
+<img src="./pic/30.png" width=200 align=right>
+
+在半径 $R = 1.0 \times 10^{-2} \text{ m}$ 的无限长半圆筒形金属薄壁中，自上而下地通过 $I = 5.0 \text{ A}$ 的电流，设电流均匀地分布在薄壁上(见附图)。试求轴线上 $P$ 点的磁感应强度。
+
+半圆筒形的金属薄壁可以看做是无限条无限长直导线的并联
+对每一条直导线而言，设通过其的电流为$dI$，那么其对$P$点的磁感应强度为$dB = \dfrac{\mu_0 dI}{2\pi R}$
+
+如图所示建立坐标系，取对称的两个$dI$一起考虑，易知其合场强为$dB' = 2dB\cos(\dfrac{\pi}{2}-\theta)=\dfrac{\mu_0 dI}{\pi R}\sin\theta$
+到这里很明显了，我们是对$d\theta$进行积分，因此要将$dI$转换为$d\theta$
+$$dI = \dfrac{I}{\pi R}\cdot Rd\theta = \dfrac{Id\theta}{\pi}$$
+$$B = \int_0^{\frac{\pi}{2}}\dfrac{\mu_0}{\pi R}\sin\theta\cdot\dfrac{Id\theta}{\pi} = \dfrac{\mu_0I}{\pi^2 R}$$
+#### 例2
+
+<img src="./pic/31.png" width=200 align=right>
+
+在半径为$R$及$r$的两圆周之间,有一总匝数为$N$的均匀密线平面线圈(如图)通有电流$I$,求线圈中心(即两圆圆心)处的磁感应强度。
+
+距圆心距离为$x$的同心圆$dI = NI\cdot\dfrac{dx}{R-r}$
+由载流圆线圈的磁感应强度公式
+对圆心的磁感应强度贡献$$dB = \dfrac{\mu_0 dI}{2x} = \dfrac{NI\mu_0}{2x(R-r)}dx$$
+积分即可
+$$B = \int_r^R  \dfrac{NI\mu_0}{2x(R-r)}dx = \dfrac{NI\mu_0}{2(R-r)}\ln\dfrac{R}{r}$$
+
 ### 载流线圈的磁矩和磁偶极子
 <img src="./pic/09.png" width=150 align=right>
 
@@ -482,17 +507,44 @@ $$B=\mu_0 n I$$
 $$B=0$$
 
 #### 无限长载流螺线管
-<img src="./pic/15.png" width=200 align=right>
+<img src="./pic/15.png" width=300 align=right>
 
 螺线管每单位长度有$n$匝
 $$\oint_L \mathbf{B} \cdot d\mathbf{l} = \int^b_a\mathbf{B}d\mathbf{l}+\int^c_b\mathbf{B}d\mathbf{l}+\int^d_c\mathbf{B}d\mathbf{l}+\int^a_d\mathbf{B}d\mathbf{l}=Bl=\mu_0 n l I$$
 $$B=\mu_0 n I$$
+#### 无限大平行导体平面
+<img src="./pic/32.png" width=300 align=right>
+
+无限大平行导体平面上有均匀分布的电流，面电流密度为$j$，求平面外一点$P$的磁感应强度。
+
+根据对称性可以判断出磁感应强度方向水平向右。根据安培环路定理
+$$\oint \mathbf{B} \cdot d\mathbf{l} = \mu_0 \Sigma I$$
+<img src="./pic/33.png" width=300 align=right>
+
+$$B \cdot \overline{ab} + B \cdot \overline{bc} \cos 90^\circ + B \cdot \overline{cd} + B \cdot \overline{da} \cos 90^\circ = \mu_0 j \overline{ab}$$
+从而有
+$$B = \dfrac{\mu_0 j}{2}$$
 ### 安培力
 <img src="./pic/16.png" width=300 align=right>
 
 $$\mathbf{F} = \int^l_0 I d\mathbf{l} \times \mathbf{B}$$
 #### 安培力的特性
 如右图，作用在整个导线上的力与作用在通有同样电流，长度为$(2l+2R)$的直导线上的安培力相等。可以证明,无论中间一段导线的形状如何,其结果都一样。
+
+#### 例题
+<img src="./pic/34.png" width=150 align=right>
+
+载有电流 $I_1$ 的长直导线旁有一正三角形线圈, 其边长为 $a$, 载有电流 $I_2$, 一边与直导线平行, 中心到直导线的垂直距离为 $b$。求三角形线圈所受的力。
+
+本题需要注意的点是，不要使用上述“安培力的特性”，原因是不是匀强磁场。否则你很轻松地求出安培力为0还是错的。
+受力分析易得等边三角形平行导线的边受力
+$$F_1 = BIL = \dfrac{\mu_0 I_1}{2\pi (b-\dfrac{\sqrt 3}{6}a)}\cdot I_2\cdot a$$
+斜边的受力（x是该点到导线的垂直距离）
+$$F_2' = \int^{b+\frac{\sqrt 3}{3}a}_{b-\frac{\sqrt 3}{6}a}\dfrac{\mu_0 I_1}{2\pi x}\cdot I_2 \cdot \dfrac{2dx}{\sqrt 3} = \dfrac{\mu_0I_1I_2}{\sqrt 3 \pi}\ln \dfrac{b+\dfrac{\sqrt 3}{3}a}{b-\dfrac{\sqrt 3}{6}a}$$
+两条斜边所受合力
+$$F_2 = 2 F_2' \cos 60^\circ =  \dfrac{\mu_0I_1I_2}{\sqrt 3 \pi}\ln \dfrac{b+\dfrac{\sqrt 3}{3}a}{b-\dfrac{\sqrt 3}{6}a}$$
+总合力
+$$F = F_2-F_1 =  \dfrac{\mu_0I_1I_2}{\sqrt 3 \pi}\ln \dfrac{b+\dfrac{\sqrt 3}{3}a}{b-\dfrac{\sqrt 3}{6}a} - F_1 = BIL = \dfrac{\mu_0 I_1}{2\pi (b-\dfrac{\sqrt 3}{6}a)}\cdot I_2\cdot a$$
 #### 长直导线之间的作用力
 <img src="./pic/17.png" width=300 align=right>
 
@@ -501,17 +553,44 @@ $$\mathbf{F} = \int^l_0 I d\mathbf{l} \times \mathbf{B}$$
 $$\frac{dF_2}{dl_2}=\frac{\mu_0 I_1I_2}{2\pi d}$$
 电流同向相互吸引，异向相互排斥。
 在国际单位制中，电流强度是基本量，其单位“安培”就是利用平行电流间相互作用的安培力来定义的。
-#### 磁场对线圈的力矩
+#### 磁场对线圈的力矩和磁矩
 <img src="./pic/18.png" width=200 align=right>
 
-取与线圈中电流方向成右螺旋关系的方向为线圈平面的法线矢量$n$的指向，线圈的面积为$S$，则磁场对线圈的力矩
+取与线圈中电流方向成右螺旋关系的方向为线圈平面的法线矢量$\mathbf n$的指向，线圈的面积为$S$，则磁场对线圈的力矩
 $$M = BIS\sin\theta$$
 写成矢量式，有
 $$\mathbf{M} = \mathbf{p}_m \times \mathbf{B}$$
-其中$\mathbf{p}_m = NIS\mathbf{e_n}$为线圈的磁矩。
+其中$\mathbf{p}_m = NIS\mathbf{n}$为线圈的磁矩。法线矢量$\mathbf n$的指向**与线圈中电流方向成右螺旋关系**。
+#### 例题
+<img src="./pic/35.png" width=250 align=right>
+<img src="./pic/36.png" width=250 align=right>
+
+如图所示, 一斜面上放有木制圆柱, 圆柱质量 $m = 0.25 \text{ Kg}$, 半径 $R$, 长 $l = 0.10 \text{ m}$, 圆柱上缠绕有 $N = 10$ 匝的导线。斜面与水平面成 $\theta$ 角, 斜面上各处有铅直向上的均匀磁场, 磁感应强度 $B$ 为 $0.50 \text{ T}$。如果圆柱上所绕线圈的平面与斜面平行, 试问通过线圈的电流强度多大时, 圆柱才不往下滑动?
+
+线圈受到的磁力矩
+$$M = NBIS\sin\theta = 2NBIlR\sin\theta$$
+重力对瞬心的力矩
+$$M = mgR\sin\theta$$
+$$NBIS\sin\theta = 2NBIlR\sin\theta\geq mgR\sin\theta$$
+$$I\geq\dfrac{mg}{2NlB} = 2.45A$$
 ### 磁力的功
 可以证明,一个任意的闭合载流回路,在磁场中改变位置或形状时,磁力或磁力矩所做的功都为
 $$A = I \Delta \varPhi$$
+### 霍尔效应
+<img src="./pic/37.png" width=300 align=right>
+
+在均匀磁场中的通电导体薄板,当电流方向与磁场方向垂直时,则在垂直于磁场和电流方向的薄板上、下两端之间出现电势差，这一现象称为霍耳效应。霍尔效应可以表示为
+$$U_H = R_H \frac{BI}{d}$$
+其中$R_H$称为霍尔系数。
+
+$$I = nqSv$$
+式中$n$表示单位体积内的载流子个数，也称为**载流子浓度**。
+解得$v = \dfrac{I}{nqS}$
+$$qvB = qE$$
+解得$E = vB = \dfrac{IB}{nqS}=\dfrac{IB}{nqld}$
+$$U = El = \dfrac{BIl}{nq ld} = \dfrac{1}{nq}\dfrac{B}{d}$$
+可知$R_H = \dfrac{1}{nq}$
+**p型半导体的载流子是正电荷（positive），n型半导体的载流子是负电荷(negative)，据此由电压大小关系判断半导体类型，如右图所示。**
 ## 第十三章 磁场中的磁介质
 ### 磁感应强度、磁化强度和磁场强度
 磁感应强度$\mathbf{B}$与磁场强度$\mathbf{H}$、磁化强度$\mathbf{M}$之间的关系为
