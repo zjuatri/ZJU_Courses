@@ -256,6 +256,18 @@ $$U=\frac{U_0}{\epsilon_r}$$
 $$C=\epsilon_rC_0$$
 $$E=\frac{E_0}{\epsilon_r}$$
 $\epsilon_r$为仅与电介质有关的常数，称为电介质的**相对介电常数**
+#### 例题
+<img src="./pic/27.png" width=200 align=right>
+
+一球形电容器，内球半径 $R_1$，外球半径 $R_2$，两球面间的一半空间充满相对介电常数为 $\epsilon_r$ 的电介质，如图所示。设边缘效应可略，求其电容。
+
+可以视作上下两电容器并联
+球形电容器电容$$C=\frac{4\pi\epsilon_0R_1R_2}{R_2-R_1}$$
+由
+$$C=\epsilon_rC_0$$
+上半电容$C_1 = \dfrac{2\pi \epsilon_0 R_1R_2}{R_2-R_1}$，下半电容$C_2 = \dfrac{2\pi \epsilon_0 \epsilon_r R_1R_2}{R_2-R_1}$
+从而电容
+$$C = C_1+C_2 = \dfrac{2\pi \epsilon_0 R_1R_2}{R_2-R_1}(1 + \epsilon_r)$$
 #### 电极化强度
 对大多数各项同性电介质来说，$\mathbf{P}$和$\mathbf{E}$有如下关系
 $$\mathbf{P}=\epsilon_0\chi_e\mathbf{E}$$
@@ -277,6 +289,26 @@ $$\oint\mathbf{D}d\mathbf{S}=\sum q_0$$
 其中$\mathbf{D}$为电位移
 $$\mathbf{D}=\epsilon_0\mathbf{E}+\mathbf{P}=(1+\chi_e)\epsilon_0\mathbf{E}=\epsilon_r\epsilon_0\mathbf{E}=\epsilon \mathbf{E}$$
 其中$\epsilon$称为电介质的介电常数或电容率
+#### 例题
+<img src="./pic/26.png" width=300 align=right>
+
+平行板电容器两极板面积为 $S$，间距为 $d$。在极板间平行地放置两块厚度分别为 $d_1$ 和 $d_2$ 的介质板，其相对介电常数分别为 $\epsilon_{r1}$ 和 $\epsilon_{r2}$。设电容器充电后两极板分别带有 $\pm q$ 的电荷。试求：
+1. 电容器的电容；
+2. 两介质交界面上的极化电荷面密度。
+
+$$\begin{align*}
+\oint_{S_1} \boldsymbol{D} \cdot \mathrm{d}\boldsymbol{S} &= D_1 \Delta S_1 = \sigma \Delta S_1 \\
+\oint_{S_2} \boldsymbol{D} \cdot \mathrm{d}\boldsymbol{S} &= D_2 \Delta S_2 = \sigma \Delta S_2 \\
+D_1 &= D_2 = \sigma = q/S
+\end{align*}$$
+由$D = \epsilon_0\epsilon_r E$
+$$E_1 = \dfrac{D_1}{\epsilon_0\epsilon_{r1}} = \dfrac{q}{\epsilon_{r1} S},E_2 = \dfrac{D_2}{\epsilon_0\epsilon_{r2}} = \dfrac{q}{\epsilon_{r2} S}$$
+$$U = E_1d_1+E_2d_2 =\dfrac{q}{S}(\dfrac{d_1}{\epsilon_{r1}}+\dfrac{d_2}{\epsilon_{r2}})$$
+$$C = \dfrac{Q}{U} = \frac{\epsilon_1 \epsilon_2 S}{\epsilon_2 d_1 + \epsilon_1 d_2}$$
+
+在交界面处，有两个表面,对于介质 1 的下表面，该表面的外法线 $\hat{\boldsymbol{n}}_1$（即离开介质 1 的方向）指向介质 2，此处的极化电荷面密度 $\sigma_{p1} = \boldsymbol{P}_1 \cdot \hat{\boldsymbol{n}}_1 = +P_1$；
+对于介质 2 的上表面，该表面的外法线 $\hat{\boldsymbol{n}}_2$（即离开介质 2 的方向）指向介质 1，与 $\boldsymbol{P}_2$ 方向相反。此处的极化电荷面密度 $\sigma_{p2} = \boldsymbol{P}_2 \cdot \hat{\boldsymbol{n}}_2 = -P_2$。
+$$  \sigma_{\text{界面}} = \sigma_{p1} + \sigma_{p2} = P_1 - P_2=\sigma_p = \frac{q}{S} \left( \frac{1}{\epsilon_{r2}} - \frac{1}{\epsilon_{r1}} \right)$$
 ### 电场的能量
 #### 能量密度积分法
 单位体积电场贮存的能量$w_e$为
@@ -298,15 +330,27 @@ $$W=\int^{\infty}_{R}wdV=\frac{Q^2}{8\pi\epsilon_0R}$$
 $$C=4\pi\epsilon_0R,W=\frac{1}{2}\frac{Q^2}{C}=\frac{Q^2}{8\pi\epsilon_0R}$$
 解三：
 $$W=\frac{1}{2}\int Udq=\frac{1}{2}\int^{Q}_0\frac{Q}{4\pi\epsilon_0R}dq=\frac{Q^2}{8\pi\epsilon_0 R}$$
+#### 例2
+<img src="./pic/28.png" width=300 align=right>
 
+平行板电容器的极板是边长为 $a$ 的正方形, 间距为 $d$, 两板带电 $\pm Q$. 如本题图, 把厚度为 $d$、相对介电常数为 $\varepsilon_r$ 的电介质板插入一半. 试问电介质板所受电场力的大小及方向.
+
+此题采用能量法。设电介质插入距离为$x$，该电容器可以看作两个电容器并联
+$$C = \dfrac{\epsilon_0\epsilon_r ax}{d}+ \dfrac{\epsilon_0 a (a-x)}{d}$$
+此时该电容器的能量为
+$$W = \dfrac{1}{2}\dfrac{Q^2}{C} = \dfrac{1}{2}\dfrac{Q^2}{\dfrac{\epsilon_0\epsilon_r ax}{d}+ \dfrac{\epsilon_0 a (a-x)}{d}} = \dfrac{1}{2}\dfrac{Q^2 d}{\epsilon_0 a (a+x(\epsilon_r-1))}$$
+由电场力做功与能量变化的关系
+$$F = -\frac{dW}{dx} = \frac{1}{2}\frac{Q^2 d}{\epsilon_0 a}\frac{\epsilon_r - 1}{( a +x(\epsilon_r-1))^2}$$
+注意到$x$增大时$W$是减小的，也就是越往里推能量越小，而电场力做正功时能量减小，因此电场力水平向右。
 ## 第十一章 稳恒电流
 ### 电流和电流密度
 电流强度$I$和电流密度矢量$\mathbf{j}$的定义
 $$I=\frac{dq}{dt},j=\frac{dI}{dS}$$
 也即$$dI=\mathbf{j}\cdot d\mathbf{S},I=\int_S\mathbf{j}\cdot d\mathbf{S}$$
 ### 电流与漂移速度
+设$n$为导线内单位体积电子数
 $$I=env_d\Delta S,\mathbf{j}=en\mathbf{v}_d$$
-### 电流连续性方程及稳恒的条件
+<!-- ### 电流连续性方程及稳恒的条件
 电流连续性方程
 $$\oint_s\mathbf{j}\cdot d\mathbf{S}=-\frac{dq}{dt}$$
 稳恒条件
@@ -317,7 +361,16 @@ $$\Delta U = E\Delta l = j\Delta S\Delta R$$
 即
 $$j=\frac{\Delta l}{\Delta R\Delta S}E=\frac{1}{\rho}E=\gamma E$$
 矢量形式为$$\mathbf{j}=\gamma \mathbf{E}$$
-$\gamma$为导体的电导率
+$\gamma$为导体的电导率 -->
+#### 例题 
+直径为 $2.5\,\text{mm}$ 的铝线一端与直径为 $1.8\,\text{mm}$ 的铜线一端焊接。导线上通有 $1.3\,\text{A}$ 的稳恒电流。求：
+(1)铜线和铝线中的电流密度；
+(2)在铜中，平均每个原子有一个自由传导电子，求电子的漂移速度。已知铜的质量密度为 $8.96 \times 10^3\,\text{kg/m}^3$。
+
+(1) $$j_{Al} = \dfrac{I}{S_{Al}} = \dfrac{1.3}{\pi (1.25 \times 10^{-3})^2} = 2.65 \times 10^5 \, \text{A/m}^2$$
+$$j_{Cu} = \dfrac{I}{S_{Cu}} = \dfrac{1.3}{\pi (0.9 \times 10^{-3})^2} = 5.11 \times 10^5 \, \text{A/m}^2$$
+(2) $$n = \frac{\rho N_A}{M} = 8.49\times 10^{28} /m^3$$ 
+$$v_d = \frac{j}{en} =3.65\times 10^{-5}m/s$$
 ## 第十二章 稳恒磁场
 ### 洛伦兹力
 $$\mathbf{F}=q\mathbf{v}\times \mathbf{B}$$
