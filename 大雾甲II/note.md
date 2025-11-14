@@ -669,18 +669,58 @@ $$\varepsilon_i = - d\frac{d\Phi}{d t} = -\int_s\mathbf B\cdot d \mathbf S$$
 如果导体回路由N匝线圈串联组成，则当磁通量变化时，整个回路中的总感应电动势等于各匝线圈中产生的感应电动势之和。如果通过各匝线圈的磁通量不等，则
 $$\mathscr{E}_{i} = -\frac{\mathrm{d}}{\mathrm{d}t} \left( \sum_{i=1}^{N} \Phi_{i} \right) = -\frac{\mathrm{d}\Psi}{\mathrm{d}t}$$
 $\Psi =  \displaystyle\sum_{i=1}^{N} \Phi_{i}$是穿过各匝线圈的磁通量的总和,称为穿过线圈的全磁通，又叫**磁通链数**。
+
+#### 例题
+<img src="./pic/42.png" width=200 align=right>
+
+图中一长直导线载有恒定电流 $I$, 距 $c$ 近旁平行放置着匝数为 $N$, 长、宽分别为 $a$ 和 $b$ 的矩形线框。$t=0$ 时, 左边与长直导线的距离为 $c$。设矩形线框以匀速度 $v$ 垂直导线向右运动, 求线框中的感应电动势。
+
+$$d\Psi = NBdS = \dfrac{N\mu_0I}{2\pi r}\cdot bdr$$
+$$\Psi = \int^{c+a+vt}_{c+vt} \dfrac{N\mu_0I}{2\pi r}\cdot bdr =\dfrac{N\mu_0Ib}{2\pi} \int^{c+a+vt}_{c+vt} \dfrac{1}{r}dr = \dfrac{N\mu_0Ib}{2\pi}(\ln(c+a+vt)-\ln(c+vt))$$
+$$\epsilon = -\dfrac{d \Psi}{dt} = \dfrac{N\mu_0Ib}{2\pi}(\dfrac{v}{c+a+vt}-\dfrac{v}{c+vt})$$
+感应电动势顺时针
 ### 感生电场和磁通量变化率的关系
 <img src="./pic/19.png" width=200 align=right>
 
 $$\oint_{L} \boldsymbol{E}_{i} \cdot \text{d}\boldsymbol{l} = \varepsilon_i=- \int_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \text{d}\boldsymbol{S}$$
 
 单位正电荷绕闭合回路一周涡旋电场力所做的功等于感生电动势等于回路L所围任意曲面S中磁通量的变化率。
+#### 例题
+<img src="./pic/43.png" width=250 align=right>
+
+在半径为 $R$ 的圆柱形空间存在着均匀磁场, 如图所示。此磁场以 $\dfrac{dB}{dt}$ 的速率增大，其中放置细棒 $ab$, 与圆心 $O$ 的垂直距离为 $h$ (见图)。求棒 $ab$ 上的感生电动势。
+
+对于半径为$r$的同心圆，
+$$E\cdot 2\pi r = - \dfrac{dB}{dt} \pi r^2$$
+$$|E| = \dfrac{r}{2}\dfrac{dB}{dt} = \dfrac{h}{2\cos\theta}\dfrac{dB}{dt}$$
+方向为逆时针，如图所示。对棒取微元$dy$，则微元两侧的感应电动势
+$$d\epsilon = E\cos\theta dy = \dfrac{h}{2}\dfrac{dB}{dt}dy$$
+由几何关系有$y = h\tan\theta$
+$$d\epsilon = \dfrac{h}{2}\dfrac{dB}{dt}d(h\tan\theta) = \dfrac{h^2}{2\cos^2\theta}\dfrac{dB}{dt}d\theta$$
+$$\epsilon = \int^{\arccos \frac{h}{R}}_{-\arccos \frac{h}{R}}\dfrac{h^2}{2\cos^2\theta}\dfrac{dB}{dt}d\theta=h\sqrt{R^2-h^2}\dfrac{dB}{dt}$$
+电动势方向为$a\rightarrow b$
 ### 自感系数
 根据毕奥-萨伐尔定律,载流回路在空间任一点产生的磁感应强度$\boldsymbol{B}$都与回路中的电流强度$I$成正比，因此,通过回路的全磁通$\Psi$也与$I$成正比，即
 $$\Psi = L I$$
 式中$L$是比例系数,称为线圈的自感系数,简称自感。
 显然有感应电动势
-$$\varepsilon_L =- \dfrac{d\varPhi}{dt} = -L\dfrac{dI}{dt}$$
+$$\varepsilon_L =- \dfrac{d\Psi}{dt} = -L\dfrac{dI}{dt}$$
+#### 常见的自感系数
+##### 螺线管
+单层密绕空心长直螺线管总匝数为 $N$, 长为 $l$, 半径为 $R$, 且 $l \gg R$。试求其自感系数。
+
+长直螺线管$$B = \mu_0 nI = \mu_0\dfrac{N}{l}I$$
+$$\Psi = NBS = \dfrac{\mu_0N^2I}{l}\pi R^2$$
+$$L = \dfrac{\Psi}{I} = \dfrac{\mu_0N^2\pi R^2}{l}$$
+##### 平行长直导线
+<img src="./pic/44.png" width=200 align=right>
+
+ 两根半径为 $a$ 的平行长直传输线, 相距为 $d$, 且 $a \ll d$。试求长为 $l$ 的这对传输线的自感。
+
+将这两根直导线看做一个回路。对于距离左导线为$r$的地方，磁感应强度$$B = \dfrac{\mu_0 I}{2\pi r} +  \dfrac{\mu_0 I}{2\pi (a-r)}$$
+$$dS = ldr,d\Phi = BdS = \dfrac{\mu_0I}{2\pi}(\dfrac{1}{r}+\dfrac{1}{d-r})ldr$$
+$$\Phi = \int_a^{d-a} \dfrac{\mu_0lI}{2\pi}(\dfrac{1}{r}+\dfrac{1}{d-r})dr =  \dfrac{\mu_0lI}{2\pi}[\ln \dfrac{r}{d-r}]^{d-a}_{a} = \dfrac{\mu_0 l I}{\pi}\ln(\dfrac{d-a}{a})$$
+$$L = \dfrac{\Phi}{I} = \dfrac{\mu_0 l}{\pi}\ln(\dfrac{d-a}{a})$$
 ### 互感系数
 <img src="./pic/20.png" width=200 align=right>
 
@@ -693,6 +733,14 @@ $$\Psi_{12} = M_{12}I_2$$
 $$\varepsilon_{21} = - \dfrac{d \Psi_{21}}{dt} = -M\dfrac{dI_1}{dt}$$
 当回路1中的电流$I_2$变化时，在回路1中产生的互感电动势为
 $$\varepsilon_{12} = - \dfrac{d \Psi_{12}}{dt} = -M\dfrac{dI_2}{dt}$$
+#### 常见的互感系数
+##### 共轴螺线管
+<img src="./pic/45.png" width=250 align=right>
+
+在一长度为$l$、截面积为 $S$、相对磁导率为 $\mu_r$ 的长直圆柱形介质棒上, 均匀密绕有两个共轴螺线管 $a$ 和 $b$, 它们绕向相同, 截面积都可近似等于磁介质棒的截面积, 螺线管 1 和 2 的匝数分别为 $N_1$ 和 $N_2$。(假设一个螺线管中的电流所激发​的磁通量全部通过另一个, 即无漏磁)试求两共轴螺线管的互感系数。
+
+$$\Psi_{21} =N_2 \cdot \mu_0 \dfrac{N_1}{l}I_1 \cdot S$$
+$$M = \dfrac{\Psi_{21}}{I_1} = \dfrac{\mu_0 N_1N_2S}{l}$$
 ### 自感磁能
 在一个自感系数为$L$的线圈中建立稳定电流$I_0$时,线圈中所储存的磁能为
 $$W_m = \dfrac{1}{2}LI_0^2$$
