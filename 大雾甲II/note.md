@@ -348,7 +348,7 @@ $$F = -\frac{dW}{dx} = \frac{1}{2}\frac{Q^2 d}{\epsilon_0 a}\frac{\epsilon_r - 1
 $$I=\frac{dq}{dt},j=\frac{dI}{dS}$$
 也即$$dI=\mathbf{j}\cdot d\mathbf{S},I=\int_S\mathbf{j}\cdot d\mathbf{S}$$
 ### 电流与漂移速度
-设$n$为导线内单位体积电子数
+设$n$为导线内单位体积的电子数
 $$I=env_d\Delta S,\mathbf{j}=en\mathbf{v}_d$$
 <!-- ### 电流连续性方程及稳恒的条件
 电流连续性方程
@@ -422,6 +422,31 @@ $$B = \frac{\mu_0 n I}{2}$$
 $$\boxed{B=\frac{\mu_0 I}{\pi a}\arctan\frac{a}{2y}}$$
 测量点距离足够远时，无限大导体薄板可视为无限长直导线。
 $$\boxed{B=\frac{\mu_0 I}{2\pi y}}$$
+#### 例1
+<img src="./pic/29.png" width=150 align=right>
+<img src="./pic/30.png" width=200 align=right>
+
+在半径 $R = 1.0 \times 10^{-2} \text{ m}$ 的无限长半圆筒形金属薄壁中，自上而下地通过 $I = 5.0 \text{ A}$ 的电流，设电流均匀地分布在薄壁上(见附图)。试求轴线上 $P$ 点的磁感应强度。
+
+半圆筒形的金属薄壁可以看做是无限条无限长直导线的并联
+对每一条直导线而言，设通过其的电流为$dI$，那么其对$P$点的磁感应强度为$dB = \dfrac{\mu_0 dI}{2\pi R}$
+
+如图所示建立坐标系，取对称的两个$dI$一起考虑，易知其合场强为$dB' = 2dB\cos(\dfrac{\pi}{2}-\theta)=\dfrac{\mu_0 dI}{\pi R}\sin\theta$
+到这里很明显了，我们是对$d\theta$进行积分，因此要将$dI$转换为$d\theta$
+$$dI = \dfrac{I}{\pi R}\cdot Rd\theta = \dfrac{Id\theta}{\pi}$$
+$$B = \int_0^{\frac{\pi}{2}}\dfrac{\mu_0}{\pi R}\sin\theta\cdot\dfrac{Id\theta}{\pi} = \dfrac{\mu_0I}{\pi^2 R}$$
+#### 例2
+
+<img src="./pic/31.png" width=200 align=right>
+
+在半径为$R$及$r$的两圆周之间,有一总匝数为$N$的均匀密线平面线圈(如图)通有电流$I$,求线圈中心(即两圆圆心)处的磁感应强度。
+
+距圆心距离为$x$的同心圆$dI = NI\cdot\dfrac{dx}{R-r}$
+由载流圆线圈的磁感应强度公式
+对圆心的磁感应强度贡献$$dB = \dfrac{\mu_0 dI}{2x} = \dfrac{NI\mu_0}{2x(R-r)}dx$$
+积分即可
+$$B = \int_r^R  \dfrac{NI\mu_0}{2x(R-r)}dx = \dfrac{NI\mu_0}{2(R-r)}\ln\dfrac{R}{r}$$
+
 ### 载流线圈的磁矩和磁偶极子
 <img src="./pic/09.png" width=150 align=right>
 
@@ -482,17 +507,44 @@ $$B=\mu_0 n I$$
 $$B=0$$
 
 #### 无限长载流螺线管
-<img src="./pic/15.png" width=200 align=right>
+<img src="./pic/15.png" width=300 align=right>
 
 螺线管每单位长度有$n$匝
 $$\oint_L \mathbf{B} \cdot d\mathbf{l} = \int^b_a\mathbf{B}d\mathbf{l}+\int^c_b\mathbf{B}d\mathbf{l}+\int^d_c\mathbf{B}d\mathbf{l}+\int^a_d\mathbf{B}d\mathbf{l}=Bl=\mu_0 n l I$$
 $$B=\mu_0 n I$$
+#### 无限大平行导体平面
+<img src="./pic/32.png" width=300 align=right>
+
+无限大平行导体平面上有均匀分布的电流，面电流密度为$j$，求平面外一点$P$的磁感应强度。
+
+根据对称性可以判断出磁感应强度方向水平向右。根据安培环路定理
+$$\oint \mathbf{B} \cdot d\mathbf{l} = \mu_0 \Sigma I$$
+<img src="./pic/33.png" width=300 align=right>
+
+$$B \cdot \overline{ab} + B \cdot \overline{bc} \cos 90^\circ + B \cdot \overline{cd} + B \cdot \overline{da} \cos 90^\circ = \mu_0 j \overline{ab}$$
+从而有
+$$B = \dfrac{\mu_0 j}{2}$$
 ### 安培力
 <img src="./pic/16.png" width=300 align=right>
 
 $$\mathbf{F} = \int^l_0 I d\mathbf{l} \times \mathbf{B}$$
 #### 安培力的特性
 如右图，作用在整个导线上的力与作用在通有同样电流，长度为$(2l+2R)$的直导线上的安培力相等。可以证明,无论中间一段导线的形状如何,其结果都一样。
+
+#### 例题
+<img src="./pic/34.png" width=150 align=right>
+
+载有电流 $I_1$ 的长直导线旁有一正三角形线圈, 其边长为 $a$, 载有电流 $I_2$, 一边与直导线平行, 中心到直导线的垂直距离为 $b$。求三角形线圈所受的力。
+
+本题需要注意的点是，不要使用上述“安培力的特性”，原因是不是匀强磁场。否则你很轻松地求出安培力为0还是错的。
+受力分析易得等边三角形平行导线的边受力
+$$F_1 = BIL = \dfrac{\mu_0 I_1}{2\pi (b-\dfrac{\sqrt 3}{6}a)}\cdot I_2\cdot a$$
+斜边的受力（x是该点到导线的垂直距离）
+$$F_2' = \int^{b+\frac{\sqrt 3}{3}a}_{b-\frac{\sqrt 3}{6}a}\dfrac{\mu_0 I_1}{2\pi x}\cdot I_2 \cdot \dfrac{2dx}{\sqrt 3} = \dfrac{\mu_0I_1I_2}{\sqrt 3 \pi}\ln \dfrac{b+\dfrac{\sqrt 3}{3}a}{b-\dfrac{\sqrt 3}{6}a}$$
+两条斜边所受合力
+$$F_2 = 2 F_2' \cos 60^\circ =  \dfrac{\mu_0I_1I_2}{\sqrt 3 \pi}\ln \dfrac{b+\dfrac{\sqrt 3}{3}a}{b-\dfrac{\sqrt 3}{6}a}$$
+总合力
+$$F = F_2-F_1 =  \dfrac{\mu_0I_1I_2}{\sqrt 3 \pi}\ln \dfrac{b+\dfrac{\sqrt 3}{3}a}{b-\dfrac{\sqrt 3}{6}a} - F_1 = BIL = \dfrac{\mu_0 I_1}{2\pi (b-\dfrac{\sqrt 3}{6}a)}\cdot I_2\cdot a$$
 #### 长直导线之间的作用力
 <img src="./pic/17.png" width=300 align=right>
 
@@ -501,17 +553,44 @@ $$\mathbf{F} = \int^l_0 I d\mathbf{l} \times \mathbf{B}$$
 $$\frac{dF_2}{dl_2}=\frac{\mu_0 I_1I_2}{2\pi d}$$
 电流同向相互吸引，异向相互排斥。
 在国际单位制中，电流强度是基本量，其单位“安培”就是利用平行电流间相互作用的安培力来定义的。
-#### 磁场对线圈的力矩
+#### 磁场对线圈的力矩和磁矩
 <img src="./pic/18.png" width=200 align=right>
 
-取与线圈中电流方向成右螺旋关系的方向为线圈平面的法线矢量$n$的指向，线圈的面积为$S$，则磁场对线圈的力矩
+取与线圈中电流方向成右螺旋关系的方向为线圈平面的法线矢量$\mathbf n$的指向，线圈的面积为$S$，则磁场对线圈的力矩
 $$M = BIS\sin\theta$$
 写成矢量式，有
 $$\mathbf{M} = \mathbf{p}_m \times \mathbf{B}$$
-其中$\mathbf{p}_m = NIS\mathbf{e_n}$为线圈的磁矩。
+其中$\mathbf{p}_m = NIS\mathbf{n}$为线圈的磁矩。法线矢量$\mathbf n$的指向**与线圈中电流方向成右螺旋关系**。
+#### 例题
+<img src="./pic/35.png" width=250 align=right>
+<img src="./pic/36.png" width=250 align=right>
+
+如图所示, 一斜面上放有木制圆柱, 圆柱质量 $m = 0.25 \text{ Kg}$, 半径 $R$, 长 $l = 0.10 \text{ m}$, 圆柱上缠绕有 $N = 10$ 匝的导线。斜面与水平面成 $\theta$ 角, 斜面上各处有铅直向上的均匀磁场, 磁感应强度 $B$ 为 $0.50 \text{ T}$。如果圆柱上所绕线圈的平面与斜面平行, 试问通过线圈的电流强度多大时, 圆柱才不往下滑动?
+
+线圈受到的磁力矩
+$$M = NBIS\sin\theta = 2NBIlR\sin\theta$$
+重力对瞬心的力矩
+$$M = mgR\sin\theta$$
+$$NBIS\sin\theta = 2NBIlR\sin\theta\geq mgR\sin\theta$$
+$$I\geq\dfrac{mg}{2NlB} = 2.45A$$
 ### 磁力的功
 可以证明,一个任意的闭合载流回路,在磁场中改变位置或形状时,磁力或磁力矩所做的功都为
 $$A = I \Delta \varPhi$$
+### 霍尔效应
+<img src="./pic/37.png" width=300 align=right>
+
+在均匀磁场中的通电导体薄板,当电流方向与磁场方向垂直时,则在垂直于磁场和电流方向的薄板上、下两端之间出现电势差，这一现象称为霍耳效应。霍尔效应可以表示为
+$$U_H = R_H \frac{BI}{d}$$
+其中$R_H$称为霍尔系数。
+
+$$I = nqSv$$
+式中$n$表示单位体积内的载流子个数，也称为**载流子浓度**。
+解得$v = \dfrac{I}{nqS}$
+$$qvB = qE$$
+解得$E = vB = \dfrac{IB}{nqS}=\dfrac{IB}{nqld}$
+$$U = El = \dfrac{BIl}{nq ld} = \dfrac{1}{nq}\dfrac{B}{d}$$
+可知$R_H = \dfrac{1}{nq}$
+**p型半导体的载流子是正电荷（positive），n型半导体的载流子是负电荷(negative)，据此由电压大小关系判断半导体类型，如右图所示。**
 ## 第十三章 磁场中的磁介质
 ### 磁感应强度、磁化强度和磁场强度
 磁感应强度$\mathbf{B}$与磁场强度$\mathbf{H}$、磁化强度$\mathbf{M}$之间的关系为
@@ -534,10 +613,55 @@ $$\mathbf{B}=\mu_0\mu_r \mathbf{H}=\mu \mathbf{H}$$
 其中$\mu = \mu_0\mu_r$为磁介质的磁导率。
 ### 磁化电流线密度
 磁化电流线密度的定义是磁介质表面单位长度的磁化电流强度，即
-$$j_m = \frac{\Delta I_m}{l}$$
+$$j_m = \frac{I_m}{l}$$
+注意：这里的$l$是**磁介质的长度**，不是导线的长度
 磁介质表面上某处磁化强度在量值上等于该处磁化电流的线密度，即
 $$j_m = |\mathbf{M}|$$
 磁化电流流向与$\mathbf{M}$成右螺旋关系，即将右手拇指指向 $\mathbf{M}$ 的方向，四指环绕方向就是表面磁化电流的方向。
+#### 例题1
+
+<img src="./pic/38.png" width=250 align=right>
+
+一螺线环的环芯为铝质圆环($\chi_m = 2.2 \times 10^{-5}$)，平均半径 $R = 1.0 \times 10^{-1} \text{ m}$，截面半径 $r = 1.0 \times 10^{-2} \text{ m}$，环上密绕 $N = 628$ 匝线圈，通以 $I = 5.0 \text{ A}$ 的电流。试计算环内
+(1)磁场强度 $H$；
+(2)磁感应强度 $B$；
+(3)磁化强度 $M$；
+(4)介质环表面的总磁化电流强度。
+
+由磁介质中的安培环路定理
+$$H\cdot 2\pi r = NI \\ H = \dfrac{NI}{2\pi r} = 5\times 10^3A/m \\M = \chi_m H = 0.11A/m \\ B = \mu_0(M+H) = 6.28\times 10^{-3}T$$
+由$j_m =M$，$$I_m = j_m \cdot 2\pi R = 0.069A$$
+其方向与导线的电流方向相同。
+#### 例题2
+<img src="./pic/41.png" width=250 align=right>
+
+铁制的螺线环的平均周长为 $61 \text{ cm}$, 空气隙长 $1 \text{ cm}$ (如图所示)。环上线圈总数为 1000 匝, 当线圈中通过电流为 $1.5 \text{ A}$ 时, 空气隙中的磁感应强度为 $0.18 \text{ T}$。求铁环的 $\mu$ 值(忽略空气隙中磁感应线的发散)。
+
+需要注意安培环路定理的环路经过了两种介质。记平均周长为$C$，空气隙长为$d$
+$$H_1\cdot (C-d)+H_2\cdot d = NI$$
+将$H_1 = \dfrac{B}{\mu},H_2 = \dfrac{B}{\mu_0}$代入即可。
+$$
+\mu = \frac{B(C-d)}{NI - \frac{B}{\mu_0}l_1}= 1.59 \times 10^{-3} \text{ N/A}^2
+$$
+
+### 磁滞回线
+<img src="./pic/40.png" width=300 align=right>
+
+对于铁磁质而言：
+随着磁场强度$H$的增大，磁感应强度$B$也增大，即图中$OS$段曲线。开始时B值随H值的增加比较缓慢（图中没有画出）,之后，B值有一急剧增加的过程,然后又缓慢下来达到一定的磁场强度值时,B值随H值的增加非常缓慢,趋于一个极限值,表明此时介质的磁化已达饱和状态,相应的磁感应强度称为**饱和磁感应强度**
+
+当铁磁质达到饱和磁化状态后,如果逐渐减小电流使H值减小，实验表明，磁感应强度B的值也逐渐减小,但并不沿原来的起始磁化曲线OS返回原点，而是沿另一条曲线$SbcS$'下降。
+
+当 $H$ 值降到零时, $B$ 值降至 $B_r$ (图中 $b$ 点), $B_r$ 称为**剩余磁感应强度(简称剩磁)**。这说明, 撤去电流磁场后, 铁磁质内尚保留磁性, 此时铁磁体成为永磁体了。这种 $B$ 值变化“落后”于 $H$ 值的现象称为**磁滞现象**。
+
+为了消除剩磁, 必须加一反方向的磁场, 即电流反向。随着反向 $H$ 值的逐渐增加, $B$ 值将沿 $bc$ 曲线下降, 直至 $H = -H_c$ 时剩磁完全消失(即 $B=0$, 图中 C 点)。$H_c$ 称为**矫顽力**。**矫顽力的大小反映了铁磁质保留剩磁的能力。**
+
+若继续增大反向磁场, 铁磁质将被反向磁化直至达到反向饱和状态 $S'$点。此后, 若使反向磁场逐渐减小到零, 然后再沿正方向增加, 则介质的磁化状态将沿图中 $S'b'c'S$ 曲线回到正向磁化饱和状态。于是形成了图 13.9 所示的闭合曲线 $sbcs'b's_o$。这条闭合曲线称为磁滞回线。
+
+
+若在起始磁化曲线 $os$ 上未达到 $S$ 点之前就减小 $H$ 值, 则 $B$ 值将沿另一条曲线下降, $B$ 随 $H$ 的全部变化过程将形成较小的磁滞回线
+
+
 ## 第十四章 电磁感应
 ### 法拉第电磁感应定律
 $$\varepsilon_i = - d\frac{d\Phi}{d t} = -\int_s\mathbf B\cdot d \mathbf S$$
@@ -545,18 +669,58 @@ $$\varepsilon_i = - d\frac{d\Phi}{d t} = -\int_s\mathbf B\cdot d \mathbf S$$
 如果导体回路由N匝线圈串联组成，则当磁通量变化时，整个回路中的总感应电动势等于各匝线圈中产生的感应电动势之和。如果通过各匝线圈的磁通量不等，则
 $$\mathscr{E}_{i} = -\frac{\mathrm{d}}{\mathrm{d}t} \left( \sum_{i=1}^{N} \Phi_{i} \right) = -\frac{\mathrm{d}\Psi}{\mathrm{d}t}$$
 $\Psi =  \displaystyle\sum_{i=1}^{N} \Phi_{i}$是穿过各匝线圈的磁通量的总和,称为穿过线圈的全磁通，又叫**磁通链数**。
+
+#### 例题
+<img src="./pic/42.png" width=200 align=right>
+
+图中一长直导线载有恒定电流 $I$, 距 $c$ 近旁平行放置着匝数为 $N$, 长、宽分别为 $a$ 和 $b$ 的矩形线框。$t=0$ 时, 左边与长直导线的距离为 $c$。设矩形线框以匀速度 $v$ 垂直导线向右运动, 求线框中的感应电动势。
+
+$$d\Psi = NBdS = \dfrac{N\mu_0I}{2\pi r}\cdot bdr$$
+$$\Psi = \int^{c+a+vt}_{c+vt} \dfrac{N\mu_0I}{2\pi r}\cdot bdr =\dfrac{N\mu_0Ib}{2\pi} \int^{c+a+vt}_{c+vt} \dfrac{1}{r}dr = \dfrac{N\mu_0Ib}{2\pi}(\ln(c+a+vt)-\ln(c+vt))$$
+$$\epsilon = -\dfrac{d \Psi}{dt} = \dfrac{N\mu_0Ib}{2\pi}(\dfrac{v}{c+a+vt}-\dfrac{v}{c+vt})$$
+感应电动势顺时针
 ### 感生电场和磁通量变化率的关系
 <img src="./pic/19.png" width=200 align=right>
 
 $$\oint_{L} \boldsymbol{E}_{i} \cdot \text{d}\boldsymbol{l} = \varepsilon_i=- \int_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \text{d}\boldsymbol{S}$$
 
 单位正电荷绕闭合回路一周涡旋电场力所做的功等于感生电动势等于回路L所围任意曲面S中磁通量的变化率。
+#### 例题
+<img src="./pic/43.png" width=250 align=right>
+
+在半径为 $R$ 的圆柱形空间存在着均匀磁场, 如图所示。此磁场以 $\dfrac{dB}{dt}$ 的速率增大，其中放置细棒 $ab$, 与圆心 $O$ 的垂直距离为 $h$ (见图)。求棒 $ab$ 上的感生电动势。
+
+对于半径为$r$的同心圆，
+$$E\cdot 2\pi r = - \dfrac{dB}{dt} \pi r^2$$
+$$|E| = \dfrac{r}{2}\dfrac{dB}{dt} = \dfrac{h}{2\cos\theta}\dfrac{dB}{dt}$$
+方向为逆时针，如图所示。对棒取微元$dy$，则微元两侧的感应电动势
+$$d\epsilon = E\cos\theta dy = \dfrac{h}{2}\dfrac{dB}{dt}dy$$
+由几何关系有$y = h\tan\theta$
+$$d\epsilon = \dfrac{h}{2}\dfrac{dB}{dt}d(h\tan\theta) = \dfrac{h^2}{2\cos^2\theta}\dfrac{dB}{dt}d\theta$$
+$$\epsilon = \int^{\arccos \frac{h}{R}}_{-\arccos \frac{h}{R}}\dfrac{h^2}{2\cos^2\theta}\dfrac{dB}{dt}d\theta=h\sqrt{R^2-h^2}\dfrac{dB}{dt}$$
+电动势方向为$a\rightarrow b$
 ### 自感系数
 根据毕奥-萨伐尔定律,载流回路在空间任一点产生的磁感应强度$\boldsymbol{B}$都与回路中的电流强度$I$成正比，因此,通过回路的全磁通$\Psi$也与$I$成正比，即
 $$\Psi = L I$$
 式中$L$是比例系数,称为线圈的自感系数,简称自感。
 显然有感应电动势
-$$\varepsilon_L =- \dfrac{d\varPhi}{dt} = -L\dfrac{dI}{dt}$$
+$$\varepsilon_L =- \dfrac{d\Psi}{dt} = -L\dfrac{dI}{dt}$$
+#### 常见的自感系数
+##### 螺线管
+单层密绕空心长直螺线管总匝数为 $N$, 长为 $l$, 半径为 $R$, 且 $l \gg R$。试求其自感系数。
+
+长直螺线管$$B = \mu_0 nI = \mu_0\dfrac{N}{l}I$$
+$$\Psi = NBS = \dfrac{\mu_0N^2I}{l}\pi R^2$$
+$$L = \dfrac{\Psi}{I} = \dfrac{\mu_0N^2\pi R^2}{l}$$
+##### 平行长直导线
+<img src="./pic/44.png" width=200 align=right>
+
+ 两根半径为 $a$ 的平行长直传输线, 相距为 $d$, 且 $a \ll d$。试求长为 $l$ 的这对传输线的自感。
+
+将这两根直导线看做一个回路。对于距离左导线为$r$的地方，磁感应强度$$B = \dfrac{\mu_0 I}{2\pi r} +  \dfrac{\mu_0 I}{2\pi (a-r)}$$
+$$dS = ldr,d\Phi = BdS = \dfrac{\mu_0I}{2\pi}(\dfrac{1}{r}+\dfrac{1}{d-r})ldr$$
+$$\Phi = \int_a^{d-a} \dfrac{\mu_0lI}{2\pi}(\dfrac{1}{r}+\dfrac{1}{d-r})dr =  \dfrac{\mu_0lI}{2\pi}[\ln \dfrac{r}{d-r}]^{d-a}_{a} = \dfrac{\mu_0 l I}{\pi}\ln(\dfrac{d-a}{a})$$
+$$L = \dfrac{\Phi}{I} = \dfrac{\mu_0 l}{\pi}\ln(\dfrac{d-a}{a})$$
 ### 互感系数
 <img src="./pic/20.png" width=200 align=right>
 
@@ -569,6 +733,14 @@ $$\Psi_{12} = M_{12}I_2$$
 $$\varepsilon_{21} = - \dfrac{d \Psi_{21}}{dt} = -M\dfrac{dI_1}{dt}$$
 当回路1中的电流$I_2$变化时，在回路1中产生的互感电动势为
 $$\varepsilon_{12} = - \dfrac{d \Psi_{12}}{dt} = -M\dfrac{dI_2}{dt}$$
+#### 常见的互感系数
+##### 共轴螺线管
+<img src="./pic/45.png" width=250 align=right>
+
+在一长度为$l$、截面积为 $S$、相对磁导率为 $\mu_r$ 的长直圆柱形介质棒上, 均匀密绕有两个共轴螺线管 $a$ 和 $b$, 它们绕向相同, 截面积都可近似等于磁介质棒的截面积, 螺线管 1 和 2 的匝数分别为 $N_1$ 和 $N_2$。(假设一个螺线管中的电流所激发​的磁通量全部通过另一个, 即无漏磁)试求两共轴螺线管的互感系数。
+
+$$\Psi_{21} =N_2 \cdot \mu_0 \dfrac{N_1}{l}I_1 \cdot S$$
+$$M = \dfrac{\Psi_{21}}{I_1} = \dfrac{\mu_0 N_1N_2S}{l}$$
 ### 自感磁能
 在一个自感系数为$L$的线圈中建立稳定电流$I_0$时,线圈中所储存的磁能为
 $$W_m = \dfrac{1}{2}LI_0^2$$
