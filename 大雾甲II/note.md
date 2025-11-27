@@ -665,6 +665,14 @@ $$
 ## 第十四章 电磁感应
 ### 法拉第电磁感应定律
 $$\varepsilon_i = - d\frac{d\Phi}{d t} = -\int_s\mathbf B\cdot d \mathbf S$$
+#### 例题
+<img src="./pic/47.png" width=200 align=right>
+
+一导体被弯成附图所示的形状, 放在均匀磁场 $\mathbf{B}$ 中, $\hat{ab}$ 为半径 $R$ 的 $3/4$ 圆弧, $\overline{oa} = R$, 若此导线以角速度 $\omega$ 绕通过 $o$ 点并与磁场平行的轴逆时针匀速转动, 求此导线 $oab$ 中的动生电动势。哪一端电势高？
+
+假设我们将$ob$直线连接，那么该闭合回路磁通量不变，即感应电动势为0。不难证明此时$oab$这段导线与$Ob$产生的感应电动势完全等效。
+
+$$\epsilon = Blv=B \sqrt 5 R (\omega \dfrac{\sqrt 5 R}{2})=\dfrac{5}{2}B\omega^2R$$
 ### 全磁通和磁通链数
 如果导体回路由N匝线圈串联组成，则当磁通量变化时，整个回路中的总感应电动势等于各匝线圈中产生的感应电动势之和。如果通过各匝线圈的磁通量不等，则
 $$\mathscr{E}_{i} = -\frac{\mathrm{d}}{\mathrm{d}t} \left( \sum_{i=1}^{N} \Phi_{i} \right) = -\frac{\mathrm{d}\Psi}{\mathrm{d}t}$$
@@ -699,6 +707,21 @@ $$d\epsilon = E\cos\theta dy = \dfrac{h}{2}\dfrac{dB}{dt}dy$$
 $$d\epsilon = \dfrac{h}{2}\dfrac{dB}{dt}d(h\tan\theta) = \dfrac{h^2}{2\cos^2\theta}\dfrac{dB}{dt}d\theta$$
 $$\epsilon = \int^{\arccos \frac{h}{R}}_{-\arccos \frac{h}{R}}\dfrac{h^2}{2\cos^2\theta}\dfrac{dB}{dt}d\theta=h\sqrt{R^2-h^2}\dfrac{dB}{dt}$$
 电动势方向为$a\rightarrow b$
+#### 例题2
+<img src="./pic/48.png" width=350 align=right>
+
+一半径为 $a$ 的无限长均匀带电圆筒面, 单位长度上的电荷为 $\lambda$, 圆筒绕 $oo'$ 以匀角加速度 $\beta$ 转动, 试求:
+圆筒内与轴相距为 $b$ 的 $P_1$ 点的电场强度;
+
+
+首先要想到等效为螺线管
+长度为$l$的微元等效电流为$$I_l = \dfrac{\lambda l}{\dfrac{2\pi}{\beta t}} = \dfrac{\lambda l \beta t }{2\pi}$$
+对于螺线管而言
+$$B = \mu_0(nI)$$，其中$nI$是单位长度的电流，可知
+$$B = \mu_0 \dfrac{I_l}{l} = \dfrac{\mu_0\lambda \beta t}{2\pi}$$
+$$\dfrac{dB}{dt} = \dfrac{\mu_0\lambda \beta}{2\pi}$$
+$$E \cdot 2 \pi b = \dfrac{dB}{dt} \pi b^2$$
+$$E = \dfrac{b\mu_a \lambda \beta}{4\pi}$$
 ### 自感系数
 根据毕奥-萨伐尔定律,载流回路在空间任一点产生的磁感应强度$\boldsymbol{B}$都与回路中的电流强度$I$成正比，因此,通过回路的全磁通$\Psi$也与$I$成正比，即
 $$\Psi = L I$$
@@ -717,7 +740,7 @@ $$L = \dfrac{\Psi}{I} = \dfrac{\mu_0N^2\pi R^2}{l}$$
 
  两根半径为 $a$ 的平行长直传输线, 相距为 $d$, 且 $a \ll d$。试求长为 $l$ 的这对传输线的自感。
 
-将这两根直导线看做一个回路。对于距离左导线为$r$的地方，磁感应强度$$B = \dfrac{\mu_0 I}{2\pi r} +  \dfrac{\mu_0 I}{2\pi (a-r)}$$
+将这两根直导线看做一个回路。对于距离左导线为$r$的地方，磁感应强度$$B = \dfrac{\mu_0 I}{2\pi r} +  \dfrac{\mu_0 I}{2\pi (d-r)}$$
 $$dS = ldr,d\Phi = BdS = \dfrac{\mu_0I}{2\pi}(\dfrac{1}{r}+\dfrac{1}{d-r})ldr$$
 $$\Phi = \int_a^{d-a} \dfrac{\mu_0lI}{2\pi}(\dfrac{1}{r}+\dfrac{1}{d-r})dr =  \dfrac{\mu_0lI}{2\pi}[\ln \dfrac{r}{d-r}]^{d-a}_{a} = \dfrac{\mu_0 l I}{\pi}\ln(\dfrac{d-a}{a})$$
 $$L = \dfrac{\Phi}{I} = \dfrac{\mu_0 l}{\pi}\ln(\dfrac{d-a}{a})$$
@@ -733,6 +756,19 @@ $$\Psi_{12} = M_{12}I_2$$
 $$\varepsilon_{21} = - \dfrac{d \Psi_{21}}{dt} = -M\dfrac{dI_1}{dt}$$
 当回路1中的电流$I_2$变化时，在回路1中产生的互感电动势为
 $$\varepsilon_{12} = - \dfrac{d \Psi_{12}}{dt} = -M\dfrac{dI_2}{dt}$$
+#### 两回路的互感系数相等
+<img src="./pic/46.png" width=250 align=right>
+
+两个线圈的自感磁能分别为
+$$W_1 = \dfrac{1}{2}LI_1^2,W_2 = \dfrac{1}{2}LI_2^2$$
+假设给线圈1先通电到$I_1$，然后在线圈2的电流从0到$I_2$的过程中，由定义
+$$\Phi_{12} = M_{12}I_2\\ \epsilon_{12}  = \dfrac{d\Phi_{12}}{dt} = \dfrac{M_{12}dI_2}{dt}$$
+线圈1的电流保持不变，电源提供附加能量阻止互感电动势做功
+$$W = \int^t_0\epsilon_{12}I_1 dt=\int^t_0 \dfrac{M_{12}dI_2}{dt}I_1 dt = \int_0^{I_2} M_{12}I_1 dI_2 = M_{12}I_1I_2$$
+整个系统的能量为
+$$W = \dfrac{1}{2}LI_1^2+ \dfrac{1}{2}LI_2^2+  M_{12}I_1I_2$$
+总体能量不应该与通电顺序有关，因此
+$$M_{12} = M_{21}$$
 #### 常见的互感系数
 ##### 共轴螺线管
 <img src="./pic/45.png" width=250 align=right>
@@ -741,6 +777,18 @@ $$\varepsilon_{12} = - \dfrac{d \Psi_{12}}{dt} = -M\dfrac{dI_2}{dt}$$
 
 $$\Psi_{21} =N_2 \cdot \mu_0 \dfrac{N_1}{l}I_1 \cdot S$$
 $$M = \dfrac{\Psi_{21}}{I_1} = \dfrac{\mu_0 N_1N_2S}{l}$$
+#### 例题
+<img src="./pic/49.png" width=250 align=right>
+
+一矩形截面螺线环($\mu_r = 1$), 由细导线均匀密绕而成, 内半径为 $R_1$, 外半径为 $R_2$, 高为 $h$, 共 $N$ 匝。在螺线环的轴线上, 另有一无限长直导线 $oo'$。如图所示, 在螺线环内通以交变电流 $I = I_0 \cos \omega t$, 求当 $\omega t = \pi / 4$ 时, 在无限长直导线中的感应电动势 $\mathscr{E}_i$。
+
+在长直导线中通入电流$I_1$
+对于距离轴心$r$的同心圆，$B = \dfrac{\mu_0I_1}{2\pi r}$
+磁通链数
+$$dS = h \mathrm{d}r,d\Phi = B\mathrm{d}S = Bh\mathrm{d}r,d\Psi = NhB\mathrm{d}r = \dfrac{Nh\mu_0I_1}{2\pi r}\mathrm{d}r$$
+$$\Psi = \int^{R_2}_{R_1}\dfrac{Nh\mu_0I_1}{2\pi r}\mathrm{d}r = \dfrac{Nh\mu_0I_1}{2\pi}\ln\dfrac{R_2}{R_1}$$
+$$M = \dfrac{\Psi_{21}}{I_1} = \dfrac{Nh\mu_0}{2\pi}\ln\dfrac{R_2}{R_1}$$
+$$\epsilon_1 = M\dfrac{dI}{dt} =  \dfrac{Nh\mu_0}{2\pi} I_0 \omega \sin\omega t \ln\dfrac{R_2}{R_1}$$
 ### 自感磁能
 在一个自感系数为$L$的线圈中建立稳定电流$I_0$时,线圈中所储存的磁能为
 $$W_m = \dfrac{1}{2}LI_0^2$$
@@ -749,10 +797,39 @@ $$W_m = \dfrac{1}{2}LI_0^2$$
 单位体积内的磁能，即磁能密度为
 $$\omega_m = \dfrac{1}{2}\boldsymbol{B}\cdot \boldsymbol{H}$$
 ## 第十五章 电磁场与电磁波
+### 位移电流密度和位移电流强度
+位移电流密度
+$$\mathbf j_d = \dfrac{d \mathbf{D}}{dt}$$
+位移电流强度
+$$\mathbf I_d = \dfrac{d \Phi_d}{dt} =\int_S \dfrac{\partial \mathbf{D}}{\partial t}\cdot d \mathbf{S}$$
 ### 全电流安培环路定理
 $$\oint_{L} \boldsymbol{H} \cdot \mathrm{d}\boldsymbol{l} = \sum I + \frac{\mathrm{d}\Phi_{\mathrm{D}}}{\mathrm{d}t} = \sum I + \int_{S} \frac{\partial \boldsymbol{D}}{\partial t} \cdot \mathrm{d}\boldsymbol{S}$$
+#### 例题
+<img src="./pic/50.png" width=350 align=right>
+
+平行板电容器由半径为$R$ 的圆形极板组成。已知充电时极板间电场强度的变化率 $\dfrac{dE}{dt}$。若略去边缘效应, 求：
+
+1.  两极板间的位移电流密度和位移电流；
+2.  距两极板中心连线 $r=R$ 处的磁感应强度。
+
+
+(1)
+$$j_d = \dfrac{d D}{dt} = \epsilon_0 \dfrac{d E}{dt}$$
+$$I_d = \dfrac{d \Phi_D}{dt} = \dfrac{dD}{dt}S =  \epsilon_0 \pi R^2\dfrac{d E}{dt}$$
+(2)
+
+$$2\pi R \cdot H =  \epsilon_0 \pi R^2\dfrac{d E}{dt}$$
+$$H = \dfrac{1}{2}\epsilon_0 R\dfrac{dE}{dt}$$
+$$B = \mu_0 H = \dfrac{1}{2}\mu_0\epsilon_0 R\dfrac{dE}{dt}$$
 ### 电磁波的波动方程
 $$E = E_0\cos\omega(t-\frac{x}{c}) \\ \  \\ H = H_0\cos\omega(t-\frac{x}{c})$$
 
+$$\dfrac{E}{H} = \dfrac{E_0}{H_0} = \sqrt{\dfrac{\mu_0}{\epsilon_0}}$$
 电磁波在真空中的传播速度为
 $$c = \dfrac{1}{\sqrt{\varepsilon_0\mu_0}}$$
+
+### 能流密度
+在单位时间通过垂直于传播方向上每单位面积的辐射能，即能流密度为
+$$\mathbf{S} = \mathbf{E}\times \mathbf{H}$$
+又称为坡印亭矢量。平均值
+$$\bar{S} = \dfrac{1}{2} E_0H_0$$
