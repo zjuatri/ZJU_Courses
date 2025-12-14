@@ -1,0 +1,61 @@
+% 清除环境
+clc; clear; close all;
+
+% ---------------- 数据录入 ----------------
+% 展开长度 S (mm) - (剔除第15个异常数据)
+S = [0, 2.5, 3.4, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22.7, 23.5];
+
+% 指示表指示偏差 K (μm) - (剔除第15个异常数据)
+% 序号1识别为4，序号12根据要求修正为31
+K = [4, 11, 11, 11, 13, 15.5, 21, 24, 24, 24, 31, 31, 32, 31];
+
+% ---------------- 计算齿廓实际偏差 ----------------
+delta_Fa = max(K) - min(K);
+
+% ---------------- 绘图设置 ----------------
+figure('Color', 'w'); % 设置背景为白色
+
+% 绘制折线图
+plot(K, S, 'k-o', 'LineWidth', 1.5, 'MarkerFaceColor', 'k', 'MarkerSize', 4);
+hold on;
+
+% 绘制中心参考线 (X=0)
+plot([0, 0], [0, max(S)+5], 'k-', 'LineWidth', 1);
+
+% ---------------- 坐标轴调整 ----------------
+ax = gca;
+
+% 设置X轴范围，使其关于0对称
+max_range = max(abs(K)) * 1.2; 
+xlim([-max_range, max_range]);
+ylim([0, max(S) + 2]);
+
+% 设置标签
+xlabel('指示表指示偏差 K (\mum)', 'FontSize', 12, 'FontWeight', 'bold');
+ylabel('展开长度 S (mm)', 'FontSize', 12, 'FontWeight', 'bold', 'Rotation', 0);
+
+% 添加网格
+grid on;
+ax.GridLineStyle = '--';
+ax.GridAlpha = 0.3;
+
+% 添加标题
+title('齿形误差测量曲线 (S-K分布图)', 'FontSize', 14);
+
+% ---------------- 标注齿廓实际偏差 ----------------
+% 在图表中显示偏差计算结果
+% 位置坐标可根据需要微调，这里放在左上角区域
+
+text(min(K), max(S), txt_str, ...
+    'FontSize', 12, ...
+    'Color', 'red', ...
+    'FontWeight', 'bold', ...
+    'BackgroundColor', 'w', ...
+    'EdgeColor', 'k', ...
+    'Margin', 5);
+
+% 标记最大值和最小值点
+plot(max(K), S(K==max(K)), 'rs', 'MarkerSize', 8, 'LineWidth', 1.5);
+plot(min(K), S(K==min(K)), 'bs', 'MarkerSize', 8, 'LineWidth', 1.5);
+
+hold off;

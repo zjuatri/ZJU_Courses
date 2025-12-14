@@ -833,3 +833,21 @@ $$c = \dfrac{1}{\sqrt{\varepsilon_0\mu_0}}$$
 $$\mathbf{S} = \mathbf{E}\times \mathbf{H}$$
 又称为坡印亭矢量。平均值
 $$\bar{S} = \dfrac{1}{2} E_0H_0$$
+## 第十六章 光的干涉
+### 双缝干涉
+<img src="./pic/51.png" width=300 align=right>
+
+明纹中心的位置为:
+$$x = \pm \frac{D}{d} k \lambda \qquad k=0, 1, 2, \cdots$$
+暗纹中心的位置为：
+$$x = \pm \frac{D}{d} \left( k - \frac{1}{2} \right) \lambda \qquad k=0, 1, 2, \cdots$$
+屏上相邻两明纹中心(或暗纹中心)的距离，即条纹间距$\Delta x$为
+$$\Delta x = \dfrac{D}{d}\lambda$$
+### 光程
+在折射率为$n$的介质中，单色光的波长
+$$\lambda_n = \dfrac{\lambda}{n} $$
+若光波在介质中传播的几何路程为$r$，则相位变化为
+$$\Delta \varphi = 2\pi\dfrac{r}{\lambda_n} = \dfrac{2\pi n r}{\lambda}$$
+光在介质中传播的几何路程$r$,相当于光在真空中传播了$nr$的几何路程。我们称光在某种介质中传播的几何路程$r$乘以介质的折射率$n$为光程。两束相干光分别通过不同介质后,在空间相遇时的相位差为
+$$\Delta \varphi = \dfrac{2\pi}{\lambda}(n_2r_2 - n_1r_1) =\dfrac{2\pi}{\lambda}\delta$$
+$\delta$称为光程差。
