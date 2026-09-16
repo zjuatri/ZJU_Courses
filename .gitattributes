@@ -1,0 +1,5 @@
+*.pptx filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.7z filter=lfs diff=lfs merge=lfs -text
+*.rar filter=lfs diff=lfs merge=lfs -text
+大三/计算机辅助设计与制造/课本/*.pdf filter=lfs diff=lfs merge=lfs -text
