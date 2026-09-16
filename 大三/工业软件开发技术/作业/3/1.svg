@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 800" width="100%" height="100%" style="background-color: #ffffff;">
+    <defs>
+        <!-- 定义箭头样式 -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#000000" />
+        </marker>
+    </defs>
+
+    <g stroke="#000000" stroke-width="1.5">
+        <!-- ==================== 连线 (主线) ==================== -->
+        <!-- L0 to L1 -->
+        <line x1="1560" y1="75" x2="625" y2="175" />
+        <line x1="1560" y1="75" x2="1250" y2="175" />
+        <line x1="1560" y1="75" x2="1625" y2="175" />
+        <line x1="1560" y1="75" x2="1900" y2="175" />
+        <line x1="1560" y1="75" x2="2550" y2="175" />
+
+        <!-- L1 to L2 -->
+        <line x1="625" y1="225" x2="312" y2="325" />
+        <line x1="625" y1="225" x2="562" y2="325" />
+        <line x1="625" y1="225" x2="725" y2="325" />
+        <line x1="625" y1="225" x2="990" y2="325" />
+
+        <line x1="1250" y1="225" x2="1185" y2="325" />
+        <line x1="1250" y1="225" x2="1375" y2="325" />
+
+        <line x1="1900" y1="225" x2="1750" y2="325" />
+        <line x1="1900" y1="225" x2="2050" y2="325" />
+
+        <line x1="2550" y1="225" x2="2400" y2="325" />
+        <line x1="2550" y1="225" x2="2700" y2="325" />
+
+        <!-- L2 to L3 -->
+        <line x1="312" y1="375" x2="187" y2="475" />
+        <line x1="312" y1="375" x2="437" y2="475" />
+
+        <line x1="1185" y1="375" x2="1060" y2="475" />
+        <line x1="1185" y1="375" x2="1310" y2="475" />
+
+        <line x1="2050" y1="375" x2="1900" y2="475" />
+        <line x1="2050" y1="375" x2="2200" y2="475" />
+
+        <line x1="2700" y1="375" x2="2550" y2="475" />
+        <line x1="2700" y1="375" x2="2850" y2="475" />
+
+        <!-- L3 to L4 -->
+        <line x1="187" y1="525" x2="100" y2="625" />
+        <line x1="187" y1="525" x2="275" y2="625" />
+    </g>
+
+
+    <!-- ==================== 数据流箭头与标签 ==================== -->
+    <g font-family="sans-serif" fill="#000000">
+        
+        <!-- E1: 系统 -> 取D -->
+        <g transform="translate(1092.5, 125) rotate(173.9)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-173.9, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">D</text>
+        </g>
+        <!-- E2: 系统 -> 取H -->
+        <g transform="translate(1405, 125) rotate(162.1)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-162.1, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">H</text>
+        </g>
+        <!-- E3: 系统 -> 将D,H变G,K -->
+        <g transform="translate(1592.5, 125) rotate(57.0)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-57.0, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">G, K</text>
+            
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-57.0, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">D, H</text>
+        </g>
+        <!-- E4: 系统 -> 输出G -->
+        <g transform="translate(1730, 125) rotate(16.4)">
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-16.4, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">G</text>
+        </g>
+        <!-- E5: 系统 -> 输出K -->
+        <g transform="translate(2055, 125) rotate(5.8)">
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-5.8, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">K</text>
+        </g>
+
+        <!-- E6: 取D -> 取B1和B2 -->
+        <g transform="translate(468.5, 275) rotate(162.3)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-162.3, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">B1, B2</text>
+        </g>
+        <!-- E7: 取D -> 将B1变C1 -->
+        <g transform="translate(593.5, 275) rotate(122.2)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-122.2, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">C1</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-122.2, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">B1</text>
+        </g>
+        <!-- E8: 取D -> 将B2变C2 -->
+        <g transform="translate(675, 275) rotate(45.0)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-45.0, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">C2</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-45.0, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">B2</text>
+        </g>
+        <!-- E9: 取D -> 将C1,C2变D -->
+        <g transform="translate(807.5, 275) rotate(15.3)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-15.3, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">D</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-15.3, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">C1, C2</text>
+        </g>
+
+        <!-- E10: 取H -> 取F -->
+        <g transform="translate(1217.5, 275) rotate(123.0)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-123.0, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">F</text>
+        </g>
+        <!-- E11: 取H -> 将F变H -->
+        <g transform="translate(1312.5, 275) rotate(38.7)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-38.7, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">H</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-38.7, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">F</text>
+        </g>
+
+        <!-- E12: 输出G -> 将G变I -->
+        <g transform="translate(1825, 275) rotate(146.3)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-146.3, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">I</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-146.3, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">G</text>
+        </g>
+        <!-- E13: 输出G -> 输出I -->
+        <g transform="translate(1975, 275) rotate(33.7)">
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-33.7, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">I</text>
+        </g>
+
+        <!-- E14: 输出K -> 将K变L -->
+        <g transform="translate(2475, 275) rotate(146.3)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-146.3, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">L</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-146.3, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">K</text>
+        </g>
+        <!-- E15: 输出K -> 输出L -->
+        <g transform="translate(2625, 275) rotate(33.7)">
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-33.7, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">L</text>
+        </g>
+
+        <!-- E16: 取B1和B2 -> 取B -->
+        <g transform="translate(249.5, 425) rotate(141.3)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-141.3, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">B</text>
+        </g>
+        <!-- E17: 取B1和B2 -> 将B变B1,B2 -->
+        <g transform="translate(374.5, 425) rotate(38.7)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-38.7, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">B1, B2</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-38.7, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">B</text>
+        </g>
+
+        <!-- E18: 取F -> 取E -->
+        <g transform="translate(1122.5, 425) rotate(141.3)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-141.3, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">E</text>
+        </g>
+        <!-- E19: 取F -> 将E变F -->
+        <g transform="translate(1247.5, 425) rotate(38.7)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-38.7, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">F</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-38.7, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">E</text>
+        </g>
+
+        <!-- E20: 输出I -> 将I变J -->
+        <g transform="translate(1975, 425) rotate(146.3)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-146.3, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">J</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-146.3, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">I</text>
+        </g>
+        <!-- E21: 输出I -> 输出J -->
+        <g transform="translate(2125, 425) rotate(33.7)">
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-33.7, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">J</text>
+        </g>
+
+        <!-- E22: 输出L -> 将L变Y -->
+        <g transform="translate(2625, 425) rotate(146.3)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-146.3, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">Y</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-146.3, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">L</text>
+        </g>
+        <!-- E23: 输出L -> 输出Y -->
+        <g transform="translate(2775, 425) rotate(33.7)">
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-33.7, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">Y</text>
+        </g>
+
+        <!-- E24: 取B -> 取A -->
+        <g transform="translate(143.5, 575) rotate(131.0)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-131.0, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">A</text>
+        </g>
+        <!-- E25: 取B -> 将A变B -->
+        <g transform="translate(231, 575) rotate(48.6)">
+            <line x1="20" y1="-12" x2="-20" y2="-12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="-22" transform="rotate(-48.6, 0, -22)" text-anchor="middle" dominant-baseline="middle" font-size="14">B</text>
+            <line x1="-20" y1="12" x2="20" y2="12" stroke="#000000" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="0" y="27" transform="rotate(-48.6, 0, 27)" text-anchor="middle" dominant-baseline="middle" font-size="14">A</text>
+        </g>
+    </g>
+
+
+    <!-- ==================== 矩形框与文字 (居中在上方图层) ==================== -->
+    <g font-family="sans-serif" font-size="16" text-anchor="middle" dominant-baseline="central">
+        <!-- Level 0 -->
+        <rect x="1480" y="25" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="1560" y="50" fill="#000000">系统</text>
+
+        <!-- Level 1 -->
+        <rect x="545" y="175" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="625" y="200" fill="#000000">取D</text>
+
+        <rect x="1170" y="175" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="1250" y="200" fill="#000000">取H</text>
+
+        <rect x="1545" y="175" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="1625" y="200" fill="#000000">将D,H变成G,K</text>
+
+        <rect x="1820" y="175" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="1900" y="200" fill="#000000">输出G</text>
+
+        <rect x="2470" y="175" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="2550" y="200" fill="#000000">输出K</text>
+
+        <!-- Level 2 -->
+        <rect x="232" y="325" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="312" y="350" fill="#000000">取B1和B2</text>
+
+        <rect x="482" y="325" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="562" y="350" fill="#000000">将B1变C1</text>
+
+        <rect x="645" y="325" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="725" y="350" fill="#000000">将B2变C2</text>
+
+        <rect x="910" y="325" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="990" y="350" fill="#000000">将C1,C2变D</text>
+
+        <rect x="1105" y="325" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="1185" y="350" fill="#000000">取F</text>
+
+        <rect x="1295" y="325" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="1375" y="350" fill="#000000">将F变H</text>
+
+        <rect x="1670" y="325" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="1750" y="350" fill="#000000">将G变I</text>
+
+        <rect x="1970" y="325" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="2050" y="350" fill="#000000">输出I</text>
+
+        <rect x="2320" y="325" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="2400" y="350" fill="#000000">将K变L</text>
+
+        <rect x="2620" y="325" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="2700" y="350" fill="#000000">输出L</text>
+
+        <!-- Level 3 -->
+        <rect x="107" y="475" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="187" y="500" fill="#000000">取B</text>
+
+        <rect x="357" y="475" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="437" y="500" fill="#000000">将B变B1,B2</text>
+
+        <rect x="980" y="475" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="1060" y="500" fill="#000000">取E</text>
+
+        <rect x="1230" y="475" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="1310" y="500" fill="#000000">将E变F</text>
+
+        <rect x="1820" y="475" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="1900" y="500" fill="#000000">将I变J</text>
+
+        <rect x="2120" y="475" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="2200" y="500" fill="#000000">输出J</text>
+
+        <rect x="2470" y="475" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="2550" y="500" fill="#000000">将L变Y</text>
+
+        <rect x="2770" y="475" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="2850" y="500" fill="#000000">输出Y</text>
+
+        <!-- Level 4 -->
+        <rect x="20" y="625" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="100" y="650" fill="#000000">取A</text>
+
+        <rect x="195" y="625" width="160" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <text x="275" y="650" fill="#000000">将A变B</text>
+    </g>
+</svg>
