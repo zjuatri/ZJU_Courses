@@ -1,0 +1,20 @@
+Line\Ray\Segment 模块提纲
+fromGeomBaseimport*
+class Line:
+def__init__(self,P,V):
+self.P=P.clone()
+self.V=V.clone().normalized()
+def__str__(self):pass
+class Ray:
+def__init__(self,P,V):
+self.P=P.clone()
+self.V=V.clone().normalized()
+def__str__(self):pass
+class Segment:
+def__init__(self,A,B):
+defmultiply(self,m): #m 为矩阵
+defmultiplied(self,m):
+def__str__(self):
+deflength(self):
+defdirection(self):
+defswap(self):

@@ -1,0 +1,20 @@
+1. 点、向量、矩阵
+• 几何基础模块解析：Point3D
+• multiplied函数的作用是对当前点右乘一个矩阵 ，返回新的点 。需要强调的是 ，我们点和矩阵的相乘关系定义在
+Point3D类里，点在左边，矩阵在右边，因此点是右乘矩阵。
+• distance和distanceSquare函数，都和距离计算相关 ，输入均为另一个点 。其中distance计算两个点在三维空间中的
+真实距离，需要开根号；而distanceSquare计算两个点距离的平方 ，不需要进行根号运算 。比较而言，后者运算速
+度更快。
+• isCoincide和isIdentical两个函数，这两个函数用于判断两个点是否重合或完全一致 。在isCoincide函数中，使用两
+个点的距离是否小于某一个给定的极小值（参见GeomBase.py开头的epsilon）来判断两个点是否重合（截断误差）；
+而在isIdentical函数中，使用两个点的各个维度上的坐标值是否分别相等来判断两个点是否一致。
+13
+Point3D类‘*’符号函数测试 2-4
+1
+2
+3
+4
+p1 = Point3D(1, 1, 1)
+m = Matrix3D.createTranslateMatrix(1, 2, 3) # 创建平移矩阵
+p2 = p1 * m # 点又乘矩阵得到另一个点
+print(p2) # 显示p2坐标为(2, 3, 4)

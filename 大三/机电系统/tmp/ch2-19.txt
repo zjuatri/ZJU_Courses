@@ -1,0 +1,20 @@
+2. 直线、射线、线段
+• 射线
+• 相比直线，射线更应该用点向式来表示，因此在实现射线类时，几乎可以照搬直线类的实现代码。
+• 将射线类放在Ray.py文件中，类名为Ray。
+19
+Ray.py 射线类 2-7
+1
+2
+3
+4
+5
+6
+7
+from GeomBase import *
+class Ray:
+def __init__(self, P, V):
+self.P = P.clone() # 射线经过的点，类型为Point3D
+self.V = V.clone().normalized() # 射线方向向量，类型为Vector3D，单位向量
+def __str__(self): # 定义射线类被print时的显示行为
+return "Ray\nP %s\nV %s\n" %(str(self.P), str(self.V))

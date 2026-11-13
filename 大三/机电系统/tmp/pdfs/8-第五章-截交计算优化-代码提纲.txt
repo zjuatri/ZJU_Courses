@@ -1,0 +1,26 @@
+
+=== 1 ===
+第五章 STL 模型截交计算优化 代码提纲
+IntersectStl_sweep.py 文件实现：
+class SweepPlane:
+def__init__(self,A,B,C,N=Vector3D(0,0,0)):
+self.triangles=[]
+class IntersectStl_sweep:
+def_·_init__(self,stlModel,layerThk):
+self.stlModel=stlModel # 类中保存模型和切片厚度的引用
+self.layerThk=layerThk
+self.layers=[] # 切片结果，Layer 对象列表
+self.intersect()
+defgenLayerHeights(self) # 计算切片层高列表，返回 zs
+defintersect(self) # 扫描平面实现核心函数
+IntersectStl_match.py 文件继续实现函数：
+class IntersectStl_match:
+def__init__(self,z)
+defmatchFacetZs_brutal(self)
+defmatchFacetZs_bisection(self,zs)
+defintersect(self)
+SliceAlgo.py 文件实现：
+defintersectStl_sweep(stlModel,layerThk) # 扫描平面截交计算全局函数
+defintersectStl_match(stlModel,layerThk) # 层高匹配截交计算全局函数
+Test_intersectStl.py 文件实现
+对 3 种截交算法进行测试

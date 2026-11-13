@@ -1,0 +1,28 @@
+1. 点、向量、矩阵
+• 几何基础模块解析：Point3D
+• clone函数，即在内存中复制一个和当前点一模一样的点，当我们修改原来的点坐标，新点的坐标不会随之改变。
+• pointTo函数，它的字面意思为“指向”，传入参数为另一个点，这个函数的作用是计算并返回从当前点到另一个点的向量，测试
+代码如下：
+• translate函数和translated函数的作用是对当前点作用一个向量，使之沿该向量平移。但是translate函数作用于当前点本身，作用后，
+当前点坐标发生变化；而translated函数将返回一个新点，当前点坐标不变。
+12
+Point3D类pointTo函数测试 2-2
+1
+2
+3
+4
+p1 = Point3D(1, 1, 1) # 创建第1个点
+p2 = Point3D(2, 3, 4) # 创建第2个点
+v = p1.pointTo(p2) # 通过pointTo函数构造向量v
+print(v) # 显示Vector3D: 1, 2, 3
+Point3D类translate和translated函数测试，沿用以上p1、p2坐标 2-3
+1
+2
+3
+4
+5
+v = Vector3D(1, 1, 1)
+p1.translate(v)
+p3 = p2.translated(v)
+p4 = p2 + v
+print(p1, p2, p3, p4) # 结果p1坐标(2, 2, 2)；p2坐标(2, 3, 4)；p3坐标(3, 4, 5)；p4坐标(3, 4, 5)

@@ -1,0 +1,12 @@
+1. 点、向量、矩阵
+• 几何基础模块解析：Matrix3D
+• makeIndentical函数可对一个已经存在的矩阵进行单位化操作 。函数multiplied返回当前矩阵和另一矩阵相乘的结果 。
+• getDeterminant函数用于计算矩阵的行列式，函数getReverseMatrix用于计算当前矩阵的逆矩阵（如果存在）
+• 此外 ， 在 Matrix3D 类中 ， 定 义 了 4 个静态函数 ， 分别为 createTranslateMatrix 、 createScaleMatrix 、
+createRotateMatrix和createMirrorMatrix，分别实现创建平移矩阵 、创建缩放矩阵、创建旋转矩阵和创建镜像矩阵
+的功能。
+15
+1
+2
+mt = Matrix3D.createTranslateMatrix() # 创建平移矩阵
+ms = Matrix3D.createScaleMatrix() # 创建缩放矩阵

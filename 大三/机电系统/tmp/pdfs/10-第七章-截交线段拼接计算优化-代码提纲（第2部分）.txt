@@ -1,0 +1,24 @@
+
+=== 1 ===
+第七章 基于拓扑模型的切片轮廓计算 代码提纲（2）
+ToppSlicer.py 文件实现：
+class TVertex
+class TEdge
+class TFace
+class TModel:
+(以上为上次课已实现的类)
+class TopoSlicer:
+def__init__(self,stlModel,layerThk):
+self.stlModel=stlModel
+self.layerThk=layerThk
+self.topModel=TModel(stlModel) # 将STL 模型转化为拓扑模型
+self.layers=[] # 用于保存生成的切片轮廓
+self.slice() # 拓扑切片核心函数
+deffindSeedFace(self,faces): # 从扫描平面收集的面片中寻找种子
+pass
+deffindNextFace(self,edges,node): # 寻找目标邻面
+pass
+defcreateLayerContours(self,z,faces): # 拓扑对当前高度截平面做截交
+pass # 输出layer（切片轮廓）
+defslice(self): # 在扫描平面法框架下切片
+pass

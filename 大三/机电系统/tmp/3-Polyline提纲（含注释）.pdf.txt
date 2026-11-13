@@ -1,0 +1,60 @@
+Polyline 模块提纲 
+from GeomBase import * 
+ 
+class Polyline: 
+    def __init__(self): 
+    def __str__(self): 
+    def clone(self): 
+    def count(self): 
+    def addPoint(self, pt): 
+    def addTuple(self, tuple): 
+    def raddPoint(self, pt): 
+    def removePoint(self, index): 
+    def point(self, index): 
+    def startPoint(self): 
+    def endPoint(self): 
+    def isClosed(self): 
+    def reverse(self): 
+    def getArea(self): 
+    def makeCCW(self): 
+    def makeCW(self): 
+    def isCCW(self): 
+    def translate(self, vec): 
+    def translated(self, vec): 
+    def appendSegment(self, seg): 
+    def multiply(self, m): 
+    def multiplied(self, m): 
+   
+ 
+def writePolyline(path, polyline: Polyline): 
+    f = None 
+    try: 
+        f = open(path, 'w') 
+        f.write('%s\n' % polyline.count()) 
+        for pt in polyline.points: 
+            txt = "%s, %s, %s\n" % (pt.x, pt.y, pt.z) 
+            f.write(txt) 
+    except Exception as ex: 
+        print(ex) 
+    finally: 
+        if f: 
+            f.close() 
+ 
+def readPolyline(path): 
+    f = None 
+    try: 
+        f = open(path, 'r') 
+        poly = Polyline() 
+        number = int(f.readline()) 
+        for i in range(number): 
+            txt = f.readline() 
+            txts = txt.split(',') 
+            x, y, z = float(txts[0]), float(txts[1]), 
+float(txts[2]) 
+            poly.addPoint(Point3D(x, y, z)) 
+        return poly 
+    except Exception as ex: 
+        print(ex) 
+    finally: 
+        if f: 
+            f.close() 

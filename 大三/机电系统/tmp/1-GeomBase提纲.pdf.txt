@@ -1,0 +1,65 @@
+GeomBase 模块提纲 
+import math 
+epsilon = 1e-7 
+epsilonSquare = epsilon*epsilon 
+ 
+class Point3D: 
+    def __init__(self, x = 0.0, y = 0.0, z = 0.0, w = 1.0): 
+    def __str__(self): 
+    def clone(self): 
+    def pointTo(self, other): 
+    def translate(self, vec): 
+    def translated(self, vec): 
+    def multiplied(self, m): 
+    def distance(self, other): 
+    def distanceSquare(self, other): 
+    def middle(self, other): 
+    def isCoincide(self, other): 
+    def isIdentical(self, other): 
+    def __add__(self, vec):  # +  
+    def __sub__(self, other):  # - 
+    def __mul__(self, m):  # *  
+ 
+class V ector3D: 
+    def __init__(self, dx = 0.0, dy = 0.0, dz = 0.0, dw = 0.0): 
+    def __str__(self): 
+    def clone(self): 
+    def reverse(self): 
+    def reversed(self): 
+    def dotProduct(self, other): 
+    def crossProduct(self, other): 
+    def amplify(self, f): 
+    def amplified(self, f): 
+    def length(self): 
+    def lengthSquare(self): 
+    def normalize(self): 
+    def normalized(self): 
+    def isZeroVector(self): 
+    def multiplied(self, m): 
+    def isParallel(self, other): 
+    def getAngle(self, vec):  # 0 ~PI  
+    def getAngle2D(self):  # 0 ~ 2PI, On XY Plane  
+    def getOrthoVector2D(self):  # On XY Plane  
+    def __add__(self, other): 
+    def __sub__(self, other): 
+    def __mul__(self, m): 
+ 
+class Matrix3D: 
+    def __init__(self): 
+    def __str__(self): 
+    def makeIdentical(self): 
+    def mutiplied(self, other): 
+    def getDeterminant(self): 
+    def getReverseMatrix(self): 
+    @staticmethod 
+    def createTranslateMatrix(dx, dy, dz): 
+    @staticmethod 
+    def createScaleMatrix(sx, sy, sz): 
+    @staticmethod 
+    def createRotateMatrix(axis, angle): 
+    @staticmethod 
+    def createMirrorMatrix(point, normal): 
+        pass 
+    def __mul__(self, other): 
+    def __add__(self, other): 
+    def __sub__(self, other): 

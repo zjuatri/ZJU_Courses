@@ -1,0 +1,14 @@
+Plane 类提纲 
+from GeomBase import * 
+from Line import * 
+ 
+class Plane: 
+    def __init__(self, P, N): 
+    def __str__(self): 
+    def toFormula(self): 
+   
+    @staticmethod 
+    def zPlane(z): 
+ 
+    def intersect(self, other): 
+      

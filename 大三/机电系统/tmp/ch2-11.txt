@@ -1,0 +1,31 @@
+1. 点、向量、矩阵
+• 几何基础模块实现：GeomBase
+• 使用Python对的点、向量和矩阵进行封装，创建3个类，分别为：Point3D、Vector3D、Matrix3D，并
+在这些类中定义相关函数。
+11
+GeomBase.py 几何基础库，定义点、向量、矩阵以及它们之间的相互操作 2-1
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+import math # 导入 math 库
+epsilon = 1e-7 # 定义一个极小值，10-7
+epsilonSquare = epsilon * epsilon # 极小值平方
+class Point3D: # 定义点类
+def __init__(self, x=0.0, y=0.0, z=0.0, w = 1.0):
+self.x, self.y, self.z, self.w = x, y, z, w
+class Vector3D: # 定义向量类
+def __init__(self, dx = 0.0, dy = 0.0, dz = 0.0, dw = 0.0):
+self.dx, self.dy, self.dz, self.dw = dx, dy, dz, dw
+class Matrix3D: # 定义矩阵类
+def __init__(self):
+self.a = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+略，参见PyCharm中代码

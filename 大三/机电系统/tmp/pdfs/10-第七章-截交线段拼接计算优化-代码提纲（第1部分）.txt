@@ -1,0 +1,38 @@
+
+=== 1 ===
+第七章 基于拓扑模型的切片轮廓计算 代码提纲（1） 
+ 
+ToppSlicer.py 文件实现： 
+class TVertex: 
+   def __init__(self, pnt3d, digits = 7)   # 从 Point3D 对象转化，保留固定小数位数 
+   def toTuple(self)       # 将顶点转化为元组 
+   def toPoint3D(self)      # 将顶点转化为 Point3D 对象 
+   def isSmaller(self, other)     # 比较两个点大小，字典序 
+ 
+ 
+class TEdge: 
+    def __init__(self, tA, tB):    # 根据两个拓扑点构造拓扑棱边 
+def toTuple(self)      # 将棱边转化为元组 
+def intersect(self, z):     # 边和 z 平面求交，返回交点 或 None 
+ 
+ 
+class TFace: 
+    def __init__(self, tA, tB, tC, te1, te2, te3):  # 根据拓扑点和棱边构造拓扑面 
+def zMin(self)      # 获取面片 Z 方向最低点 
+def zMax(self)      # 获取面片 Z 方向最高点 
+def intersect(self, z):     # 面片和 z 平面求交，返回交线段或 None 
+注意：intersect返回包括三个部分： 
+第1 部分为 Segment 类型的线段（或 None）； 
+第2 部分和第三部分为交线两个端点所在的三角面片的半边或顶点引用。如果交线的两个端点都在三角面片的半
+边上，则在第二部分返回两条半边的引用；如果交线的两个端点分别在三角面片的一条半边和一个顶点上，则在第二
+部分返回半边的引用； 
+第3 部分返回顶点的引用。如果面片和截平面不相交或只交于一点，则返回的三部分均为 None 
+ 
+ 
+class TModel: 
+    def __init__(self, stlModel):    # 输入 STL 模型，构建拓扑结构 
+     self.vxDic, self.egDic = {}, {}  # 顶点字典，半边字典 #  
+        self.faces = []      # 面片列表 
+        self.stlModel = stlModel   # 保存 STL 模型 
+        self.createTModel()    # 调用模型拓扑重建函数 
+def createTModel(self)     # 构建拓扑模型核心函数 

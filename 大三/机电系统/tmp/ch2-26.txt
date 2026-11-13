@@ -1,0 +1,69 @@
+4. 平面
+26
+Plane.py 平面类 2-10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+…… # 导入相关库
+class Plane:
+def __init__(self, P, N):
+self.P = P.clone() # P为平面经过的一点
+self.N = N.clone().normalized() # N为平面法向量，单位向量
+def __str__(self):
+return "Plane\n%s\n%s\n" % (str(self.P), str(self.N))
+def toFormula(self): # 获取标准直线方程 Ax+By+Cz+D=0 中参数A、B、C、D值
+A, B, C = self.N.dx, self.N.dy, self.N.dz
+D = -self.N.dx * self.P.x - self.N.dy * self.P.y - self.N.dz * self.P.z
+return A, B, C, D
+@staticmethod
+def zPlane(z): # 静态函数，返回一个z平面
+return Plane(Point3D(0, 0, z), Vector3D(0, 0, 1.0))
+def intersect(self, other): # 两平面求交，返回Line或None
+dir = self.N.crossProduct(other.N) # dir为直线方向向量
+if dir.isZeroVector():
+return None
+else:
+x, y, z = 0, 0, 0 # x, y, z为直线经过点坐标
+A1, B1, C1, D1 = self.toFormula() # 通过平面标准方程联立求解
+A2, B2, C2, D2 = other.toFormula()
+if B2*C1 - B1*C2 != 0:
+y = -(-C2*D1 + C1*D2)/(B2*C1 - B1*C2)
+z = -(B2*D1 - B1*D2)/(B2*C1 - B1*C2)
+elif A2*C1 - A1*C2 != 0:
+x = -(-C2*D1 + 1*D2)/(A2*C1 - A1*C2)
+z = -(A2*D1 - A1*D2)/(A2*C1 - A1*C2)
+elif A2*B1 - A1*B2 != 0:
+x = -(-B2*D1 + B1*D2)/(A2*B1 - A1*B2)
+y = -(A2*D1 - A1*D2)/(A2*B1 - A1*B2)
+else: return None
+return Line(Point3D(x, y, z), dir.normalized())
