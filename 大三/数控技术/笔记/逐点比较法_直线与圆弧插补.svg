@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">逐点比较法：直线插补与圆弧插补</title>
+  <desc id="desc">左侧为直线插补的理想直线和阶梯轨迹，右侧为从B点到A点的圆弧插补及阶梯轨迹。</desc>
+  <defs>
+    <marker id="axisArrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L10,6 L1,11 Z" fill="#536779"/>
+    </marker>
+    <marker id="idealArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#D97757"/>
+    </marker>
+    <style>
+      .panel { fill:#FFFFFF; stroke:#D8E2E8; stroke-width:2.5; }
+      .panel-title { font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif; font-size:31px; font-weight:700; fill:#263D4D; }
+      .axis { stroke:#536779; stroke-width:3.2; fill:none; marker-end:url(#axisArrow); stroke-linecap:round; }
+      .axis-label { font-family:Arial,sans-serif; font-size:29px; font-style:italic; font-weight:700; fill:#435B6B; }
+      .tick { stroke:#9BAEBB; stroke-width:1.8; }
+      .tick-label { font-family:Arial,sans-serif; font-size:18px; fill:#718391; }
+      .ideal { stroke:#D97757; stroke-width:4.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+      .step { stroke:#278C83; stroke-width:5.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+      .step-no { font-family:Arial,sans-serif; font-size:23px; font-weight:700; fill:#B36B42; }
+      .point-label { font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif; font-size:23px; font-weight:700; fill:#263D4D; }
+      .point-dot { fill:#D97757; stroke:#FFFFFF; stroke-width:3; }
+      .legend { font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif; font-size:17px; fill:#617582; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#F3F6F7"/>
+
+  <!-- Left panel: straight-line interpolation -->
+  <rect class="panel" x="45" y="42" width="735" height="816" rx="28"/>
+  <rect x="45" y="42" width="735" height="102" rx="28" fill="#E7F1EF"/>
+  <path d="M45 116 V144 H780 V116" fill="#E7F1EF"/>
+  <text class="panel-title" x="412" y="108" text-anchor="middle">逐点比较法 · 直线插补</text>
+
+  <!-- Left coordinate system -->
+  <path class="axis" d="M155 735 H700"/>
+  <path class="axis" d="M155 735 V205"/>
+  <text class="axis-label" x="712" y="746">X</text>
+  <text class="axis-label" x="137" y="194">Y</text>
+
+  <!-- Left ideal line and step path; coordinate scale 82 px/unit -->
+  <path class="ideal" d="M155 735 L565 325"/>
+  <path class="step" d="M155 735 H237 V653 H319 V571 H401 V489 H483 V407 H565 V325"/>
+  <circle class="point-dot" cx="155" cy="735" r="6"/>
+  <circle class="point-dot" cx="565" cy="325" r="6"/>
+
+  <!-- Step numbers, placed alongside the corresponding moves -->
+  <text class="step-no" x="248" y="716">1</text>
+  <text class="step-no" x="246" y="638">2</text>
+  <text class="step-no" x="330" y="596">3</text>
+  <text class="step-no" x="329" y="555">4</text>
+  <text class="step-no" x="412" y="514">5</text>
+  <text class="step-no" x="411" y="473">6</text>
+  <text class="step-no" x="495" y="432">7</text>
+  <text class="step-no" x="494" y="391">8</text>
+  <text class="step-no" x="577" y="322">9</text>
+
+  <!-- Left legend -->
+  <line x1="205" y1="795" x2="255" y2="795" class="ideal"/>
+  <text class="legend" x="266" y="801">理想直线</text>
+  <line x1="410" y1="795" x2="460" y2="795" class="step"/>
+  <text class="legend" x="471" y="801">插补阶梯轨迹</text>
+
+  <!-- Right panel: circular-arc interpolation -->
+  <rect class="panel" x="820" y="42" width="735" height="816" rx="28"/>
+  <rect x="820" y="42" width="735" height="102" rx="28" fill="#E7F1EF"/>
+  <path d="M820 116 V144 H1555 V116" fill="#E7F1EF"/>
+  <text class="panel-title" x="1187" y="108" text-anchor="middle">逐点比较法 · 圆弧插补</text>
+
+  <!-- Right coordinate system -->
+  <path class="axis" d="M925 735 H1480"/>
+  <path class="axis" d="M925 735 V190"/>
+  <text class="axis-label" x="1492" y="746">X</text>
+  <text class="axis-label" x="907" y="180">Y</text>
+
+  <!-- Right axis ticks and labels -->
+  <g>
+    <path class="tick" d="M1007 729 V741 M1089 729 V741 M1171 729 V741 M1253 729 V741 M1335 729 V741"/>
+    <text class="tick-label" x="1007" y="766" text-anchor="middle">1</text>
+    <text class="tick-label" x="1089" y="766" text-anchor="middle">2</text>
+    <text class="tick-label" x="1171" y="766" text-anchor="middle">3</text>
+    <text class="tick-label" x="1253" y="766" text-anchor="middle">4</text>
+    <text class="tick-label" x="1335" y="766" text-anchor="middle">5</text>
+    <path class="tick" d="M919 653 H931 M919 571 H931 M919 489 H931 M919 407 H931 M919 325 H931 M919 243 H931"/>
+    <text class="tick-label" x="899" y="659" text-anchor="end">1</text>
+    <text class="tick-label" x="899" y="577" text-anchor="end">2</text>
+    <text class="tick-label" x="899" y="495" text-anchor="end">3</text>
+    <text class="tick-label" x="899" y="413" text-anchor="end">4</text>
+    <text class="tick-label" x="899" y="331" text-anchor="end">5</text>
+    <text class="tick-label" x="899" y="249" text-anchor="end">6</text>
+  </g>
+
+  <!-- Arc from B(0,5) to A(4,3), with a smooth concave-down profile -->
+  <path class="ideal" d="M925 325 C1015 326, 1115 350, 1253 489"/>
+  <!-- Staircase approximation from B to A -->
+  <path class="step" d="M925 325 H1089 V407 H1171 V489 H1253"/>
+  <circle class="point-dot" cx="925" cy="325" r="7"/>
+  <circle class="point-dot" cx="1253" cy="489" r="7"/>
+  <text class="point-label" x="846" y="307">B(0,5)</text>
+  <text class="point-label" x="1270" y="506">A(4,3)</text>
+
+  <!-- Step numbers following the original order and positions -->
+  <text class="step-no" x="1262" y="531">1</text>
+  <text class="step-no" x="1180" y="455">2</text>
+  <text class="step-no" x="1098" y="438">3</text>
+  <text class="step-no" x="1179" y="304">4</text>
+  <text class="step-no" x="1080" y="304">5</text>
+  <text class="step-no" x="938" y="286">6</text>
+
+  <!-- Right legend -->
+  <line x1="980" y1="795" x2="1030" y2="795" class="ideal"/>
+  <text class="legend" x="1041" y="801">理想圆弧</text>
+  <line x1="1185" y1="795" x2="1235" y2="795" class="step"/>
+  <text class="legend" x="1246" y="801">插补阶梯轨迹</text>
+</svg>
